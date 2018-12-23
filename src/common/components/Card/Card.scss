@@ -3,29 +3,46 @@
 
 $card-width: 200px;
 $card-height: 300px;
-$card-color: $background;
+$card-color: $white;
 $text-color: $black;
 
 .outer-card{
+  position: relative;
   border: 0;
-  border-radius: 5px;
-  min-width: 150px;
+  border-radius: $border-radius;
+  height: 260px;
   cursor: pointer;
+  max-width: 300px;
   box-shadow: 0 4px 14px 0 rgba(0,0,0,.2);
   transition: 0.4s;
   background-color: $card-color;
   color: $text-color;
-  padding: $x-large-padding;
+  padding: $large-padding;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  h4{
+    margin: 0;
+  }
+  h4 + h4{
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    color: $yellow;
+  }
   img{
-    width: 25%;
-    height: 25%;
+    position: absolute;
+    left: 0;
+    width: 60px;
+    height: 60px;
   }
   p{
-    text-align: center;
+    text-align: left;
+    font-size: 14px;
+    color: $charcoal;
+    position: absolute;
+    top: 40%;
   }
   div{
     color: $text-color;
@@ -34,7 +51,7 @@ $text-color: $black;
 
 .outer-card:hover{
   box-shadow: 0 6px 18px 0 rgba(0,0,0,.2);
-  background-color: rgba($card-color, .9);
+  background-color: rgba($card-color, $hover-density);
 }
 
 

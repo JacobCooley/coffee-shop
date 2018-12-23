@@ -46,16 +46,11 @@ ul {
 
 body {
   min-height: 100%;
-  background: $white;
-  color: $white;
+  background: $background;
+  color: $black;
 }
 
 main {
   padding: $large-padding;
-  grid-column: span 12;
-}
-
-.container {
-  display: grid;
-  grid-template: 50px 1fr / repeat(12, 1fr);
+  grid-column: span 6;
 }

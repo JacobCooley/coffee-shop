@@ -2,6 +2,9 @@
 @import "~styles/constants";
 $header-text-color: $yellow;
 
+.white{
+  color: $white !important;
+}
 header {
   background: $dark-blue;
   display: grid;

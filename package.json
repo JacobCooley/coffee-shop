@@ -1,5 +1,5 @@
 {
-  "name": "token-launcher",
+  "name": "coffee-shop",
   "version": "1.0.0",
   "main": "src/modules/index.js",
   "license": "MIT",
@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@babel/core": "^7.1.5",
+    "@babel/plugin-proposal-class-properties": "^7.2.3",
     "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.1.5",
     "@babel/preset-react": "^7.0.0",

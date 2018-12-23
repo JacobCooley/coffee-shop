@@ -47,6 +47,7 @@ module.exports = {
 	},
 	devServer: {
 		historyApiFallback: true,
+		disableHostCheck: true
 	},
 	plugins: [
 		new HtmlWebPackPlugin({
@@ -64,8 +65,9 @@ module.exports = {
 			'@common': path.resolve(__dirname, 'src/common/'),
 			'@icons': path.resolve(__dirname, 'src/assets/icons/'),
 			'@home': path.resolve(__dirname, 'src/modules/home/'),
-			'@create': path.resolve(__dirname, 'src/modules/create/'),
-			'@ethtoken': path.resolve(__dirname, 'src/modules/create/components/ethtoken'),
+			'@dapps': path.resolve(__dirname, 'src/modules/dapps/'),
+			'@ethereum': path.resolve(__dirname, 'src/modules/dapps/components/Ethereum/'),
+			'@eos': path.resolve(__dirname, 'src/modules/dapps/components/Eos/'),
 			'@src': path.resolve(__dirname, 'src/'),
 			styles: path.resolve(__dirname, 'src/common/styles'),
 			'@utils': path.resolve(__dirname, 'src/common/utils')
