@@ -1,0 +1,16 @@
+.preview{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 20px;
+  div, h3{
+    border-left: 1px $white solid;
+    border-right: 1px $white solid;
+    display: flex;
+    justify-content: center;
+    grid-column: 2 / 3;
+  }
+  h3{
+    margin: 0;
+    padding-bottom: 20px;
+  }
+}

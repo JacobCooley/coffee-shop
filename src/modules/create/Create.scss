@@ -1,0 +1,12 @@
+@import "~styles/constants";
+
+.create{
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 5%;
+  margin-top: $x-large-margin;
+  h2{
+    text-align: center;
+    grid-column: 1 / 13;
+  }
+}

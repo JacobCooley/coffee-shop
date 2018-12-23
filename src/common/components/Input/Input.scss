@@ -1,0 +1,14 @@
+@import "~styles/colors";
+@import "~styles/constants";
+
+label {
+  margin-right: $med-margin;
+  margin-top: $med-margin;
+  input {
+    width: 100%;
+    height: $input-height;
+    padding-left: $med-padding;
+    border-radius: $border-radius;
+    border: 1px solid $black;
+  }
+}

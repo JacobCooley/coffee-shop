@@ -1,0 +1,20 @@
+$dark-blue: #1D2B25;  //202E45??
+$med-blue: #608D93;
+$red: #CECE85;
+$yellow: #7EAEA3;
+
+$light-blue: #4b789a;
+$white: #FEFFFF;
+$black: #252525;
+$background: #EEEEEE;
+
+:export {
+  red: $red;
+  yellow: $yellow;
+  med-blue: $med-blue;
+  light-blue: $light-blue;
+  dark-blue: $dark-blue;
+  white: $white;
+  black: $black;
+  background: $background;
+}
