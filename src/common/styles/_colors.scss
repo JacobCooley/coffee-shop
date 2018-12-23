@@ -1,22 +1,22 @@
 $dark-blue: #202E45;
 $med-blue: #608D93;
 $red: #CECE85;
-$yellow: #7EAEA3;
+$light-green: #7EAEA3;
 
 $light-blue: #4b789a;
 $white: #FEFFFF;
 $black: #252525;
-$background: #EEEEEE;
+$grey: #F1F2F6;
 $charcoal: #333333;
 
 :export {
   red: $red;
-  yellow: $yellow;
+  light-green: $light-green;
   med-blue: $med-blue;
   light-blue: $light-blue;
   dark-blue: $dark-blue;
   white: $white;
   black: $black;
   charcoal: $charcoal;
-  background: $background;
+  grey: $grey;
 }

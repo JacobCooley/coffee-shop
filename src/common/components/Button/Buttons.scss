@@ -2,7 +2,7 @@
 @import "~styles/constants";
 
 button {
-  background: $yellow;
+  background: $light-green;
   border: 0;
   border-radius: $border-radius;
   min-width: 120px;
@@ -21,5 +21,5 @@ button:hover, a:hover {
 }
 
 button:hover {
-  background: rgba($yellow, .8);
+  background: rgba($light-green, .8);
 }

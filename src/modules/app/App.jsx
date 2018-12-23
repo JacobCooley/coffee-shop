@@ -5,8 +5,9 @@ import {
 	Switch
 } from 'react-router-dom'
 import Home from '@home/HomeContainer'
-import Header from '@app/header/HeaderComponent'
+import Header from './header/HeaderComponent'
 import Dapps from '@dapps'
+import Deploy from '@deploy'
 import './App.scss'
 
 class App extends Component {
@@ -19,6 +20,7 @@ class App extends Component {
 						<Switch>
 							<Route exact path='/' component={Home} />
 							<Route path='/dapps' component={Dapps} />
+							<Route path='/deploy' component={Deploy} />
 						</Switch>
 					</main>
 				</>

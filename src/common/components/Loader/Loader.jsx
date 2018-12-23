@@ -14,16 +14,17 @@ const override = css`
   	opacity: 1 !important;
   	transform: translate(-50%, -50%);
     margin: 0 auto;
+    z-index: 1000;
 `
 
-const Loader = ({}) => (
+const Loader = () => (
 	<>
 		<div className='blackout' />
 		<FadeLoader
 			className={override}
 			sizeUnit={"px"}
 			size={200}
-			color={colors.red}
+			color={colors['light-green']}
 			loading={true}
 		/>
 	</>

@@ -66,6 +66,7 @@ module.exports = {
 			'@icons': path.resolve(__dirname, 'src/assets/icons/'),
 			'@home': path.resolve(__dirname, 'src/modules/home/'),
 			'@dapps': path.resolve(__dirname, 'src/modules/dapps/'),
+			'@deploy': path.resolve(__dirname, 'src/modules/deploy/'),
 			'@ethereum': path.resolve(__dirname, 'src/modules/dapps/components/Ethereum/'),
 			'@eos': path.resolve(__dirname, 'src/modules/dapps/components/Eos/'),
 			'@src': path.resolve(__dirname, 'src/'),

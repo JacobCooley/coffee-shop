@@ -1,2 +1,2 @@
-import Loader from '.';
+import Loader from './Loader';
 export default Loader;

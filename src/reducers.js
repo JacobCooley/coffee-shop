@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import createTokenForm from '@ethereum/components/EthToken/duck/reducers'
+import createTokenForm from '@deploy/components/EthToken/duck/reducers'
 const rootReducer = combineReducers({
     create: createTokenForm
 });

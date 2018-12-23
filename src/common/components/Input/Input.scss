@@ -4,11 +4,14 @@
 label {
   margin-right: $med-margin;
   margin-top: $med-margin;
+  font-size: 14px;
+  font-weight: bold;
   input {
     width: 100%;
     height: $input-height;
     padding-left: $med-padding;
     border-radius: $border-radius;
     border: 1px solid #cccccc;
+    background-color: $grey;
   }
 }

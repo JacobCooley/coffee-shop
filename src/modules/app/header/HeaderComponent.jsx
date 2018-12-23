@@ -9,8 +9,8 @@ const HeaderComponent = () => {
 		<header>
 			<div>{projectTitle}</div>
 			<nav>
-				<div><Link to='/' className={path === '/' ? 'white' : null}>Home</Link></div>
-				<div><Link className={path.includes('/dapps') ? 'white' : null} to='/dapps'>Create</Link></div>
+				<div><Link to='/'>Home</Link></div>
+				<div><Link to='/dapps'>Create</Link></div>
 			</nav>
 		</header>
 	)
