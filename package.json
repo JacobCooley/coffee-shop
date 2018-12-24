@@ -4,7 +4,7 @@
   "main": "src/modules/index.js",
   "license": "MIT",
   "scripts": {
-    "start": "",
+    "start": "node server.js",
     "dev": "webpack-dev-server --open --mode development ",
     "build": "webpack",
     "test": "jest"
@@ -20,6 +20,7 @@
     "cryptocurrency-icons": "^0.9.3",
     "css-loader": "^1.0.1",
     "express": "^4.16.4",
+    "express-favicon": "^2.0.1",
     "file-loader": "^2.0.0",
     "font-awesome": "^4.7.0",
     "html-loader": "^0.5.5",
