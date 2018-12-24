@@ -1,0 +1,32 @@
+@import "~styles/constants";
+@import "~styles/colors";
+
+form {
+  grid-column: 4 / span 6;
+  grid-gap: 5%;
+  background-color: $white;
+  border: 1px solid #ccc;
+  padding: $large-padding;
+}
+
+label {
+  display: block;
+
+  input {
+    display: block;
+  }
+}
+
+
+label[id='symbol'] {
+  input {
+    text-transform: uppercase;
+  }
+}
+
+
+button {
+  display: block;
+  margin-top: $x-large-margin;
+}
+

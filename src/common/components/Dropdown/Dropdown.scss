@@ -1,11 +1,12 @@
 @import "~styles/colors";
 @import "~styles/constants";
 
-.dd-wrapper {
+.dropdown {
   label {
     margin-right: $med-margin;
     margin-top: $med-margin;
-
+    font-size: 14px;
+    font-weight: bold;
     input {
       width: 100%;
       height: 25px;
@@ -14,4 +15,11 @@
       border: 1px solid #ccc;
     }
   }
+}
+
+.controlClass {
+  border: 1px solid #ccc !important;
+  border-radius: $border-radius !important;
+  background-color: $grey !important;
+  font-weight: normal !important;
 }

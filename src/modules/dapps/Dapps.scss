@@ -1,0 +1,29 @@
+@import "~styles/constants";
+
+.dapps{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-column-gap: 10px;
+  grid-row-gap: 20px;
+  padding-right: $med-padding;
+  padding-left: $med-padding;
+  h2{
+    text-align: center;
+    grid-column: 1 / 7;
+  }
+}
+
+.chains{
+  margin-bottom: $large-margin;
+  margin-left: $med-margin;
+  > ul > li:not(:first-child) > label{
+    border-bottom-left-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+    border-left: 0 !important;
+  }
+  > ul > li:first-child > label{
+    border-bottom-right-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    border-right: 0 !important;
+  }
+}

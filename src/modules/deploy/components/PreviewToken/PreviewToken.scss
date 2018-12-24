@@ -1,0 +1,29 @@
+@import "~styles/colors";
+@import "~styles/constants";
+
+.preview {
+  grid-column: span 2;
+  height: 400px;
+  background: $white;
+  align-self: center;
+  border: 1px solid #ccc;
+  border-radius: $border-radius;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+//  display: grid;
+//  grid-template-columns: repeat(3, 1fr);
+//  margin-bottom: 20px;
+//  div, h3{
+//    border-left: 1px $white solid;
+//    border-right: 1px $white solid;
+//    display: flex;
+//    justify-content: center;
+//    grid-column: 2 / 3;
+//  }
+//  h3{
+//    margin: 0;
+//    padding-bottom: 20px;
+//  }
+//}

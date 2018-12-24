@@ -1,0 +1,46 @@
+@import '~styles/colors';
+@import '~styles/constants';
+
+footer {
+  background-color: $dark-blue;
+  color: $white;
+  position:absolute;
+  bottom:0;
+  width:100%;
+  height: $footer-height;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  div, a {
+    color: $white;
+    font-size: 16px;
+  }
+}
+
+.social-media {
+  position: absolute;
+  margin-left: $large-margin;
+  svg{
+    height: 22px;
+    width: 22px;
+    margin-right: $small-margin;
+    margin-left: $small-margin;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .svg-container {
+    line-height:0;
+    font-size: 0;
+  }
+  > a:first-child > svg{
+    margin-left: 0;
+  }
+}
+
+.site-info {
+  display: inline-flex;
+  flex-direction: inherit;
+  align-items: flex-end;
+  margin-right: $large-margin;
+}
