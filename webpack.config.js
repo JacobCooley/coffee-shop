@@ -30,7 +30,7 @@ module.exports = {
 			{
 				test: /\.(jpe?g|gif|png|svg)$/,
 				use: {
-					loader: 'file-loader?name=assets/icons/[name].[ext]'
+					loader: 'file-loader?name=/src/assets/icons/[name].[ext]'
 				}
 			},
 			{

@@ -11,7 +11,7 @@ const RadioBox = ({ items, onChange, name }) => (
 							   id={item.symbol}
 							   defaultChecked={index === 0}
 						/>
-						<label htmlFor={item.symbol}> <img src={`src/${item.image}`} />
+						<label htmlFor={item.symbol}> <img src={`${item.image}`} />
 							{item.symbol}</label>
 					</li>
 				)

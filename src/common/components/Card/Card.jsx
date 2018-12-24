@@ -8,7 +8,7 @@ const Card = ({ title, description, image, price, onClick }) => (
 				<h4>{title}</h4>
 				<h4>{price} ETH</h4>
 			</div>
-			<img src={`src/${image}`} />
+			<img src={`${image}`} />
 			<p>{description}</p>
 		</div>
 	</>
