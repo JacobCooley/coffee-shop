@@ -1,14 +1,17 @@
 @import "~styles/colors";
 @import "~styles/constants";
 
-label {
-  margin-right: $med-margin;
-  margin-top: $med-margin;
-  input {
-    width: 100%;
-    height: 25px;
-    padding-left: $med-padding;
-    border-radius: $border-radius;
-    border: 1px solid #ccc;
+.dd-wrapper {
+  label {
+    margin-right: $med-margin;
+    margin-top: $med-margin;
+
+    input {
+      width: 100%;
+      height: 25px;
+      padding-left: $med-padding;
+      border-radius: $border-radius;
+      border: 1px solid #ccc;
+    }
   }
 }

@@ -58,6 +58,6 @@ body {
 
 main {
   padding: $large-padding;
-  padding-bottom: 100px;
+  padding-bottom: $footer-height + 20px;
   grid-column: span 6;
 }
