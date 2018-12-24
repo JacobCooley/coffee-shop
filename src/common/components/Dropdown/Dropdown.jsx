@@ -1,18 +1,12 @@
 import React from 'react';
 import './Dropdown.scss'
 
-const Dropdown = ({label}) => (
+const Dropdown = ({className, style, options, onChange, value, placeholder}) => (
 	<>
-		<div className="dd-wrapper">
-			<label className="dd-header">
-				<div className="dd-header-title">sffsdf</div>
-			</label>
-			<ul className="dd-list">
-				<li className="dd-list-item"></li>
-				<li className="dd-list-item"></li>
-				<li className="dd-list-item"></li>
-			</ul>
-		</div>
+		<label style={style}>Decimals:
+			<Dropdown controlClassName={className} options={options} onChange={onChange}
+					  value={value} placeholder="Select an option" />
+		</label>
 	</>
 )
 
