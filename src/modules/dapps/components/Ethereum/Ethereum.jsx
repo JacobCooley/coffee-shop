@@ -16,7 +16,7 @@ const Ethereum = ({history}) => {
 				   />
 			<Card title='Betting Contract' image={eth} price={0.3}
 				  description='Place a bet and use smart contracts to wager against someone.'
-				  disabled />
+				   />
 			<Card title='Airdrop' image={eth} price={0.5}
 				  description='Create your own airdrop'
 				  disabled />

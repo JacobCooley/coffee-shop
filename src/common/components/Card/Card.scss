@@ -27,9 +27,10 @@ $text-color: $black;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  .disabled{
+  .warning{
     color: red;
     position: absolute;
+    cursor: default;
     bottom: 5%;
     left: 5%;
   }

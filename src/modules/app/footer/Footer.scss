@@ -20,6 +20,9 @@ footer {
 .social-media {
   position: absolute;
   margin-left: $large-margin;
+  a{
+    display: inline-block;
+  }
   svg{
     height: 22px;
     width: 22px;
