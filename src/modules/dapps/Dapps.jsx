@@ -28,7 +28,7 @@ class Dapps extends Component {
 				<div className='chains'>
 					<RadioBox name='chain' items={this.state.items} onChange={this.radioChange} />
 				</div>
-				<div className='dapps'>
+				<div className=''>
 					{this.state.chain === 'ETH' ? <Ethereum history={this.props.history}/> : <Eos history={this.props.history}/>}
 				</div>
 			</>
