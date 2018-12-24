@@ -9,8 +9,10 @@
   border: 1px solid #ccc;
   border-radius: $border-radius;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  padding: $large-padding;
   flex-direction: column;
+  line-height: 30px;
 }
 //  display: grid;
 //  grid-template-columns: repeat(3, 1fr);

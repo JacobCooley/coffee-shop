@@ -11,24 +11,24 @@ const Ethereum = ({history}) => {
 				  description='Launch your token and send tokens to any address that you like.' onClick={() => {
 				history.push('/deploy')
 			}} />
-			<Card title='Start an ICO' image={eth} price={0.5}
+			<Card title='Crowdfund an ICO' image={eth} price={1}
 				  description='Start your ICO to collect funds and have your tokens automatically distributed between investors.'
-				  diabled />
-			<Card title='Betting Contract' image={eth} price={0.5}
+				   />
+			<Card title='Betting Contract' image={eth} price={0.3}
 				  description='Place a bet and use smart contracts to wager against someone.'
 				  disabled />
 			<Card title='Airdrop' image={eth} price={0.5}
 				  description='Create your own airdrop'
-				  diabled />
-			<Card title='ERC721 Token' image={eth} price={0.5}
-				  description='Start your ICO to collect funds and have your tokens automatically distributed between investors!'
+				  disabled />
+			<Card title='ERC721 Token' image={eth} price={1}
+				  description='Build a standard ERC721 non fungible token'
 				  disabled />
 			
-			<Card title='ERC721 Token' image={eth} price={0.5}
-				  description='Start your ICO to collect funds and have your tokens automatically distributed between investors!'
+			<Card title='Dividend Token' image={eth} price={1}
+				  description={'Build a token to pay dividends to its\' holders'}
 				  disabled />
-			<Card title='ERC721 Token' image={eth} price={0.5}
-				  description='Start your ICO to collect funds and have your tokens automatically distributed between investors!'
+			<Card title='Voting Contract' image={eth} price={0.05}
+				  description='Simple voting contract'
 				  disabled />
 		</>
 	)

@@ -6,12 +6,13 @@ const PreviewToken = ({ create }) => {
 	
 	return (
 		<div className='preview'>
-			<h3>Token Preview</h3>
-			<>
-				<div>{`Token: ${tokenInfo.name} ${tokenInfo.symbol ? `(${tokenInfo.symbol.toUpperCase()})` : ''}`}</div>
-				<div>Supply: {tokenInfo.supply ? parseInt(tokenInfo.supply,10).toLocaleString() : 0}</div>
-				<div>Decimals: {tokenInfo.decimal}</div>
-			</>
+			<h3>Contract Type</h3>
+			<p>Description of the contract you will create</p>
+			{/*<>*/}
+				{/*<div>{`Token: ${tokenInfo.name} ${tokenInfo.symbol ? `(${tokenInfo.symbol.toUpperCase()})` : ''}`}</div>*/}
+				{/*<div>Supply: {tokenInfo.supply ? parseInt(tokenInfo.supply,10).toLocaleString() : 0}</div>*/}
+				{/*<div>Decimals: {tokenInfo.decimal}</div>*/}
+			{/*</>*/}
 		</div>
 	)
 }

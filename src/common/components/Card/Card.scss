@@ -6,6 +6,11 @@ $card-height: 300px;
 $card-color: $white;
 $text-color: $black;
 
+
+.disabled{
+  background-color: rgba($card-color, .1) !important;
+  cursor: auto !important;
+}
 .outer-card{
   position: relative;
   border: 0;
@@ -22,6 +27,12 @@ $text-color: $black;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  .disabled{
+    color: red;
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+  }
   h4{
     margin: 0;
   }
@@ -52,6 +63,11 @@ $text-color: $black;
 .outer-card:hover{
   box-shadow: 0 6px 18px 0 rgba(0,0,0, $hover-density);
   background-color: rgba($card-color, $hover-density);
+}
+
+.disabled:hover{
+  background-color: rgba($card-color, .1) !important;
+  box-shadow: 0 4px 14px 0 rgba(0,0,0,.2) !important;
 }
 
 
