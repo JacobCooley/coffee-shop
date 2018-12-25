@@ -17,6 +17,15 @@ footer {
   }
 }
 
+@media (min-width: 320px) and (max-width: 480px) {
+  .social-media {
+    width: 100px;
+    svg {
+      margin-left: 0 !important;
+    }
+  }
+}
+
 .social-media {
   position: absolute;
   margin-left: $large-margin;
@@ -47,3 +56,4 @@ footer {
   align-items: flex-end;
   margin-right: $large-margin;
 }
+

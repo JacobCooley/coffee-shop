@@ -7,13 +7,15 @@
   font-family: 'Roboto', sans-serif;
 }
 
-div[id='app']{
-  min-height:100%;
-  position:relative;
+div[id='app'] {
+  min-height: 100%;
+  position: relative;
 }
-html, body{
+
+html, body {
   height: 100%;
 }
+
 html, body, div, span, ul, li {
   margin: 0;
   padding: 0;
@@ -25,7 +27,7 @@ html, body, div, span, ul, li {
   color: $black;
 }
 
-h1, h2, h3, h4{
+h1, h2, h3, h4 {
   color: $black;
 }
 
@@ -42,9 +44,10 @@ a {
   text-decoration: none;
   transition: .3s;
 }
+
 /* effect-shine */
 a:hover {
-  -webkit-mask-image: linear-gradient(-75deg, rgba(0,0,0,.8) 30%, #000 50%, rgba(0,0,0,.8) 70%);
+  -webkit-mask-image: linear-gradient(-75deg, rgba(0, 0, 0, .8) 30%, #000 50%, rgba(0, 0, 0, .8) 70%);
   -webkit-mask-size: 200%;
   animation: shine 2s infinite;
 }
@@ -72,4 +75,70 @@ main {
   padding: $large-padding;
   padding-bottom: $footer-height + 20px;
   grid-column: span 6;
+}
+
+/*
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+
+  //CSS
+
+}
+
+/*
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+  //CSS
+
+}
+
+/*
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  //CSS
+
+}
+
+/*
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+  //CSS
+
+}
+
+/*
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+  //CSS
+
+}
+
+/*
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+  //CSS
+
 }
