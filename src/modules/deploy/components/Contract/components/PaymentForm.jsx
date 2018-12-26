@@ -19,6 +19,11 @@ class PaymentForm extends React.Component {
 		this.timerStart(this.props.timeoutInSeconds)
 	}
 	
+	componentWillUnmount(){
+		this.resetContract()
+		this.timerStop()
+	}
+	
 	timerStart(interval) {
 		clearInterval(this.state.timer)
 		operations.setTickInterval(interval, this.props.dispatch).then(() => {
@@ -56,8 +61,6 @@ class PaymentForm extends React.Component {
 					</>
 					:
 					<>
-						<Button onClick={() => this.timerStart(this.props.timeoutInSeconds)} />
-						<Button onClick={() => this.timerStop()} />
 						<b>Send: </b>{`${this.props.web3.utils.fromWei(this.props.priceInWei)} Eth`}<br />
 						<b>To: </b>{`${this.props.depositAddress}`}<br />
 						<b>In: </b>{`${this.props.tick} seconds`}
