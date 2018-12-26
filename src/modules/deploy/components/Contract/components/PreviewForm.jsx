@@ -1,7 +1,7 @@
 import React from 'react'
-import './PreviewToken.scss'
+import '../ContractComponent.scss'
 
-const PreviewToken = ({ create }) => {
+const PreviewForm = ({ create }) => {
 	const tokenInfo = create.tokenInfo
 	
 	return (
@@ -17,8 +17,8 @@ const PreviewToken = ({ create }) => {
 	)
 }
 
-PreviewToken.propTypes = {}
+PreviewForm.propTypes = {}
 
-PreviewToken.defaultProps = {}
+PreviewForm.defaultProps = {}
 
-export default PreviewToken
+export default PreviewForm

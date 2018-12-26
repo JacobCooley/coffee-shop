@@ -3,8 +3,11 @@ import { createActions } from 'reduxsauce';
 const { Creators, Types } = createActions({
     updateInput: ['tokenInfo'],
 	requestCreateToken: [],
-	receiveCreateToken: ['tokenData'],
-	addError: ['error']
+	receiveCreateToken: ['paymentInfo'],
+	addError: ['error'],
+	tick: [],
+	setTick: ['tick']
 });
 
 export { Creators, Types };
+

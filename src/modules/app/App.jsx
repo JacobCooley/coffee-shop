@@ -12,6 +12,9 @@ import Deploy from '@deploy'
 import './App.scss'
 
 class App extends Component {
+	componentDidMount(){
+		this.props.dispatchEthModule()
+	}
 	render() {
 		return (
 			<Router>

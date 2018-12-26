@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
-import createTokenForm from '@deploy/components/EthToken/duck/reducers'
+import createReducer from '@deploy/duck/reducers'
+import appReducer from '@app/duck/reducers'
 const rootReducer = combineReducers({
-    create: createTokenForm
+    global: appReducer,
+    create: createReducer
 });
 
 export default rootReducer;

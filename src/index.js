@@ -8,7 +8,7 @@ import {
 	createStore,
 	applyMiddleware
 } from 'redux'
-import App from '@app/App'
+import App from '@app/AppContainer'
 import rootReducer from './reducers'
 import { composeWithDevTools } from 'redux-devtools-extension'
 

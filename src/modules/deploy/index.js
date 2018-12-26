@@ -1,2 +1,2 @@
-import DeployComponent from './DeployComponent'
+import DeployComponent from './DeployContainer'
 export default DeployComponent

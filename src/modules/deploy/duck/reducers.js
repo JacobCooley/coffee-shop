@@ -10,7 +10,23 @@ export const INITIAL_STATE = {
 		supply: '100000000',
 		decimal: '10'
 	},
+	tick: 0,
 	error: ''
+}
+
+export const tick = (state = INITIAL_STATE) => {
+	return {
+		...state,
+		tick: state.tick - 1
+	}
+}
+
+export const setTick = (state = INITIAL_STATE, action) => {
+	const { tick } = action
+	return {
+		...state,
+		tick: tick
+	}
 }
 
 export const update_input = (state = INITIAL_STATE, action) => {
@@ -25,7 +41,7 @@ export const update_input = (state = INITIAL_STATE, action) => {
 	}
 }
 
-export const request_create_token = (state = INITIAL_STATE, action) => {
+export const request_create_token = (state = INITIAL_STATE) => {
 	return {
 		...state,
 		loading: true,
@@ -42,10 +58,10 @@ export const add_error = (state = INITIAL_STATE, action) => {
 }
 
 export const receive_create_token = (state = INITIAL_STATE, action) => {
-	const { tokenData } = action
+	const { paymentInfo } = action
 	return {
 		...state,
-		tokenData,
+		paymentInfo,
 		loading: false
 		
 	}
@@ -55,7 +71,9 @@ export const HANDLERS = {
 	[Types.UPDATE_INPUT]: update_input,
 	[Types.RECEIVE_CREATE_TOKEN]: receive_create_token,
 	[Types.REQUEST_CREATE_TOKEN]: request_create_token,
-	[Types.ADD_ERROR]: add_error
+	[Types.ADD_ERROR]: add_error,
+	[Types.TICK]: tick,
+	[Types.SET_TICK]: setTick,
 }
 
 export default createReducer(INITIAL_STATE, HANDLERS)

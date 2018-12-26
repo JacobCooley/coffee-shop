@@ -4,7 +4,6 @@ import { projectTitle } from '@utils/constants'
 import './Header.scss'
 
 const HeaderComponent = () => {
-	const path = window.location.pathname.toString()
 	return (
 		<header>
 			<div>{projectTitle}</div>

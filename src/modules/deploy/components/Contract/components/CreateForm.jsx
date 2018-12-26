@@ -1,16 +1,14 @@
 import React from 'react'
 import Button from '@components/Button'
 import Input from '@components/Input'
-import Loader from '@components/Loader'
 import Dropdown from '@components/Dropdown'
 import 'react-dropdown/style.css'
-import './EthTokenComponent.scss'
-import { operations } from './duck'
+import '../ContractComponent.scss'
+import { operations } from '../../../duck'
 
 
-const EthTokenComponent = ({ onChange, create, dispatch }) => {
+const CreateForm = ({ onChange, create, dispatch }) => {
 	const tokenInfo = create.tokenInfo
-	const loading = create.loading
 	const owner = tokenInfo['creator-address']
 	const name = tokenInfo.name
 	const decimal = tokenInfo.decimal
@@ -36,7 +34,6 @@ const EthTokenComponent = ({ onChange, create, dispatch }) => {
 	}
 	return (
 		<>
-			{loading ? <Loader /> : null}
 			<form onSubmit={onSubmit}>
 				<Input onChange={onChange} name='creator-address' label='Ethereum Address' value={owner} />
 				<Input onChange={onChange} name='name' label='Name' value={name} />
@@ -51,4 +48,4 @@ const EthTokenComponent = ({ onChange, create, dispatch }) => {
 	)
 }
 
-export default EthTokenComponent
+export default CreateForm

@@ -1,13 +1,13 @@
 import React from 'react'
 import './Deploy.scss'
-import EthToken from './components/EthToken'
-import PreviewToken from './components/PreviewToken'
+import Contract from './components/Contract'
+import PreviewForm from './components/Contract/components/PreviewForm'
 
-const Deploy = () => {
+const Deploy = ({create}) => {
 	return (
 		<div className='deploy'>
-			<PreviewToken/>
-			<EthToken/>
+			<PreviewForm create={create}/>
+			<Contract/>
 		</div>
 	)
 }

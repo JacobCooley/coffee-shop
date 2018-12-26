@@ -1,9 +1,12 @@
 import { connect } from 'react-redux'
-import EthTokenComponent from './EthTokenComponent'
-import { operations } from './duck'
+import ContractComponent from './ContractComponent'
+import { operations } from '../../duck'
 
 const mapStateToProps = state => {
-	return { create: state.create }
+	return {
+		create: state.create,
+		web3: state.global.web3
+	}
 }
 
 const mapDispatchToProps = dispatch => {
@@ -17,13 +20,13 @@ const mapDispatchToProps = dispatch => {
 	
 	return {
 		onChange,
-		dispatch
+		dispatch,
 	}
 }
 
-const EthTokenContainer = connect(
+const ContractContainer = connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(EthTokenComponent)
+)(ContractComponent)
 
-export default EthTokenContainer
+export default ContractContainer

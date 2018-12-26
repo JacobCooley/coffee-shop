@@ -19,6 +19,7 @@
     left:0;
     right:0;
     bottom:0;
+    box-shadow: 0 0 0 0;
   }
   li {
     float:left;
@@ -47,7 +48,6 @@
   }
   label:hover {
     background-color: rgba($white, $hover-density);
-    box-shadow: 0 2px 4px 0 rgba(0,0,0, $hover-density);
   }
   input[type="radio"]:checked + label:hover{
     background-color: $med-blue;
