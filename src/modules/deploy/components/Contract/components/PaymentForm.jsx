@@ -29,7 +29,6 @@ class PaymentForm extends React.Component {
 		operations.setTickInterval(interval, this.props.dispatch).then(() => {
 			this.setState({
 				timer: setInterval(() => {
-					console.log('finalTick', this.props.tick)
 					if (this.props.tick === 0) {
 						this.timerStop()
 					} else {
@@ -64,6 +63,7 @@ class PaymentForm extends React.Component {
 						<b>Send: </b>{`${this.props.web3.utils.fromWei(this.props.priceInWei)} Eth`}<br />
 						<b>To: </b>{`${this.props.depositAddress}`}<br />
 						<b>In: </b>{`${this.props.tick} seconds`}
+						<Button text='Cancel' onClick={() => this.resetContract()}/>
 					</>
 				}
 			</div>

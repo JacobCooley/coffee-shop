@@ -11,8 +11,6 @@ export const INITIAL_STATE = {
 export const dispatchWeb3 = Creators.dispatchWeb3
 
 export const dispatch_web3 = (state = INITIAL_STATE, action) => {
-	console.log('web3')
-	
 	const { web3 } = action
 	return {
 		...state,

@@ -13,9 +13,11 @@ const Ethereum = ({history}) => {
 			}} />
 			<Card title='Crowdfund an ICO' image={eth} price={1}
 				  description='Start your ICO to collect funds and have your tokens automatically distributed between investors.'
+				  disabled
 				   />
 			<Card title='Betting Contract' image={eth} price={0.3}
 				  description='Place a bet and use smart contracts to wager against someone.'
+				  disabled
 				   />
 			<Card title='Airdrop' image={eth} price={0.5}
 				  description='Create your own airdrop'

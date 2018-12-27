@@ -6,7 +6,8 @@ const { Creators, Types } = createActions({
 	receiveCreateToken: ['paymentInfo'],
 	addError: ['error'],
 	tick: [],
-	setTick: ['tick']
+	setTick: ['tick'],
+	setContract: ['contract']
 });
 
 export { Creators, Types };

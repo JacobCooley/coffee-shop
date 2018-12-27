@@ -1,13 +1,13 @@
 import fetch from 'cross-fetch'
 import { Creators } from './actions'
 import { server } from '@common/utils/constants'
-
 const updateInput = Creators.updateInput
 const requestCreateTokenAction = Creators.requestCreateToken
 const receiveCreateTokenAction = Creators.receiveCreateToken
 const addError = Creators.addError
 const tick = Creators.tick
 const setTick = Creators.setTick
+const setContract = Creators.setContract
 
 const setTickInterval = (interval, dispatch) => new Promise((resolve, reject) => {
 	dispatch(setTick(interval))
@@ -38,6 +38,7 @@ export default {
 	createToken,
 	tick,
 	setTickInterval,
+	setContract,
 	receiveCreateTokenAction,
 	setTick
 }

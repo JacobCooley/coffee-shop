@@ -5,11 +5,12 @@ import Dropdown from '@components/Dropdown'
 import 'react-dropdown/style.css'
 import '../ContractComponent.scss'
 import { operations } from '../../../duck'
-
+import openSocket from 'socket.io-client'
+import { socketUrl } from '@common/utils/constants'
 
 const CreateForm = ({ onChange, create, dispatch }) => {
 	const tokenInfo = create.tokenInfo
-	const owner = tokenInfo['creator-address']
+	const owner = tokenInfo.owner
 	const name = tokenInfo.name
 	const decimal = tokenInfo.decimal
 	const symbol = tokenInfo.symbol
@@ -23,19 +24,29 @@ const CreateForm = ({ onChange, create, dispatch }) => {
 	}
 	const onSubmit = (e) => {
 		e.preventDefault()
-		const token = {
-			name,
-			symbol,
-			decimal,
-			supply,
-			owner
-		}
-		dispatch(operations.createToken(token))
+		const socket = openSocket(socketUrl)
+		socket.on('id', (idObject) => {
+			console.log(idObject)
+			const token = {
+				name,
+				symbol,
+				decimal,
+				supply,
+				owner,
+				id: idObject.id
+			}
+			console.log(token)
+			dispatch(operations.createToken(token))
+		})
+		socket.on('contract', (contract) => {
+			console.log(contract)
+			dispatch(operations.setContract(contract))
+		})
 	}
 	return (
 		<>
 			<form onSubmit={onSubmit}>
-				<Input onChange={onChange} name='creator-address' label='Ethereum Address' value={owner} />
+				<Input onChange={onChange} name='owner' label='Ethereum Address' value={owner} />
 				<Input onChange={onChange} name='name' label='Name' value={name} />
 				<Input onChange={onChange} name='symbol' label='Symbol' value={symbol} />
 				<Input onChange={supplyChange} name='supply' label='Supply'

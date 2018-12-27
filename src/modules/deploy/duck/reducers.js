@@ -5,7 +5,7 @@ export const INITIAL_STATE = {
 	loading: false,
 	tokenInfo: {
 		name: 'JAKE',
-		'creator-address': '0x9561FaB0bdC2c974BB3B121ec904118000bC1eF5',
+		owner: '0x89EfC581789086C6C7257448ae2F4a1C8D2561Be',
 		symbol: 'JAC',
 		supply: '100000000',
 		decimal: '10'
@@ -21,7 +21,7 @@ export const tick = (state = INITIAL_STATE) => {
 	}
 }
 
-export const setTick = (state = INITIAL_STATE, action) => {
+export const set_tick = (state = INITIAL_STATE, action) => {
 	const { tick } = action
 	return {
 		...state,
@@ -57,13 +57,23 @@ export const add_error = (state = INITIAL_STATE, action) => {
 	}
 }
 
+export const set_contract = (state = INITIAL_STATE, action) => {
+	const { contract } = action
+	return {
+		...state,
+		tokenInfo: {
+			...state.tokenInfo,
+			contract: contract
+		}
+	}
+}
+
 export const receive_create_token = (state = INITIAL_STATE, action) => {
 	const { paymentInfo } = action
 	return {
 		...state,
 		paymentInfo,
 		loading: false
-		
 	}
 }
 
@@ -73,7 +83,8 @@ export const HANDLERS = {
 	[Types.REQUEST_CREATE_TOKEN]: request_create_token,
 	[Types.ADD_ERROR]: add_error,
 	[Types.TICK]: tick,
-	[Types.SET_TICK]: setTick,
+	[Types.SET_TICK]: set_tick,
+	[Types.SET_CONTRACT]: set_contract,
 }
 
 export default createReducer(INITIAL_STATE, HANDLERS)
