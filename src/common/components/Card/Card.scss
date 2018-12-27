@@ -8,7 +8,7 @@ $text-color: $black;
 
 
 .disabled{
-  background-color: rgba($card-color, 0.05) !important;
+  background-color: rgba($black, 0.1) !important;
   cursor: auto !important;
 }
 .outer-card{
@@ -67,7 +67,7 @@ $text-color: $black;
 }
 
 .disabled:hover{
-  background-color: rgba($card-color, 0.05) !important;
+  background-color: rgba($black, 0.1) !important;
   box-shadow: 0 4px 14px 0 rgba(0,0,0,.2) !important;
 }
 
