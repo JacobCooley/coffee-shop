@@ -12,7 +12,7 @@ header {
   height: 70px;
   grid-column: span 12;
   grid-template-columns: repeat(12, 1fr);
-  div{
+  div, img{
     grid-column: span 4;
     display: inline-flex;
     color: $header-text-color;

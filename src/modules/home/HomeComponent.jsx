@@ -4,8 +4,9 @@ import './Home.scss'
 
 const HomeComponent = () => (
 	<div className='home'>
-		<h3>Token Launcher Alpha</h3>
-		<div>Make some contracts.</div>
+		<h4 style={{color: 'red'}}>Pre-Alpha version is only working on the Ropsten network!</h4>
+		<h3>Token Launcher Pre-Alpha</h3>
+		<div>Create contracts quickly and easily!</div>
 	</div>
 )
 
