@@ -4,7 +4,7 @@ import '../ContractComponent.scss'
 import Button from '@components/Button'
 import { operations } from '@modules/deploy/duck'
 import { withRouter } from 'react-router'
-import { FaRegCopy } from 'react-icons/fa'
+import { FaCopy } from 'react-icons/fa'
 import QRCode from 'qrcode.react'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 
@@ -74,7 +74,7 @@ class PaymentForm extends React.Component {
 										//TODO Add confirmation toast
 										console.log('Copied')
 									}}>
-							<FaRegCopy onClick={() => console.log('click')} />
+							<FaCopy onClick={() => console.log('click')} />
 								</CopyToClipboard>
 							</div>
 						</div>

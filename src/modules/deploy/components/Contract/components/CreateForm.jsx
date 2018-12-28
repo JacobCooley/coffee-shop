@@ -33,7 +33,7 @@ const CreateForm = ({ onChange, create, dispatch }) => {
 				decimal,
 				supply,
 				owner,
-				id: idObject.id
+				id: idObject
 			}
 			dispatch(operations.createToken(token))
 		})
