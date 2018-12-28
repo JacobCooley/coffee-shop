@@ -3,8 +3,8 @@
 .dapps{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-column-gap: 10px;
-  grid-row-gap: 20px;
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
   padding-right: $med-padding;
   padding-left: $med-padding;
   h2{

@@ -10,6 +10,11 @@ export const INITIAL_STATE = {
 		supply: '100000000',
 		decimal: '10'
 	},
+	// paymentInfo: {
+	// 	depositAddress: '0xfdskjdsfjdfskj',
+	// 	priceInWei: '100000000000000',
+	// 	timeoutInSeconds: 500
+	// },
 	tick: 0,
 	error: ''
 }

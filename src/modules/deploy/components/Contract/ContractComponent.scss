@@ -1,11 +1,28 @@
 @import "~styles/constants";
 @import "~styles/colors";
 
+.send-to {
+  > div {
+    div {
+      float: left;
+    }
+
+    div + div {
+      float: right;
+    }
+  }
+
+  svg {
+    margin-left: $small-margin;
+    cursor: pointer;
+  }
+}
+
 .preview {
   grid-column: span 2;
-  height: 400px;
+  min-height: 300px;
   background: $white;
-  align-self: center;
+  align-self: flex-start;
   border: 1px solid #ccc;
   border-radius: $border-radius;
   display: flex;
@@ -25,6 +42,21 @@
   height: fit-content;
   padding: $large-padding;
 }
+
+.paymentInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  div {
+    margin-bottom: $med-margin;
+  }
+
+  button {
+    width: 100%;
+  }
+}
+
 
 label {
   display: block;

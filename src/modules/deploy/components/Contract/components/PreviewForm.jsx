@@ -7,7 +7,7 @@ const PreviewForm = ({ create }) => {
 	return (
 		<div className='preview'>
 			<h3>Contract Type</h3>
-			<p>Description of the contract you will create</p>
+			<p>You are creating a standard ERC20 token on the Ethereum Blockchain!  Please fill out the form and make payment to the correct address</p>
 			{/*<>*/}
 				{/*<div>{`Token: ${tokenInfo.name} ${tokenInfo.symbol ? `(${tokenInfo.symbol.toUpperCase()})` : ''}`}</div>*/}
 				{/*<div>Supply: {tokenInfo.supply ? parseInt(tokenInfo.supply,10).toLocaleString() : 0}</div>*/}

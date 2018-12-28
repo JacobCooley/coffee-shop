@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="347.19217mm"
+   width="301.54733mm"
    height="55.489506mm"
-   viewBox="0 0 347.19212 55.489506"
+   viewBox="0 0 301.54729 55.489506"
    version="1.1"
    id="svg8"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
@@ -26,8 +26,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.80587231"
-     inkscape:cx="679.10307"
-     inkscape:cy="-177.17263"
+     inkscape:cx="470.01287"
+     inkscape:cy="-177.17265"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -66,25 +66,36 @@
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:34.99696751px;line-height:1.25;font-family:'Work Sans';-inkscape-font-specification:'Work Sans, Ultra-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr;text-anchor:start;fill:#7eaea3;fill-opacity:0.94117647;stroke:#ffffff;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers;"
-       x="111.99794"
-       y="146.77084"
+       style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:29.98611069px;line-height:1.25;font-family:'Work Sans';-inkscape-font-specification:'Work Sans, Ultra-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#7eaea3;fill-opacity:0.94117647;stroke:#ffffff;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers"
+       x="107.23545"
+       y="142.67288"
        id="text844"><tspan
          sodipodi:role="line"
          id="tspan842"
-         x="111.99794"
-         y="146.77084"
-         style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:34.99696751px;font-family:'Work Sans';-inkscape-font-specification:'Work Sans, Ultra-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr;text-anchor:start;fill:#7eaea3;fill-opacity:0.94117647;stroke:#ffffff;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers;">Token</tspan></text>
+         x="107.23545"
+         y="142.67288"
+         style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:29.98611069px;font-family:'Work Sans';-inkscape-font-specification:'Work Sans, Ultra-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#7eaea3;fill-opacity:0.94117647;stroke:#ffffff;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers">Token</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:34.99696732px;line-height:1.25;font-family:'Work Sans';-inkscape-font-specification:'Work Sans, Ultra-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#7eaea3;fill-opacity:0.94117647;stroke:#ffffff;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers"
-       x="225.71831"
-       y="147.21103"
+       style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:29.98611069px;line-height:1.25;font-family:'Work Sans';-inkscape-font-specification:'Work Sans, Ultra-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#7eaea3;fill-opacity:0.94117647;stroke:#ffffff;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers"
+       x="202.96445"
+       y="142.67288"
        id="text848"><tspan
          sodipodi:role="line"
          id="tspan846"
-         x="225.71831"
-         y="147.21103"
-         style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:34.99696732px;font-family:'Work Sans';-inkscape-font-specification:'Work Sans, Ultra-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#7eaea3;fill-opacity:0.94117647;stroke:#ffffff;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers">Launcher</tspan></text>
-  </g>
+         x="202.96445"
+         y="142.67288"
+         style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:29.98611069px;font-family:'Work Sans';-inkscape-font-specification:'Work Sans, Ultra-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#7eaea3;fill-opacity:0.94117647;stroke:#ffffff;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers">Launcher</tspan></text>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot839"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       transform="matrix(0.26458333,0,0,0.26458333,40.644972,104.49296)"><flowRegion
+         id="flowRegion841"><rect
+           id="rect843"
+           width="37.226742"
+           height="130.29359"
+           x="388.39899"
+           y="176.22005" /></flowRegion><flowPara
+         id="flowPara845"></flowPara></flowRoot>  </g>
 </svg>

@@ -3,8 +3,10 @@ import 'react-dropdown/style.css'
 import '../ContractComponent.scss'
 import Button from '@components/Button'
 import { operations } from '@modules/deploy/duck'
-import { withRouter } from 'react-router';
-
+import { withRouter } from 'react-router'
+import { FaRegCopy } from 'react-icons/fa'
+import QRCode from 'qrcode.react'
+import { CopyToClipboard } from 'react-copy-to-clipboard'
 
 class PaymentForm extends React.Component {
 	constructor(props) {
@@ -15,11 +17,11 @@ class PaymentForm extends React.Component {
 		}
 	}
 	
-	componentDidMount(){
+	componentDidMount() {
 		this.timerStart(this.props.timeoutInSeconds)
 	}
 	
-	componentWillUnmount(){
+	componentWillUnmount() {
 		this.resetContract()
 		this.timerStop()
 	}
@@ -44,7 +46,7 @@ class PaymentForm extends React.Component {
 		this.setState({ timerFinished: true })
 	}
 	
-	resetContract(){
+	resetContract() {
 		this.props.dispatch(operations.receiveCreateTokenAction(null))
 	}
 	
@@ -54,16 +56,30 @@ class PaymentForm extends React.Component {
 				{this.state.timerFinished ?
 					<>
 						<div>
-							Time is up!  Please try again
+							Time is up! Please try again
 						</div>
-						<Button onClick={() => this.resetContract()} text='Try Again'/>
+						<Button onClick={() => this.resetContract()} text='Try Again' />
 					</>
 					:
 					<>
-						<b>Send: </b>{`${this.props.web3.utils.fromWei(this.props.priceInWei)} Eth`}<br />
-						<b>To: </b>{`${this.props.depositAddress}`}<br />
-						<b>In: </b>{`${this.props.tick} seconds`}
-						<Button text='Cancel' onClick={() => this.resetContract()}/>
+						<div className='send-to'>
+							<div>
+								<div><b>Send: </b>{`${this.props.web3.utils.fromWei(this.props.priceInWei)} ETH`}</div>
+								<div><b>In: </b>{`${this.props.tick} seconds`}</div>
+							</div>
+							<div>{`${this.props.depositAddress}`}
+								<CopyToClipboard
+									text={this.props.depositAddress}
+									onCopy={() => {
+										//TODO Add confirmation toast
+										console.log('Copied')
+									}}>
+							<FaRegCopy onClick={() => console.log('click')} />
+								</CopyToClipboard>
+							</div>
+						</div>
+						<QRCode value={this.props.depositAddress} />
+						<Button text='Cancel' onClick={() => this.resetContract()} />
 					</>
 				}
 			</div>

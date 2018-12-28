@@ -8,6 +8,7 @@ import { operations } from '../../../duck'
 import openSocket from 'socket.io-client'
 import { socketUrl } from '@common/utils/constants'
 
+
 const CreateForm = ({ onChange, create, dispatch }) => {
 	const tokenInfo = create.tokenInfo
 	const owner = tokenInfo.owner
@@ -26,7 +27,6 @@ const CreateForm = ({ onChange, create, dispatch }) => {
 		e.preventDefault()
 		const socket = openSocket(socketUrl)
 		socket.on('id', (idObject) => {
-			console.log(idObject)
 			const token = {
 				name,
 				symbol,
@@ -35,11 +35,9 @@ const CreateForm = ({ onChange, create, dispatch }) => {
 				owner,
 				id: idObject.id
 			}
-			console.log(token)
 			dispatch(operations.createToken(token))
 		})
 		socket.on('contract', (contract) => {
-			console.log(contract)
 			dispatch(operations.setContract(contract))
 		})
 	}
