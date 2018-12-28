@@ -7,6 +7,7 @@ import { withRouter } from 'react-router'
 import { FaCopy } from 'react-icons/fa'
 import QRCode from 'qrcode.react'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
+import web3 from '@common/utils/web3'
 
 class PaymentForm extends React.Component {
 	constructor(props) {
@@ -19,6 +20,9 @@ class PaymentForm extends React.Component {
 	
 	componentDidMount() {
 		this.timerStart(this.props.timeoutInSeconds)
+		if (web3.currentProvider.isMetaMask) {
+			this.payWithMetaMask()
+		}
 	}
 	
 	componentWillUnmount() {
@@ -50,6 +54,17 @@ class PaymentForm extends React.Component {
 		this.props.dispatch(operations.receiveCreateTokenAction(null))
 	}
 	
+	async payWithMetaMask() {
+		const accounts = await web3.eth.getAccounts()
+		web3.eth.sendTransaction({
+				to: this.props.depositAddress,
+				from: accounts[0],
+				value: this.props.priceInWei
+			}
+			, function (err, res) {
+			})
+	}
+	
 	render() {
 		return (
 			<div className='paymentInfo'>
@@ -74,7 +89,7 @@ class PaymentForm extends React.Component {
 										//TODO Add confirmation toast
 										console.log('Copied')
 									}}>
-							<FaCopy onClick={() => console.log('click')} />
+									<FaCopy onClick={() => console.log('click')} />
 								</CopyToClipboard>
 							</div>
 						</div>
