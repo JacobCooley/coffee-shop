@@ -1,7 +1,7 @@
 import React from 'react'
 import '../ContractComponent.scss'
 import Button from '@components/Button'
-import web3 from '@common/utils/web3'
+import { web3, network } from '@common/utils/web3'
 
 const PaymentCompleted = ({ contract, symbol, decimal }) => {
 	const addToMetaMask = () => {
@@ -20,7 +20,7 @@ const PaymentCompleted = ({ contract, symbol, decimal }) => {
 		})
 	}
 	
-	const etherScanUrl = web3.currentProvider.networkVersion === 3 ? `http://ropsten.etherscan.io/${contract}` : `http://etherscan.io/${contract}`
+	const etherScanUrl = network === '3' ? `http://ropsten.etherscan.io/address/${contract}` : `http://etherscan.io/address/${contract}`
 	
 	return (
 		<div className='payment-complete'>

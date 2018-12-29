@@ -4,10 +4,10 @@ import '../ContractComponent.scss'
 import Button from '@components/Button'
 import { operations } from '@modules/deploy/duck'
 import { withRouter } from 'react-router'
-import { FaCopy } from 'react-icons/fa'
+import { FaRegCopy } from 'react-icons/fa'
 import QRCode from 'qrcode.react'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
-import web3 from '@common/utils/web3'
+import {web3} from '@common/utils/web3'
 
 class PaymentForm extends React.Component {
 	constructor(props) {
@@ -18,7 +18,7 @@ class PaymentForm extends React.Component {
 		}
 	}
 	
-	componentDidMount() {
+	async componentDidMount() {
 		this.timerStart(this.props.timeoutInSeconds)
 		if (web3.currentProvider.isMetaMask) {
 			this.payWithMetaMask()
@@ -60,8 +60,7 @@ class PaymentForm extends React.Component {
 				to: this.props.depositAddress,
 				from: accounts[0],
 				value: this.props.priceInWei
-			}
-			, function (err, res) {
+			}, function (err, res) {
 			})
 	}
 	
@@ -89,7 +88,7 @@ class PaymentForm extends React.Component {
 										//TODO Add confirmation toast
 										console.log('Copied')
 									}}>
-									<FaCopy onClick={() => console.log('click')} />
+									<FaRegCopy onClick={() => console.log('click')} />
 								</CopyToClipboard>
 							</div>
 						</div>

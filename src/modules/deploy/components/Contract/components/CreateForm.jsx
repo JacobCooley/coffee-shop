@@ -41,6 +41,7 @@ const CreateForm = ({ onChange, create, dispatch }) => {
 			dispatch(operations.setContract(contract))
 		})
 	}
+	
 	return (
 		<>
 			<form onSubmit={onSubmit}>

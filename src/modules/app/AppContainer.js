@@ -1,4 +1,4 @@
-import web3 from '@common/utils/web3'
+import {web3} from '@common/utils/web3'
 import { connect } from 'react-redux'
 import App from './App'
 import { dispatchWeb3 } from './duck/reducers'
