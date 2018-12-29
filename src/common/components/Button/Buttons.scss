@@ -18,6 +18,17 @@ button:hover, a:hover {
   cursor: pointer;
 }
 
+.disabled{
+  background-color: rgba($black, 0.1) !important;
+}
+
+.disabled:hover {
+  cursor: auto !important;
+  background-color: rgba($black, 0.1) !important;
+
+}
+
 .button:hover {
   background: rgba($green, .8);
+  box-shadow: 0 2px 6px 0 rgba(0,0,0, $hover-density);
 }

@@ -5,18 +5,16 @@
 
 .Toastify {
   .Toastify__toast-container--top-center {
-    left: 0 !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    width: 100%;
-
+    width: fit-content;
+    transform: translateX(-50%);
+    margin-left: 0;
     .Toastify__toast {
       min-height: 30px !important;
       border-radius: $border-radius !important;
       text-align: center;
       min-width: fit-content;
-      margin-left: 40% !important;
-      margin-right: 40% !important;
+      padding-left: $large-padding !important;
+      padding-right: $large-padding !important;
     }
 
     .Toastify__toast-body {
@@ -29,6 +27,9 @@
 
     .Toastify__toast--error {
       background-color: $red;
+    }
+    .Toastify__toast--error {
+      background-color: $yellow;
     }
   }
 }

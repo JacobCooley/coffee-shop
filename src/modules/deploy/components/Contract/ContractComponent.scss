@@ -16,10 +16,12 @@
   > div {
     div {
       float: left;
+      margin-right: $small-margin;
     }
 
     div + div {
       float: right;
+      margin-left: $small-margin;
     }
   }
 
@@ -58,13 +60,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
   div {
     margin-bottom: $med-margin;
   }
-
-  button {
+  .buttons{
+    display: block;
     width: 100%;
+    button{
+      float: left;
+    }
+    button + button{
+      float: right;
+    }
   }
 }
 

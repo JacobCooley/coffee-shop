@@ -8,13 +8,14 @@ export const INITIAL_STATE = {
 		owner: '0x89EfC581789086C6C7257448ae2F4a1C8D2561Be',
 		symbol: 'JAC',
 		supply: '100000000',
+		// contract: '0xoifejoisdjfosadijfsoiafdjaisdjf',
 		decimal: '10'
 	},
-	// paymentInfo: {
-	// 	depositAddress: '0xfdskjdsfjdfskj',
-	// 	priceInWei: '100000000000000',
-	// 	timeoutInSeconds: 500
-	// },
+	paymentInfo: {
+		depositAddress: '0xfdskjdsfjdfskj',
+		priceInWei: '100000000000000',
+		timeoutInSeconds: 500
+	},
 	tick: 0,
 	error: ''
 }

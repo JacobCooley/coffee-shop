@@ -29,8 +29,7 @@ const PaymentCompleted = ({ contract, symbol, decimal }) => {
 				`${etherScanUrl}`,
 				'_blank'
 			)} text='View on Etherscan' />
-			{web3.currentProvider.isMetaMask ?
-				<Button onClick={addToMetaMask} text='Add to MetaMask' /> : null}
+			<Button disabled={!web3.currentProvider.isMetaMask} onClick={addToMetaMask} text='Add to MetaMask' />
 		</div>
 	)
 }

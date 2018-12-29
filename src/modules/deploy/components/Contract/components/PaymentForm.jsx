@@ -25,11 +25,7 @@ class PaymentForm extends React.Component {
 		if (web3.currentProvider.isMetaMask) {
 			this.payWithMetaMask()
 		}
-	}
-	
-	componentWillUnmount() {
-		this.resetContract()
-		this.timerStop()
+		PaymentForm.isLoggedIn()
 	}
 	
 	timerStart(interval) {
@@ -56,16 +52,22 @@ class PaymentForm extends React.Component {
 		this.props.dispatch(operations.receiveCreateTokenAction(null))
 	}
 	
-	async payWithMetaMask() {
+	static async isLoggedIn() {
 		const accounts = await web3.eth.getAccounts()
-		if(accounts.length === 0){
-			//TODO: Tell user to login
-		} else {
+		if (accounts.length === 0) {
+			toast("If you are using Metamask, Please log in!", { type: 'warning' })
+		}
+		return accounts.length >= 0
+	}
+	
+	payWithMetaMask() {
+		if (PaymentForm.isLoggedIn()) {
 			web3.eth.sendTransaction({
 				to: this.props.depositAddress,
 				from: accounts[0],
 				value: this.props.priceInWei
 			}, function (err, res) {
+				toast("Transaction Sent", { type: 'info' })
 			})
 		}
 	}
@@ -91,14 +93,19 @@ class PaymentForm extends React.Component {
 								<CopyToClipboard
 									text={this.props.depositAddress}
 									onCopy={() => {
-										toast('Copied!',{type: 'info'})
+										toast('Copied!', { type: 'info' })
 									}}>
 									<FaRegCopy />
 								</CopyToClipboard>
 							</div>
 						</div>
 						<QRCode value={this.props.depositAddress} />
-						<Button text='Cancel' onClick={() => this.resetContract()} />
+						<div className='buttons'>
+							<Button text='Cancel' onClick={() => this.resetContract()} />
+							<Button disabled={!web3.currentProvider.isMetaMask} text='Pay using Metamask'
+									onClick={() => this.payWithMetaMask()} />
+							
+						</div>
 					</>
 				}
 			</div>
