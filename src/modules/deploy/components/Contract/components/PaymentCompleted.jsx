@@ -1,7 +1,7 @@
 import React from 'react'
 import '../ContractComponent.scss'
 import Button from '@components/Button'
-import { web3, network } from '@common/utils/web3'
+import { web3, getNetwork } from '@common/utils/web3'
 
 const PaymentCompleted = ({ contract, symbol, decimal }) => {
 	const addToMetaMask = () => {
@@ -19,8 +19,8 @@ const PaymentCompleted = ({ contract, symbol, decimal }) => {
 			id: Math.round(Math.random() * 100000),
 		})
 	}
-	
-	const etherScanUrl = network === '3' ? `http://ropsten.etherscan.io/address/${contract}` : `http://etherscan.io/address/${contract}`
+	const etherScanUrl = getNetwork() === '3' ? `http://ropsten.etherscan.io/address/${contract}` : `http://etherscan.io/address/${contract}`
+	console.log(getNetwork())
 	
 	return (
 		<div className='payment-complete'>
