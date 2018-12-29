@@ -91,8 +91,7 @@ class PaymentForm extends React.Component {
 								<CopyToClipboard
 									text={this.props.depositAddress}
 									onCopy={() => {
-										//TODO Add confirmation toast
-										toast('Copied!')
+										toast('Copied!',{type: 'info'})
 									}}>
 									<FaRegCopy />
 								</CopyToClipboard>

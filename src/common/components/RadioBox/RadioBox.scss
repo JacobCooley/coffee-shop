@@ -32,7 +32,7 @@
     z-index:100;
   }
   input[type="radio"]:checked + label {
-    background: $med-blue;
+    background: $green;
     color: $white
   }
   label {
@@ -50,7 +50,7 @@
     background-color: rgba($white, $hover-density);
   }
   input[type="radio"]:checked + label:hover{
-    background-color: $med-blue;
+    background-color: $green;
     color: $white;
     box-shadow: 0 0 0 0;
   }

@@ -10,18 +10,22 @@ import Footer from './footer'
 import Dapps from '@dapps'
 import Deploy from '@deploy'
 import './App.scss'
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 class App extends Component {
-	componentDidMount(){
+	componentDidMount() {
 		this.props.dispatchEthModule()
 	}
+	
 	render() {
 		return (
 			<Router>
 				<>
-					<ToastContainer/>
+					<ToastContainer pauseOnHover
+									closeButton={<></>}
+									hideProgressBar={true} position={toast.POSITION.TOP_CENTER}
+									autoClose={3000} pauseOnFocusLoss={false} />
 					<Header />
 					<main>
 						<Switch>
