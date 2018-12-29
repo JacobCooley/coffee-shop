@@ -23,6 +23,7 @@ class App extends Component {
 			<Router>
 				<>
 					<ToastContainer pauseOnHover
+									draggable={false}
 									closeButton={<></>}
 									hideProgressBar={true} position={toast.POSITION.TOP_CENTER}
 									autoClose={3000} pauseOnFocusLoss={false} />
