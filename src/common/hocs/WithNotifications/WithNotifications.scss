@@ -1,0 +1,14 @@
+@import "~styles/colors";
+
+.toast{
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  .notification{
+    background-color: $med-blue;
+  }
+  .error{
+    background-color: red;
+  }
+}

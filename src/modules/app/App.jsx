@@ -10,6 +10,8 @@ import Footer from './footer'
 import Dapps from '@dapps'
 import Deploy from '@deploy'
 import './App.scss'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class App extends Component {
 	componentDidMount(){
@@ -19,6 +21,7 @@ class App extends Component {
 		return (
 			<Router>
 				<>
+					<ToastContainer/>
 					<Header />
 					<main>
 						<Switch>

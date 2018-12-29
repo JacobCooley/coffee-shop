@@ -7,7 +7,9 @@ import { withRouter } from 'react-router'
 import { FaRegCopy } from 'react-icons/fa'
 import QRCode from 'qrcode.react'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
-import {web3} from '@common/utils/web3'
+import { web3 } from '@common/utils/web3'
+import { toast } from 'react-toastify'
+
 
 class PaymentForm extends React.Component {
 	constructor(props) {
@@ -56,12 +58,16 @@ class PaymentForm extends React.Component {
 	
 	async payWithMetaMask() {
 		const accounts = await web3.eth.getAccounts()
-		web3.eth.sendTransaction({
+		if(accounts.length === 0){
+			//TODO: Tell user to login
+		} else {
+			web3.eth.sendTransaction({
 				to: this.props.depositAddress,
 				from: accounts[0],
 				value: this.props.priceInWei
 			}, function (err, res) {
 			})
+		}
 	}
 	
 	render() {
@@ -86,9 +92,9 @@ class PaymentForm extends React.Component {
 									text={this.props.depositAddress}
 									onCopy={() => {
 										//TODO Add confirmation toast
-										console.log('Copied')
+										toast('Copied!')
 									}}>
-									<FaRegCopy onClick={() => console.log('click')} />
+									<FaRegCopy />
 								</CopyToClipboard>
 							</div>
 						</div>
