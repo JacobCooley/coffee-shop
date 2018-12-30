@@ -3,17 +3,30 @@
 
 $header-text-color: $green;
 
-.white{
+@media (min-width: 320px) and (max-width: 480px) {
+  header {
+    nav[id='desktop'] {
+      display: none !important;
+    }
+
+    nav[id='mobile'] {
+      display: flex !important;
+    }
+  }
+}
+
+.white {
   color: $white !important;
 }
+
 header {
-  flex-shrink: 0;
   background: $dark-blue;
   display: grid;
   height: $header-height;
   grid-column: span 12;
   grid-template-columns: repeat(12, 1fr);
-  div, img{
+
+  div, img {
     grid-column: span 4;
     display: inline-flex;
     color: $header-text-color;
@@ -22,16 +35,52 @@ header {
     align-items: center;
     margin-left: $large-margin;
   }
-  nav {
+
+  .nav{
     grid-column: span 8;
     display: flex;
     height: 100%;
     justify-content: flex-end;
     margin-left: $large-margin;
     margin-right: $large-margin;
+    align-items: center;
+  }
+
+  nav[id='mobile'] {
+    display: none;
+    ul {
+      flex-direction: column;
+      display: none;
+      position: fixed;
+      top: 70px;
+      left: 0;
+      right: 0;
+      background-color: $white;
+      z-index: 1200;
+    }
+    li{
+      display: flex;
+      align-items: center;
+      padding: 14px 16px;
+    }
+    a {
+      color: $header-text-color;
+      font-size: $large-font-size;
+      text-decoration: none;
+      font-weight: bolder;
+      vertical-align: center;
+    }
+    svg{
+      color: $green;
+      font-size: 22px;
+    }
+  }
+
+  nav[id='desktop'] {
     div {
       display: flex;
       align-items: center;
+
       a {
         display: inline-block;
         color: $header-text-color;

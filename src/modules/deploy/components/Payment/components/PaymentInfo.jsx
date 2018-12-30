@@ -60,7 +60,7 @@ class PaymentInfo extends React.Component {
 		if (accounts.length === 0) {
 			toast("If you are using Metamask, Please log in!", { type: 'warning' })
 		}
-		return accounts.length >= 0
+		return accounts.length > 0
 	}
 	
 	async payWithMetaMask() {
