@@ -1,13 +1,17 @@
 import React from 'react'
 import './Deploy.scss'
-import Contract from './components/Contract'
-import PreviewForm from './components/Contract/components/PreviewForm'
+import Contract from './components/Payment'
+import PreviewPayment from './components/Payment/components/PaymentPreview'
+import CreateForm from '@modules/deploy/components/Contracts/Erc20'
 
-const Deploy = ({create}) => {
+const Deploy = ({ create }) => {
 	return (
 		<div className='deploy'>
-			<PreviewForm create={create}/>
-			<Contract/>
+			<PreviewPayment create={create} />
+			{create.paymentInfo ?
+				<Contract />
+				:
+				<CreateForm />}
 		</div>
 	)
 }
