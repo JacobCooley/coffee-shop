@@ -1,0 +1,31 @@
+@import "~styles/constants";
+@import "~styles/colors";
+
+label {
+  display: block;
+
+  input {
+    display: block;
+  }
+}
+
+
+label[id='symbol'] {
+  input {
+    text-transform: uppercase;
+  }
+}
+
+form{
+  flex: 1;
+  min-width: 400px;
+  padding-left: $large-padding;
+  padding-right: $large-padding;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  button{
+    align-self: flex-start;
+  }
+}
+

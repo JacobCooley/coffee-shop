@@ -1,0 +1,111 @@
+@import "~styles/constants";
+@import "~styles/colors";
+
+
+.payment-complete {
+  text-align: center;
+
+  button {
+    float: left;
+  }
+
+  button + button {
+    float: right;
+  }
+}
+
+.send-to {
+  > div {
+    div {
+      float: left;
+      margin-right: $small-margin;
+      margin-bottom: $med-margin;
+    }
+    div + div {
+      float: right;
+      margin-left: $small-margin;
+      margin-bottom: $med-margin;
+    }
+  }
+
+  svg {
+    padding-left: $small-margin;
+    cursor: pointer;
+  }
+}
+
+.status {
+  width: 250px;
+  min-width: 200px;
+  background: $white;
+  flex-direction: column;
+  padding: $large-padding;
+  > div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex: 1;
+  }
+}
+
+.preview {
+  width: 250px;
+  min-width: 200px;
+  background: $white;
+  border: 1px solid #ccc;
+  border-radius: $border-radius;
+  height: 100%;
+  padding: $large-padding;
+  margin-right: $large-margin;
+  margin-left: $large-margin;
+  line-height: 30px;
+}
+
+.paymentInfo {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  padding: $large-padding;
+  canvas{
+    padding: $large-padding;
+  }
+
+  .buttons {
+    display: block;
+    width: 100%;
+
+    button {
+      float: left;
+    }
+
+    button + button {
+      float: right;
+    }
+  }
+}
+
+.loading:after {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+  -webkit-animation: ellipsis steps(4,end) 900ms infinite;
+  animation: ellipsis steps(4,end) 900ms infinite;
+  content: "\2026"; /* ascii code for the ellipsis character */
+  width: 0px;
+}
+
+@keyframes ellipsis {
+  to {
+    width: 20px;
+  }
+}
+
+@-webkit-keyframes ellipsis {
+  to {
+    width: 20px;
+  }
+}
+
+
