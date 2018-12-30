@@ -7,7 +7,8 @@ const { Creators, Types } = createActions({
 	addError: ['error'],
 	tick: [],
 	setTick: ['tick'],
-	setContract: ['contract']
+	setContract: ['contract'],
+	setStatus: ['status']
 });
 
 export { Creators, Types };

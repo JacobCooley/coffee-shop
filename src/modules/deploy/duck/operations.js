@@ -8,6 +8,7 @@ const addError = Creators.addError
 const tick = Creators.tick
 const setTick = Creators.setTick
 const setContract = Creators.setContract
+const setStatus = Creators.setStatus
 
 const setTickInterval = (interval, dispatch) => new Promise((resolve, reject) => {
 	dispatch(setTick(interval))
@@ -40,5 +41,6 @@ export default {
 	setTickInterval,
 	setContract,
 	receiveCreateTokenAction,
-	setTick
+	setTick,
+	setStatus
 }

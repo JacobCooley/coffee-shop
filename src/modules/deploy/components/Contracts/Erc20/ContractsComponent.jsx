@@ -25,6 +25,7 @@ const ContractsComponent = ({ onChange, create, dispatch }) => {
 	}
 	const onSubmit = (e) => {
 		e.preventDefault()
+		console.log('onSubmit')
 		const socket = openSocket(socketUrl)
 		socket.on('id', (idObject) => {
 			const token = {
@@ -39,6 +40,9 @@ const ContractsComponent = ({ onChange, create, dispatch }) => {
 		})
 		socket.on('contract', (contract) => {
 			dispatch(operations.setContract(contract))
+		})
+		socket.on('status', (contract) => {
+			dispatch(operations.setStatus(contract))
 		})
 	}
 	

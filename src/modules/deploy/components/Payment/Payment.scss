@@ -1,7 +1,6 @@
 @import "~styles/constants";
 @import "~styles/colors";
 
-
 .payment-complete {
   text-align: center;
 
@@ -46,6 +45,40 @@
     justify-content: space-around;
     flex: 1;
   }
+  .loading:after {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: bottom;
+    -webkit-animation: ellipsis steps(5,end) 1400ms infinite;
+    animation: ellipsis steps(5,end) 1400ms infinite;
+    content: "\2026"; /* ascii code for the ellipsis character */
+    width: 0px;
+  }
+
+  @keyframes ellipsis {
+    to {
+      width: 20px;
+    }
+  }
+
+  @-webkit-keyframes ellipsis {
+    to {
+      width: 20px;
+    }
+  }
+  .waiting{
+    color: $grey;
+    font-style: italic;
+  }
+  .finished{
+    color: $green;
+  }
+  .finished::after{
+    content: '  ✓'
+  }
+  .error{
+    color: $red;
+  }
 }
 
 .preview {
@@ -69,7 +102,7 @@
   align-items: center;
   padding: $large-padding;
   canvas{
-    padding: $large-padding;
+    padding: $small-padding;
   }
 
   .buttons {
@@ -83,28 +116,6 @@
     button + button {
       float: right;
     }
-  }
-}
-
-.loading:after {
-  overflow: hidden;
-  display: inline-block;
-  vertical-align: bottom;
-  -webkit-animation: ellipsis steps(4,end) 900ms infinite;
-  animation: ellipsis steps(4,end) 900ms infinite;
-  content: "\2026"; /* ascii code for the ellipsis character */
-  width: 0px;
-}
-
-@keyframes ellipsis {
-  to {
-    width: 20px;
-  }
-}
-
-@-webkit-keyframes ellipsis {
-  to {
-    width: 20px;
   }
 }
 

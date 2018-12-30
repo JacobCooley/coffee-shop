@@ -9,7 +9,7 @@ import QRCode from 'qrcode.react'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { web3 } from '@common/utils/web3'
 import { toast } from 'react-toastify'
-
+import colors from 'styles/_colors.scss'
 
 class PaymentInfo extends React.Component {
 	constructor(props) {
@@ -39,6 +39,7 @@ class PaymentInfo extends React.Component {
 				timer: setInterval(() => {
 					if (this.props.tick === 0) {
 						this.timerStop()
+						this.setState({ timerFinished: true })
 					} else {
 						this.props.dispatch(operations.tick())
 					}
@@ -49,7 +50,6 @@ class PaymentInfo extends React.Component {
 	
 	timerStop() {
 		clearInterval(this.state.timer)
-		this.setState({ timerFinished: true })
 	}
 	
 	resetContract() {
@@ -71,12 +71,18 @@ class PaymentInfo extends React.Component {
 				from: accounts[0],
 				value: this.props.priceInWei
 			}, function (err, res) {
-				if(err) {
+				if (err) {
 					toast("Rejected Transaction", { type: 'error' })
-				} else{
+				} else {
 					toast("Transaction Sent", { type: 'info' })
 				}
 			})
+		}
+	}
+	
+	componentWillReceiveProps(newProps) {
+		if (!this.props.status.payed && newProps.status.payed) {
+			this.timerStop()
 		}
 	}
 	
@@ -95,9 +101,11 @@ class PaymentInfo extends React.Component {
 						<div className='send-to'>
 							<div>
 								<div><b>Send: </b>{`${this.props.web3.utils.fromWei(this.props.priceInWei)} ETH`}</div>
-								<div><b>In: </b>{`${this.props.tick} seconds`}</div>
+								{!this.props.status.payed ?
+									<div><b>In: </b>{`${this.props.tick} seconds`}</div>
+									: <div style={{color: colors['green']}}>Payment Sent!</div>}
 							</div>
-							<div style={{display: 'inline-flex'}}>{`${this.props.depositAddress}`}
+							<div style={{ display: 'inline-flex' }}>{`${this.props.depositAddress}`}
 								<CopyToClipboard
 									text={this.props.depositAddress}
 									onCopy={() => {
@@ -112,7 +120,7 @@ class PaymentInfo extends React.Component {
 							<Button text='Cancel' onClick={() => this.resetContract()} />
 							<Button disabled={!web3.currentProvider.isMetaMask} text='Pay using Metamask'
 									onClick={() => this.payWithMetaMask()} />
-							
+						
 						</div>
 					</>
 				}

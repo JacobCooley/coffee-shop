@@ -16,6 +16,7 @@ export const INITIAL_STATE = {
 	// 	priceInWei: '100000000000000',
 	// 	timeoutInSeconds: 500
 	// },
+	status:{},
 	tick: 0,
 	error: ''
 }
@@ -74,6 +75,17 @@ export const set_contract = (state = INITIAL_STATE, action) => {
 	}
 }
 
+export const set_status = (state = INITIAL_STATE, action) => {
+	const { status } = action
+	return {
+		...state,
+		status: {
+			...state.status,
+			...status
+		}
+	}
+}
+
 export const receive_create_token = (state = INITIAL_STATE, action) => {
 	const { paymentInfo } = action
 	return {
@@ -91,6 +103,7 @@ export const HANDLERS = {
 	[Types.TICK]: tick,
 	[Types.SET_TICK]: set_tick,
 	[Types.SET_CONTRACT]: set_contract,
+	[Types.SET_STATUS]: set_status,
 }
 
 export default createReducer(INITIAL_STATE, HANDLERS)

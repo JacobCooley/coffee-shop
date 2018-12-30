@@ -3,11 +3,11 @@ import PaymentCompleted from './components/PaymentCompleted'
 import Loader from '@components/Loader'
 import 'react-dropdown/style.css'
 import './Payment.scss'
-import PaymentForm from './components/PaymentInfo'
+import PaymentInfo from './components/PaymentInfo'
 import Status from './components/PaymentStatus'
 
 
-const PaymentComponent = ({ onChange, create, dispatch, web3, timerStart, timerStop }) => {
+const PaymentComponent = ({ create, dispatch, web3, timerStart, timerStop }) => {
 	const loading = create.loading
 	const paymentInfo = create.paymentInfo
 	const contractAddress = create.tokenInfo.contract
@@ -20,12 +20,12 @@ const PaymentComponent = ({ onChange, create, dispatch, web3, timerStart, timerS
 			<div className='form-window'>
 				{contractAddress ?
 					<PaymentCompleted contract={contractAddress} symbol={symbol} decimal={decimal} />
-					: <PaymentForm {...paymentInfo} dispatch={dispatch} web3={web3} timerStart={timerStart}
-									 timerStop={timerStop}
+					: <PaymentInfo {...paymentInfo} dispatch={dispatch} web3={web3} timerStart={timerStart}
+									 timerStop={timerStop} status={create.status}
 									 tick={create.tick} /> }
 			</div>
 			<div>
-				<Status/>
+				<Status status={create.status}/>
 			</div>
 		</>
 	)
