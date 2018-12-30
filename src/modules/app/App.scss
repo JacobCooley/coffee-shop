@@ -112,6 +112,7 @@ body {
 
 main {
   padding: $large-padding;
+  display: flex;
   flex-grow: 1;
 }
 

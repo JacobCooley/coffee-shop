@@ -24,14 +24,14 @@ class Dapps extends Component {
 	
 	render() {
 		return (
-			<>
+			<div style={{width: '100%'}}>
 				<div className='chains'>
 					<RadioBox name='chain' items={this.state.items} onChange={this.radioChange} />
 				</div>
 				<div className='dapps'>
 					{this.state.chain === 'ETH' ? <Ethereum history={this.props.history}/> : <Eos history={this.props.history}/>}
 				</div>
-			</>
+			</div>
 		
 		)
 	}
