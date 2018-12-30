@@ -25,7 +25,6 @@ const ContractsComponent = ({ onChange, create, dispatch }) => {
 	}
 	const onSubmit = (e) => {
 		e.preventDefault()
-		console.log('onSubmit')
 		const socket = openSocket(socketUrl)
 		socket.on('id', (idObject) => {
 			const token = {
