@@ -9,7 +9,8 @@ $header-text-color: $green;
 header {
   background: $dark-blue;
   display: grid;
-  height: 70px;
+  height: $header-height;
+  margin-top: -$header-height;
   grid-column: span 12;
   grid-template-columns: repeat(12, 1fr);
   div, img{

@@ -25,7 +25,11 @@ class PaymentForm extends React.Component {
 		if (web3.currentProvider.isMetaMask) {
 			this.payWithMetaMask()
 		}
-		PaymentForm.isLoggedIn()
+	}
+	
+	componentWillUnmount() {
+		this.timerStop()
+		this.resetContract()
 	}
 	
 	timerStart(interval) {
@@ -52,22 +56,26 @@ class PaymentForm extends React.Component {
 		this.props.dispatch(operations.receiveCreateTokenAction(null))
 	}
 	
-	static async isLoggedIn() {
-		const accounts = await web3.eth.getAccounts()
+	static isLoggedIn(accounts) {
 		if (accounts.length === 0) {
 			toast("If you are using Metamask, Please log in!", { type: 'warning' })
 		}
 		return accounts.length >= 0
 	}
 	
-	payWithMetaMask() {
-		if (PaymentForm.isLoggedIn()) {
+	async payWithMetaMask() {
+		const accounts = await web3.eth.getAccounts()
+		if (PaymentForm.isLoggedIn(accounts)) {
 			web3.eth.sendTransaction({
 				to: this.props.depositAddress,
 				from: accounts[0],
 				value: this.props.priceInWei
 			}, function (err, res) {
-				toast("Transaction Sent", { type: 'info' })
+				if(err) {
+					toast("Rejected Transaction", { type: 'error' })
+				} else{
+					toast("Transaction Sent", { type: 'info' })
+				}
 			})
 		}
 	}

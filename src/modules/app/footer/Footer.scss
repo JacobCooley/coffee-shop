@@ -4,11 +4,13 @@
 footer {
   background-color: $dark-blue;
   color: $white;
-  position:absolute;
+  position:relative;
+  clear: both;
+  margin-bottom: -$footer-height;
   bottom:0;
   width:100%;
   height: $footer-height;
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   div, a {

@@ -32,27 +32,26 @@
 }
 
 .preview {
-  grid-column: span 2;
-  min-height: 300px;
+  width: 200px;
+  float: left;
   background: $white;
-  align-self: flex-start;
   border: 1px solid #ccc;
   border-radius: $border-radius;
-  display: flex;
-  align-items: flex-start;
-  min-width: 100px;
+  height: 100%;
   padding: $large-padding;
-  flex-direction: column;
+  margin-right: $xx-large-margin;
+  margin-left: $large-margin;
   line-height: 30px;
 }
 
 .contract-form {
-  grid-column: 4 / span 6;
-  grid-gap: 5%;
-  min-width: 400px;
   background-color: $white;
+  border-radius: $border-radius;
+  min-width: 400px;
+  overflow: hidden;
   border: 1px solid #ccc;
-  height: fit-content;
+  margin-right: $large-margin;
+  height: 100%;
   padding: $large-padding;
 }
 

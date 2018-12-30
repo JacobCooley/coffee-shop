@@ -34,17 +34,22 @@
   }
 }
 
-* {
+*, *:before, *:after {
   font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
 }
 
 div[id='app'] {
-  min-height: 100%;
-  position: relative;
+  padding: $header-height 0 $footer-height 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 html, body {
-  height: 100%;
+  min-height: 100% !important;
 }
 
 html, body, div, span, ul, li {
@@ -108,8 +113,9 @@ body {
 
 main {
   padding: $large-padding;
-  padding-bottom: $footer-height + 20px;
-  grid-column: span 6;
+  width: 100%;
+  min-height: 100% !important;
+  display: inline-block;
 }
 
 /*

@@ -11,11 +11,11 @@ export const INITIAL_STATE = {
 		// contract: '0xoifejoisdjfosadijfsoiafdjaisdjf',
 		decimal: '10'
 	},
-	paymentInfo: {
-		depositAddress: '0xfdskjdsfjdfskj',
-		priceInWei: '100000000000000',
-		timeoutInSeconds: 500
-	},
+	// paymentInfo: {
+	// 	depositAddress: '0xfdskjdsfjdfskj',
+	// 	priceInWei: '100000000000000',
+	// 	timeoutInSeconds: 500
+	// },
 	tick: 0,
 	error: ''
 }
