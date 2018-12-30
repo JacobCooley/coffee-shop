@@ -8,7 +8,7 @@ const Deploy = ({ create }) => {
 	return (
 		<div className='deploy'>
 			<PreviewPayment create={create} />
-			{create.paymentInfo && !create.tokenInfo.contract ?
+			{create.paymentInfo || create.tokenInfo.contract ?
 				<Contract />
 				:
 				<CreateForm />}

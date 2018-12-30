@@ -23,13 +23,17 @@ const PaymentCompleted = ({ contract, symbol, decimal }) => {
 	
 	return (
 		<div className='payment-complete'>
-			<h3>Contract Address</h3>
-			<div>{contract}</div>
-			<Button onClick={() => window.open(
-				`${etherScanUrl}`,
-				'_blank'
-			)} text='View on Etherscan' />
-			<Button disabled={!web3.currentProvider.isMetaMask} onClick={addToMetaMask} text='Add to MetaMask' />
+			<div>
+				<h3>Contract Address</h3>
+				<div>{contract}</div>
+			</div>
+			<div>
+				<Button onClick={() => window.open(
+					`${etherScanUrl}`,
+					'_blank'
+				)} text='View on Etherscan' />
+				<Button disabled={!web3.currentProvider.isMetaMask} onClick={addToMetaMask} text='Add to MetaMask' />
+			</div>
 		</div>
 	)
 }
