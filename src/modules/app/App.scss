@@ -40,16 +40,15 @@
 }
 
 div[id='app'] {
-  padding: $header-height 0 $footer-height 0;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 
 html, body {
-  min-height: 100% !important;
+  width: 100%;
+  height: 100%;
 }
 
 html, body, div, span, ul, li {
@@ -113,9 +112,7 @@ body {
 
 main {
   padding: $large-padding;
-  width: 100%;
-  min-height: 100% !important;
-  display: inline-block;
+  flex-grow: 1;
 }
 
 /*

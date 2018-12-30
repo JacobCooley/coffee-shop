@@ -5,10 +5,10 @@ import PreviewForm from './components/Contract/components/PreviewForm'
 
 const Deploy = ({create}) => {
 	return (
-		<div className='deploy'>
+		<>
 			<PreviewForm create={create}/>
 			<Contract/>
-		</div>
+		</>
 	)
 }
 

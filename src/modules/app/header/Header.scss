@@ -7,10 +7,10 @@ $header-text-color: $green;
   color: $white !important;
 }
 header {
+  flex-shrink: 0;
   background: $dark-blue;
   display: grid;
   height: $header-height;
-  margin-top: -$header-height;
   grid-column: span 12;
   grid-template-columns: repeat(12, 1fr);
   div, img{
