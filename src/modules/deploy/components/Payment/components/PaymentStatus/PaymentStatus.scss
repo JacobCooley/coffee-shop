@@ -1,0 +1,56 @@
+@import "~styles/constants";
+@import "~styles/colors";
+
+@media (max-width: 1024px) {
+  .status{
+    width: auto !important;
+  }
+}
+
+.status {
+  width: 250px;
+  min-width: 200px !important;
+  background: $white;
+  flex-direction: column;
+  padding: $large-padding;
+  > div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex: 1;
+  }
+  .loading:after {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: bottom;
+    -webkit-animation: ellipsis steps(5,end) 1400ms infinite;
+    animation: ellipsis steps(5,end) 1400ms infinite;
+    content: "\2026"; /* ascii code for the ellipsis character */
+    width: 0px;
+  }
+
+  @keyframes ellipsis {
+    to {
+      width: 20px;
+    }
+  }
+
+  @-webkit-keyframes ellipsis {
+    to {
+      width: 20px;
+    }
+  }
+  .waiting{
+    color: $grey;
+    font-style: italic;
+  }
+  .finished{
+    color: $green;
+  }
+  .finished::after{
+    content: '  ✓'
+  }
+  .error{
+    color: $red;
+  }
+}

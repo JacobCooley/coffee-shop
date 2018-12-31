@@ -1,0 +1,25 @@
+@import '~styles/colors';
+@import '~styles/constants';
+
+@media (max-width: 1024px) {
+  .preview{
+    max-width: none !important;
+    height: fit-content !important;
+    flex: none !important;
+    line-height: normal !important;
+  }
+}
+
+.preview {
+  max-width: 250px;
+  min-width: 200px;
+  flex: 1;
+  background: $white;
+  border: 1px solid #ccc;
+  border-radius: $border-radius;
+  height: 100%;
+  padding: $large-padding;
+  margin-right: $large-margin;
+  margin-left: $large-margin;
+  line-height: 30px;
+}

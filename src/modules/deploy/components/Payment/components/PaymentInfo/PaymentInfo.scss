@@ -1,0 +1,110 @@
+@import "~styles/constants";
+@import "~styles/colors";
+@import "~styles/classes";
+@media (max-width: 480px) {
+  .send-to {
+    width: inherit !important;
+    > div {
+      div {
+        float: none !important;
+      }
+
+      div + div {
+        float: none !important;
+        margin-left: 0 !important;
+      }
+    }
+  }
+  .paymentInfo{
+    canvas{
+      height: 128px !important;
+      width: 128px !important;
+    }
+  }
+}
+@media (max-width: 1024px) {
+  .paymentInfo{
+    min-width: inherit;
+    width: 100%;
+  }
+  .buttons {
+    text-align: center;
+    margin-top: $med-margin;
+    button {
+      float: none !important;
+      width: 150px !important;
+    }
+
+    button + button {
+      float: none !important;
+      width: 150px !important;
+      margin-top: $small-margin;
+    }
+  }
+  .send-to {
+    width: inherit !important;
+    > div:nth-child(2){
+      display: inline-block !important;
+    }
+    svg{
+
+    }
+  }
+}
+
+.paymentInfo {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  padding: $large-padding;
+  canvas{
+    padding: $small-padding;
+  }
+  .timeoutButton{
+    display: block;
+    margin: auto;
+    margin-top: $large-margin;
+  }
+
+  .buttons {
+    display: block;
+    width: 100%;
+
+    button {
+      float: left;
+      margin-right: $med-margin;
+    }
+
+    button + button {
+      float: right;
+    }
+  }
+  .send-to {
+    > div {
+      div {
+        float: left;
+        margin-right: $small-margin;
+        margin-bottom: $med-margin;
+      }
+      div + div {
+        float: right;
+        margin-left: $small-margin;
+        margin-bottom: $med-margin;
+      }
+    }
+    > div:nth-child(2){
+      width: inherit;
+      text-align: center;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      @extend .unselectable
+    }
+    svg {
+      margin-left: $small-margin;
+      cursor: pointer;
+    }
+  }
+}
