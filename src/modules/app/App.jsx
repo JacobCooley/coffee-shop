@@ -19,7 +19,7 @@ class App extends Component {
 		this.props.dispatchEthModule()
 		if(web3.currentProvider.isMetaMask && (getNetwork() !== '3' && getNetwork()!== '1001')){
 			console.log(getNetwork())
-			toast("Please select Ropsten test network in Metamask", {type: 'error', autoClose: 100000})
+			toast("Please select Ropsten test network in Metamask", {type: 'error', autoClose: false, closeOnClick: false})
 		}
 	}
 	
