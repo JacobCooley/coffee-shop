@@ -26,7 +26,7 @@ class App extends Component {
 									draggable={false}
 									closeButton={<></>}
 									hideProgressBar={true} position={toast.POSITION.TOP_CENTER}
-									autoClose={300000} pauseOnFocusLoss={false} />
+									autoClose={3000} pauseOnFocusLoss={false} />
 					<Header />
 					<main>
 						<Switch>
