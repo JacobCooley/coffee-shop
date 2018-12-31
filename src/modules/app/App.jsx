@@ -12,10 +12,15 @@ import Deploy from '@deploy'
 import './App.scss'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { getNetwork, web3 } from '@common/utils/web3'
 
 class App extends Component {
 	componentDidMount() {
 		this.props.dispatchEthModule()
+		if(web3.currentProvider.isMetaMask && (getNetwork() !== '3' && getNetwork()!== '1001')){
+			console.log(getNetwork())
+			toast("Please select Ropsten test network in Metamask", {type: 'error', autoClose: 100000})
+		}
 	}
 	
 	render() {

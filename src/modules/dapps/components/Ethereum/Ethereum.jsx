@@ -1,7 +1,7 @@
 import React from 'react'
 import './Ethereum.scss'
 import Card from '@components/Card'
-import eth from '@icons/ethereum-cash.svg'
+import eth from '@icons/eth.svg'
 
 
 const Ethereum = ({history}) => {

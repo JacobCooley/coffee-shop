@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import './Dapps.scss'
 import Ethereum from '@ethereum/'
 import Eos from '@eos/'
-import eth from '@assets/icons/ethereum-cash.svg'
+import ethIcon from '@icons/ethtrans.svg'
+import eosIcon from '@icons/eos.svg'
 import RadioBox from '@components/RadioBox'
 
 class Dapps extends Component {
@@ -12,8 +13,8 @@ class Dapps extends Component {
 			chain: 'ETH',
 			items:
 				[
-					{ symbol: 'ETH', image: eth, url: '/ethereum' },
-					{ symbol: 'EOS', image: eth, url: '/eos' }
+					{ symbol: 'ETH', image: ethIcon, url: '/ethereum' },
+					{ symbol: 'EOS', image: eosIcon, url: '/eos' }
 				]
 		}
 	}
