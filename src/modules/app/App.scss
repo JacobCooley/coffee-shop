@@ -8,6 +8,7 @@
     width: fit-content;
     transform: translateX(-50%);
     margin-left: 0;
+
     .Toastify__toast {
       min-height: 30px !important;
       border-radius: $border-radius !important;
@@ -28,6 +29,7 @@
     .Toastify__toast--error {
       background-color: $red;
     }
+
     .Toastify__toast--error {
       background-color: $yellow;
     }
@@ -166,8 +168,10 @@ main {
 */
 
 @media (min-width: 481px) and (max-width: 767px) {
-
-  //CSS
+  h3 {
+    margin-top: $med-margin !important;
+    margin-bottom: $med-margin !important;
+  }
 
 }
 
@@ -177,7 +181,8 @@ main {
 */
 
 @media (min-width: 320px) and (max-width: 480px) {
-
-  //CSS
-
+  h3 {
+    margin-top: $small-margin !important;
+    margin-bottom: $small-margin !important;
+  }
 }

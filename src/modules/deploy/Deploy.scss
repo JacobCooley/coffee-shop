@@ -1,6 +1,20 @@
 @import "~styles/constants";
 @import "~styles/colors";
 
+@media (max-width: 1024px) {
+    .deploy{
+      flex-direction: column;
+    }
+
+}
+
+//@media (min-width: 768px) and (max-width: 1024px) {
+//
+//  .deploy{
+//    flex-direction: column;
+//  }
+//
+//}
 
 .deploy{
   width: 100%;

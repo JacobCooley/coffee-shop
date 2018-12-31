@@ -3,7 +3,7 @@ import PaymentCompleted from './components/PaymentCompleted'
 import Loader from '@components/Loader'
 import 'react-dropdown/style.css'
 import './Payment.scss'
-import PaymentInfo from './components/PaymentInfo'
+import PaymentInfo from './components/PaymentInfo/PaymentInfo'
 import Status from './components/PaymentStatus'
 
 
