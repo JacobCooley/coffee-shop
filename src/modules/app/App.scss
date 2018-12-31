@@ -180,7 +180,13 @@ main {
   ##Screen = B/w 320px to 479px
 */
 
-@media (min-width: 320px) and (max-width: 480px) {
+@media (max-width: 480px) {
+  .Toastify {
+    .Toastify__toast-container--top-center {
+      width: 100% !important;
+      transform: none !important;
+    }
+  }
   h3 {
     margin-top: $small-margin !important;
     margin-bottom: $small-margin !important;
