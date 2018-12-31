@@ -1,7 +1,7 @@
 import React from 'react'
 import './Deploy.scss'
 import Contract from './components/Payment'
-import PreviewPayment from './components/Payment/components/PaymentPreview'
+import PreviewPayment from './components/Payment/components/PaymentPreview/PaymentPreview'
 import CreateForm from '@modules/deploy/components/Contracts/Erc20'
 
 const Deploy = ({ create }) => {

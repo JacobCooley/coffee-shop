@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaFacebookSquare, FaTwitterSquare, FaTelegramPlane, FaLinkedin, FaSlack } from 'react-icons/fa';
+import { FaFacebookSquare, FaTwitterSquare, FaTelegramPlane, FaLinkedin, FaSlack, FaGooglePlusSquare } from 'react-icons/fa';
 import './Footer.scss'
 
 const Footer = () => {
@@ -10,6 +10,7 @@ const Footer = () => {
 				<a><FaTwitterSquare /></a>
 				<a><FaTelegramPlane /></a>
 				<a><FaSlack /></a>
+				<a><FaGooglePlusSquare /></a>
 				<a target='_blank' href='https://www.linkedin.com/in/jacob-cooley-03a1396b/'><FaLinkedin /></a>
 			</div>
 			<div className='site-info'>

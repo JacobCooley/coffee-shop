@@ -12,6 +12,9 @@ $header-text-color: $green;
     nav[id='mobile'] {
       display: flex !important;
     }
+    img{
+      height: 45px !important;
+    }
   }
 }
 
@@ -52,7 +55,7 @@ header {
       flex-direction: column;
       display: none;
       position: fixed;
-      top: 70px;
+      top: $header-height;
       left: 0;
       right: 0;
       background-color: $white;
@@ -62,17 +65,17 @@ header {
       display: flex;
       align-items: center;
       padding: 14px 16px;
-    }
-    a {
       color: $header-text-color;
       font-size: $large-font-size;
       text-decoration: none;
       font-weight: bolder;
       vertical-align: center;
+      border-bottom: 1px solid $green;
     }
     svg{
       color: $green;
       font-size: 22px;
+      margin-right: $large-margin;
     }
   }
 

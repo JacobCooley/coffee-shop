@@ -93,8 +93,8 @@ class PaymentInfo extends React.Component {
 					<>
 						<div>
 							Time is up! Please try again
+							<Button className='timeoutButton' onClick={() => this.resetContract()} text='Try Again' />
 						</div>
-						<Button onClick={() => this.resetContract()} text='Try Again' />
 					</>
 					:
 					<>

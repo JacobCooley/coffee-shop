@@ -4,7 +4,7 @@ import {FaBars} from 'react-icons/fa'
 import TokenLauncher from '@assets/icons/TokenLauncherGreen.svg'
 import './Header.scss'
 
-const HeaderComponent = () => {
+const HeaderComponent = ({history}) => {
 	const openHamburger = () => {
 		const x = document.getElementById("links");
 		if (x.style.display === "flex") {
@@ -23,8 +23,8 @@ const HeaderComponent = () => {
 			</nav>
 			<nav className='nav' id='mobile'>
 				<ul onClick={() => openHamburger()} id='links'>
-					<li><Link to='/'>Home</Link></li>
-					<li><Link to='/dapps'>Create</Link></li>
+					<Link to={'/'}><li>Home</li></Link>
+					<Link to={'/dapps'}><li>Create</li></Link>
 				</ul>
 				<FaBars onClick={() => openHamburger()}/>
 			</nav>

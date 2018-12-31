@@ -16,9 +16,10 @@ export const INITIAL_STATE = {
 	// 	priceInWei: '100000000000000',
 	// 	timeoutInSeconds: 500
 	// },
-	status:{},
-	tick: 0,
-	error: ''
+	status:{
+		error: {}
+	},
+	tick: 0
 }
 
 export const tick = (state = INITIAL_STATE) => {
