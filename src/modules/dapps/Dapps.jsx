@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './Dapps.scss'
 import Ethereum from '@ethereum/'
 import Eos from '@eos/'
-import ethIcon from '@icons/ethtrans.svg'
+import ethIcon from '@icons/eth.svg'
 import eosIcon from '@icons/eos.svg'
 import RadioBox from '@components/RadioBox'
 

@@ -2,6 +2,7 @@
 @import '~styles/constants';
 
 footer {
+  min-width: 320px;
   background-color: $dark-blue;
   color: $white;
   flex-shrink: 0;

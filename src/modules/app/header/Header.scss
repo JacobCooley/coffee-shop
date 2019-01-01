@@ -28,7 +28,7 @@ header {
   height: $header-height;
   grid-column: span 12;
   grid-template-columns: repeat(12, 1fr);
-
+  min-width: 320px;
   div, img {
     grid-column: span 4;
     display: inline-flex;
