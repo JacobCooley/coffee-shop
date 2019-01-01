@@ -1,5 +1,6 @@
 import React from 'react'
 import './PaymentStatus.scss'
+import TL from '@icons/LogoBlack.svg'
 
 const PaymentStatus = ({status}) => {
 	const payed = status.payed
@@ -19,6 +20,7 @@ const PaymentStatus = ({status}) => {
 				<div className={`${deployed ? 'finished' : built ? 'loading' : 'waiting'}`}>Deploying Contract</div>
 				<div className={`${created ? 'finished' : deployed ? 'loading' : 'waiting'}`}>Contract Created!</div>
 				<div className={`error`}>{error ? 'There was an error!!' : ''}</div>
+				<img src={TL} />
 			</div>
 		</div>
 	)
