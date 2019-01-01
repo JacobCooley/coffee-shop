@@ -10,7 +10,7 @@ const Card = ({ title, description, image, price, onClick, disabled }) => (
 			</div>
 			<img src={`${image}`} />
 			<p>{description}</p>
-			{disabled ? <div className='warning'>DISABLED</div> : null}
+			{disabled ? <div className='warning'>NOT AVAILABLE</div> : null}
 		</div>
 	</>
 )

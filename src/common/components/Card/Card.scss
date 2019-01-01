@@ -59,10 +59,6 @@ $text-color: $black;
   div{
     color: $text-color;
   }
-  .disabled:hover{
-    background-color: rgba($black, 0.1) !important;
-    box-shadow: 0 4px 14px 0 rgba(0,0,0,.2) !important;
-  }
 }
 
 .outer-card:hover{
@@ -70,3 +66,7 @@ $text-color: $black;
   background-color: rgba($card-color, $hover-density);
 }
 
+.disabled:hover{
+  background-color: rgba($black, 0.1) !important;
+  box-shadow: 0 4px 14px 0 rgba(0,0,0,.2) !important;
+}
