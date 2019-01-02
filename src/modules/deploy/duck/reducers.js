@@ -10,6 +10,11 @@ export const INITIAL_STATE = {
 		// supply: '100000000',
 		// contract: '0xoifejoisdjfosadijfsoiafdjaregdgisdjf',
 		// decimal: '10'
+		name: '',
+		owner: '',
+		symbol: '',
+		supply: '100000000',
+		decimal: '18'
 	},
 	// paymentInfo: {
 	// 	depositAddress: '0xfdskjdsfjdfskj',
