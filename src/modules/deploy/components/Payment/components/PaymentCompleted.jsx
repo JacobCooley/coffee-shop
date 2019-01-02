@@ -24,10 +24,10 @@ const PaymentCompleted = ({ contract, symbol, decimal }) => {
 	return (
 		<div className='payment-complete form-window'>
 			<div>
-				<h3>Contract Address</h3>
+				<h2>Contract Address</h2>
 				<div>{contract}</div>
 			</div>
-			<div className='buttons'>
+			<div className='complete-buttons'>
 				<Button onClick={() => window.open(
 					`${etherScanUrl}`,
 					'_blank'
