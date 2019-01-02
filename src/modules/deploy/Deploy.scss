@@ -33,3 +33,14 @@
   margin-left: $large-margin;
   margin-right: $large-margin;
 }
+
+.form-window-block {
+  @extend .form-window;
+  justify-content: center;
+}
+
+@media (max-width: 1024px) {
+  .form-window-block {
+    display: block !important;
+  }
+}

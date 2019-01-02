@@ -5,6 +5,7 @@ import 'react-dropdown/style.css'
 import './Payment.scss'
 import PaymentInfo from './components/PaymentInfo/PaymentInfo'
 import Status from './components/PaymentStatus'
+import PaymentPreview from './components/PaymentPreview'
 
 
 const PaymentComponent = ({ create, dispatch, web3, timerStart, timerStop }) => {
@@ -17,15 +18,15 @@ const PaymentComponent = ({ create, dispatch, web3, timerStart, timerStop }) => 
 	return (
 		<>
 			{loading ? <Loader /> : null}
-			<div className='form-window'>
+			<PaymentPreview {...paymentInfo} web3={web3} />
+			<>
 				{contractAddress ?
 					<PaymentCompleted contract={contractAddress} symbol={symbol} decimal={decimal} />
 					: <PaymentInfo {...paymentInfo} dispatch={dispatch} web3={web3} timerStart={timerStart}
-									 timerStop={timerStop} status={create.status}
-									 tick={create.tick} /> }
-			</div>
-			<div>
-			</div>
+								   timerStop={timerStop} status={create.status}
+								   tick={create.tick} />}
+			</>
+			<Status status={create.status} />
 		</>
 	)
 }

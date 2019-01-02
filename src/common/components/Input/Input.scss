@@ -5,6 +5,8 @@
   p{
     color: $grey-text;
     font-style: italic;
+    margin-top: $med-margin;
+    margin-bottom: $med-margin;
   }
   label {
     font-size: 14px;
@@ -16,6 +18,7 @@
       height: $input-height;
       padding-left: $med-padding;
       border-radius: $border-radius;
+      margin-bottom: $med-margin;
       border: 1px solid #cccccc;
       background-color: $grey;
     }

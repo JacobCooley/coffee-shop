@@ -4,21 +4,27 @@
 @media (max-width: 1024px) {
   .status{
     width: auto !important;
+    max-width: none !important;
   }
 }
 
 .status {
-  max-width: 250px;
-  min-width: 200px;
-  margin-top: $large-margin;
+  min-width: 240px;
+  max-width: 300px;
   background: $white;
   flex-direction: column;
+  flex: 1;
   padding: $large-padding;
-  height: fit-content;
+  height: 100%;
   > div{
     display: flex;
     flex-direction: column;
     flex: 1;
+    > div{
+      font-size: 20px;
+      margin-top: $med-margin;
+      margin-bottom: $med-margin;
+    }
   }
   .loading:after {
     overflow: hidden;

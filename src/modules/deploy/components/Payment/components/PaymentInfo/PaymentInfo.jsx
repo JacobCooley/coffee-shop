@@ -88,44 +88,48 @@ class PaymentInfo extends React.Component {
 	
 	render() {
 		return (
-			<div className='paymentInfo'>
+			<>
 				{this.state.timerFinished ?
 					<>
-						<div>
+						<div className='timeUp form-window'>
 							Time is up! Please try again
 							<Button className='timeoutButton' onClick={() => this.resetContract()} text='Try Again' />
 						</div>
 					</>
 					:
-					<>
-						<div className='send-to'>
-							<div>
-								<div><b>Send: </b>{`${this.props.web3.utils.fromWei(this.props.priceInWei)} ETH`}</div>
-								{!this.props.status.payed ?
-									<div><b>In: </b>{`${this.props.tick} seconds`}</div>
-									: <div style={{ color: colors['green'] }}>Payment Sent!</div>}
+					<div className='form-window-block'>
+						<div className='paymentInfo'>
+							<div className='send-to'>
+								<div>
+									<div><b>Send: </b>{`${this.props.web3.utils.fromWei(this.props.priceInWei)} ETH`}
+									</div>
+									{!this.props.status.payed ?
+										<div><b>In: </b>{`${this.props.tick} seconds`}</div>
+										: <div style={{ color: colors['green'] }}>Payment Sent!</div>}
+								</div>
+							
 							</div>
+							<QRCode size={256} value={this.props.depositAddress} />
 							<CopyToClipboard
 								text={this.props.depositAddress}
 								onCopy={() => {
 									toast('Copied!', { type: 'info' })
 								}}>
-								<div style={{ display: 'inline-flex' }}>{`${this.props.depositAddress}`}
-									
+								<div>
+									{`${this.props.depositAddress}`}
 									<FaRegCopy />
 								</div>
 							</CopyToClipboard>
+							<div className='buttons'>
+								<Button disabled={!web3.currentProvider.isMetaMask} text='Pay using Metamask'
+										onClick={() => this.payWithMetaMask()} />
+								<Button text='Cancel' onClick={() => this.resetContract()} />
+							
+							</div>
 						</div>
-						<QRCode size={256} value={this.props.depositAddress} />
-						<div className='buttons'>
-							<Button text='Cancel' onClick={() => this.resetContract()} />
-							<Button disabled={!web3.currentProvider.isMetaMask} text='Pay using Metamask'
-									onClick={() => this.payWithMetaMask()} />
-						
-						</div>
-					</>
+					</div>
 				}
-			</div>
+			</>
 		)
 	}
 }

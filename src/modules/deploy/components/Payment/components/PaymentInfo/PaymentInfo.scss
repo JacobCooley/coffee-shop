@@ -1,9 +1,13 @@
 @import "~styles/constants";
 @import "~styles/colors";
 @import "~styles/classes";
+
+$max-width: 600px;
+
 @media (max-width: 480px) {
   .send-to {
     width: inherit !important;
+    text-align: center;
     > div {
       div {
         float: none !important;
@@ -15,17 +19,12 @@
       }
     }
   }
+
   .paymentInfo{
     canvas{
       height: 128px !important;
       width: 128px !important;
     }
-  }
-}
-@media (max-width: 1024px) {
-  .paymentInfo{
-    min-width: inherit;
-    width: 100%;
   }
   .buttons {
     text-align: center;
@@ -38,29 +37,76 @@
     button + button {
       float: none !important;
       width: 150px !important;
-      margin-top: $small-margin;
+    }
+  }
+}
+@media (max-width: 1024px) {
+  .paymentInfo{
+    width: 100%;
+    flex: none !important;
+  }
+  .buttons {
+    text-align: center;
+    margin-top: $med-margin;
+    button {
+      float: left;
+      width: 150px !important;
+    }
+
+    button + button {
+      float: right;
+      width: 150px !important;
     }
   }
   .send-to {
-    width: inherit !important;
-    > div:nth-child(2){
-      display: inline-block !important;
-    }
-    svg{
-
-    }
+    max-width: $max-width;
   }
+}
+
+@media (min-width: 1024px) and (max-width: 1281px) {
+  .paymentInfo {
+    font-size: 20px !important;
+  }
+}
+
+@media (min-width: 1281px) {
+  .paymentInfo {
+    font-size: 22px !important;
+  }
+  button{
+    font-size: 18px !important;
+  }
+}
+
+.timeUp{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .paymentInfo {
   display: flex;
-  flex: 1;
-  justify-content: space-between;
   flex-direction: column;
+  font-size: 20px;
+  justify-content: space-evenly;
   align-items: center;
   padding: $large-padding;
+
   canvas{
     padding: $small-padding;
+  }
+  > canvas + div{
+    width: inherit;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    margin-top: $small-margin;
+    margin-bottom: $small-margin;
+    @extend .unselectable;
   }
   .timeoutButton{
     display: block;
@@ -71,17 +117,17 @@
   .buttons {
     display: block;
     width: 100%;
-
+    max-width: $max-width;
     button {
-      float: left;
-      margin-right: $med-margin;
+      width: 100%;
     }
-
     button + button {
-      float: right;
+      margin-bottom: 0 !important;
     }
   }
   .send-to {
+    max-width: $max-width;
+    width: 100%;
     > div {
       div {
         float: left;
@@ -93,15 +139,6 @@
         margin-left: $small-margin;
         margin-bottom: $med-margin;
       }
-    }
-    > div:nth-child(2){
-      width: inherit;
-      text-align: center;
-      text-overflow: ellipsis;
-      overflow: hidden;
-      white-space: nowrap;
-      cursor: pointer;
-      @extend .unselectable;
     }
     svg {
       margin-left: $small-margin;

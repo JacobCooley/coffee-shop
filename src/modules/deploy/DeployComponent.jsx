@@ -1,17 +1,15 @@
 import React from 'react'
 import './Deploy.scss'
-import Contract from './components/Payment'
-import PreviewPayment from './components/Payment/components/PaymentPreview/PaymentPreview'
-import CreateForm from '@modules/deploy/components/Contracts/Erc20'
-import Status from './components/Payment/components/PaymentStatus'
+import Payment from './components/Payment'
+import Erc20 from '@modules/deploy/components/Contracts/Erc20'
 
 const Deploy = ({ create }) => {
 	return (
 		<div className='deploy'>
 			{create.paymentInfo || create.tokenInfo.contract ?
-				<Contract />
+				<Payment />
 				:
-				<CreateForm />}
+				<Erc20 />}
 		</div>
 	)
 }
