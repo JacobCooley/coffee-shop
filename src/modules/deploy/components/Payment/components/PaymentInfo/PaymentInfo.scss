@@ -100,10 +100,10 @@ $max-width: 600px;
   > canvas + div{
     width: inherit;
     text-align: center;
-    @extend .ellipsize;
     cursor: pointer;
     margin-top: $small-margin;
     margin-bottom: $small-margin;
+    @extend .ellipsize;
     @extend .unselectable;
   }
   .timeoutButton{
