@@ -4,8 +4,13 @@
 .dropdown {
   label {
     margin-right: $med-margin;
+    margin-bottom: $large-margin;
     font-size: 14px;
     font-weight: bold;
+    p{
+      color: $grey-text;
+      font-style: italic;
+    }
     input {
       width: 100%;
       height: 25px;

@@ -2,9 +2,14 @@
 @import "~styles/constants";
 
 .input {
+  p{
+    color: $grey-text;
+    font-style: italic;
+  }
   label {
     font-size: 14px;
     font-weight: bold;
+    margin-bottom: $large-margin;
     input {
       width: 100%;
       margin-top: $small-margin;

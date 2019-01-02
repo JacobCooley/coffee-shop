@@ -60,7 +60,6 @@ module.exports = {
 		alias: {
 			'@app': path.resolve(__dirname, 'src/modules/app'),
 			'@assets': path.resolve(__dirname, 'src/assets/'),
-			'@cryptoicons': path.resolve(__dirname, './node_modules/cryptocurrency-icons/svg/'),
 			'@components': path.resolve(__dirname, 'src/common/components/'),
 			'@modules': path.resolve(__dirname, 'src/modules/'),
 			'@common': path.resolve(__dirname, 'src/common/'),

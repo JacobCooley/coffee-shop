@@ -20,7 +20,6 @@ const PaymentStatus = ({status}) => {
 				<div className={`${deployed ? 'finished' : built ? 'loading' : 'waiting'}`}>Deploying Contract</div>
 				<div className={`${created ? 'finished' : deployed ? 'loading' : 'waiting'}`}>Contract Created!</div>
 				<div className={`error`}>{error ? 'There was an error!!' : ''}</div>
-				<img src={TL} />
 			</div>
 		</div>
 	)

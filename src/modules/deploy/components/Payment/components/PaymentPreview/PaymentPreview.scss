@@ -13,11 +13,10 @@
 .preview {
   max-width: 250px;
   min-width: 200px;
-  flex: 1;
   background: $white;
   border: 1px solid #ccc;
   border-radius: $border-radius;
-  height: 100%;
+  height: fit-content;
   padding: $large-padding;
   margin-right: $large-margin;
   margin-left: $large-margin;

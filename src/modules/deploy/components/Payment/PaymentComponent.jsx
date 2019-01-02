@@ -25,7 +25,6 @@ const PaymentComponent = ({ create, dispatch, web3, timerStart, timerStop }) => 
 									 tick={create.tick} /> }
 			</div>
 			<div>
-				<Status status={create.status}/>
 			</div>
 		</>
 	)

@@ -64,9 +64,13 @@ html, body, div, span, ul, li {
   background: transparent;
   color: $black;
 }
-
+label, p{
+  color: $charcoal;
+}
 h1, h2, h3, h4 {
-  color: $black;
+  color: $charcoal;
+  margin-top: $med-margin;
+  margin-bottom: $med-margin;
 }
 
 button:hover, a:hover {

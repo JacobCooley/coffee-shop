@@ -4,9 +4,6 @@
 @media (max-width: 1024px) {
   form{
     justify-content: space-between;
-    button{
-      margin-top: $med-margin;
-    }
   }
   .form-window{
     margin-top: $large-margin !important;
@@ -30,15 +27,32 @@ label[id='symbol'] {
   }
 }
 
-form{
-  flex: 1;
-  padding-left: $large-padding;
-  padding-right: $large-padding;
+.contract {
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
-  button{
-    align-self: flex-start;
+  max-width: 1000px;
+  .contract-header{
+    display: flex;
+    align-items: center;
+    img{
+      padding: 15px;
+      height: 100px;
+      float: left;
+    }
+  }
+  form {
+    flex: 1;
+    padding-left: $large-padding;
+    margin-top: $med-margin;
+    padding-right: $large-padding;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+
+    button {
+      align-self: flex-start;
+    }
   }
 }
 

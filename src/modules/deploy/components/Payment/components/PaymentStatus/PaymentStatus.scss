@@ -8,15 +8,16 @@
 }
 
 .status {
-  width: 250px;
-  min-width: 200px !important;
+  max-width: 250px;
+  min-width: 200px;
+  margin-top: $large-margin;
   background: $white;
   flex-direction: column;
   padding: $large-padding;
+  height: fit-content;
   > div{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     flex: 1;
   }
   .loading:after {
