@@ -28,7 +28,9 @@ const ContractsComponent = ({ onChange, create, dispatch }) => {
 	}
 	const onSubmit = (e) => {
 		e.preventDefault()
-		const socket = openSocket(socketUrl)
+		const socket = openSocket(socketUrl, {
+			reconnection: false
+		})
 		socket.on('id', (idObject) => {
 			const token = {
 				name,
@@ -47,7 +49,7 @@ const ContractsComponent = ({ onChange, create, dispatch }) => {
 			dispatch(operations.setStatus(contract))
 		})
 		socket.on('connect_error', (err) => {
-			toast("There was an error connecting to the server... Trying again.", { type: 'error' })
+			toast("Could not connect to the server", { type: 'error' })
 		})
 	}
 	
