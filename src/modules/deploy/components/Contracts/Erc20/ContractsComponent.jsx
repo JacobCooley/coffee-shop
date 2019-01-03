@@ -9,6 +9,7 @@ import openSocket from 'socket.io-client'
 import { socketUrl } from '@common/utils/constants'
 import ContractsHeader from '@modules/deploy/components/Contracts/components/ContractsHeader'
 import ethIcon from '@icons/eth.svg'
+import { toast } from 'react-toastify'
 
 
 const ContractsComponent = ({ onChange, create, dispatch }) => {
@@ -44,6 +45,9 @@ const ContractsComponent = ({ onChange, create, dispatch }) => {
 		})
 		socket.on('status', (contract) => {
 			dispatch(operations.setStatus(contract))
+		})
+		socket.on('connect_error', (err) => {
+			toast("There was an error connecting to the server... Trying again.", { type: 'error' })
 		})
 	}
 	

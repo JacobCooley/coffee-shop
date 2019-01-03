@@ -1,10 +1,10 @@
 import fetch from 'cross-fetch'
 import { Creators } from './actions'
 import { server } from '@common/utils/constants'
+import {  toast } from 'react-toastify'
 const updateInput = Creators.updateInput
 const requestCreateTokenAction = Creators.requestCreateToken
 const receiveCreateTokenAction = Creators.receiveCreateToken
-const addError = Creators.addError
 const tick = Creators.tick
 const setTick = Creators.setTick
 const setContract = Creators.setContract
@@ -27,9 +27,11 @@ const createToken = (tokenInfo) => {
 			credentials: "same-origin"
 		}).then(response => response.json())
 			.then(json => {
+				console.log('json',json)
 				dispatch(receiveCreateTokenAction(json))
 			}).catch(err => {
-				dispatch(addError(err))
+				console.log('err',err)
+				toast("Could not connect to server", {type: 'error'})
 			})
 	}
 }

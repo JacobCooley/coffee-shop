@@ -62,14 +62,6 @@ export const request_create_token = (state = INITIAL_STATE) => {
 	}
 }
 
-export const add_error = (state = INITIAL_STATE, action) => {
-	return {
-		...state,
-		error: true,
-		loading: false
-	}
-}
-
 export const set_contract = (state = INITIAL_STATE, action) => {
 	const { contract } = action
 	return {
@@ -105,7 +97,6 @@ export const HANDLERS = {
 	[Types.UPDATE_INPUT]: update_input,
 	[Types.RECEIVE_CREATE_TOKEN]: receive_create_token,
 	[Types.REQUEST_CREATE_TOKEN]: request_create_token,
-	[Types.ADD_ERROR]: add_error,
 	[Types.TICK]: tick,
 	[Types.SET_TICK]: set_tick,
 	[Types.SET_CONTRACT]: set_contract,

@@ -4,7 +4,6 @@ const { Creators, Types } = createActions({
     updateInput: ['tokenInfo'],
 	requestCreateToken: [],
 	receiveCreateToken: ['paymentInfo'],
-	addError: ['error'],
 	tick: [],
 	setTick: ['tick'],
 	setContract: ['contract'],

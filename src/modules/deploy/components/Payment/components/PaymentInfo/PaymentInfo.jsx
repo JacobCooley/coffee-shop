@@ -124,7 +124,6 @@ class PaymentInfo extends React.Component {
 								<Button disabled={!web3.currentProvider.isMetaMask} text='Pay using Metamask'
 										onClick={() => this.payWithMetaMask()} />
 								<Button text='Cancel' onClick={() => this.resetContract()} />
-							
 							</div>
 						</div>
 					</div>
