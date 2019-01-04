@@ -118,9 +118,7 @@ body {
 }
 
 main {
-  padding: $large-padding;
-  padding-bottom: $xx-large-padding;
-  padding-top: $xx-large-padding;
+  padding: $xx-large-padding;
   display: flex;
   flex-grow: 1;
 }

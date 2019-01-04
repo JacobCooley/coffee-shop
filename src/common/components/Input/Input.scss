@@ -8,6 +8,10 @@
     margin-top: $med-margin;
     margin-bottom: $med-margin;
   }
+  span + span{
+    color: $red;
+    margin-left: $med-margin;
+  }
   label {
     font-size: 14px;
     font-weight: bold;

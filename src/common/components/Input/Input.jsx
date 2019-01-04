@@ -1,12 +1,13 @@
 import React from 'react';
 import './Input.scss'
 
-const InputComponent = ({ label, desc, type, name, onChange, defaultValue, value }) => (
+const InputComponent = ({ label, desc, type, name, onChange, defaultValue, value, required = false, error }) => (
 	<div className='input'>
 		<label id={name}>
-			<div>{label} :</div>
+			<span>{label} :</span>
+			{error ? <span>{error}</span> : <></>}
 			{desc ? <p>{desc}</p> : <></>}
-			<input value={value} defaultValue={defaultValue} onChange={onChange} type='text' name={name} />
+			<input required={required} value={value} defaultValue={defaultValue} onChange={onChange} type='text' name={name} />
 		</label>
 	</div>
 )

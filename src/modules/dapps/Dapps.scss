@@ -5,8 +5,6 @@
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-column-gap: 15px;
   grid-row-gap: 15px;
-  padding-right: $med-padding;
-  padding-left: $med-padding;
   h2{
     text-align: center;
     grid-column: 1 / 7;
@@ -14,8 +12,7 @@
 }
 
 .chains{
-  margin-bottom: $large-margin;
-  margin-left: $med-margin;
+  margin-bottom: $xx-large-margin;
   > ul > li:not(:first-child) > label{
     border-bottom-left-radius: 0 !important;
     border-top-left-radius: 0 !important;
