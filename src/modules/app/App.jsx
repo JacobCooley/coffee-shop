@@ -17,10 +17,13 @@ import { getNetwork, web3 } from '@common/utils/web3'
 class App extends Component {
 	componentDidMount() {
 		this.props.dispatchEthModule()
-		if(web3.currentProvider.isMetaMask && typeof getNetwork() !== 'undefined' && getNetwork() !== '3' && getNetwork()!== '1001'){
-			console.log(getNetwork())
-			toast("Please select Ropsten test network in Metamask", {type: 'error', autoClose: false, closeOnClick: false})
-		}
+		
+		//Using timeout because on network change in MM causes the networkVersion to be undefined at first
+		setTimeout(() => {
+			if(web3.currentProvider.isMetaMask && typeof getNetwork() !== 'undefined' && getNetwork() !== '3' && getNetwork()!== '1001'){
+				toast("Please select Ropsten test network in Metamask", {type: 'error', autoClose: false, closeOnClick: false})
+			}
+		}, 1000)
 	}
 	
 	render() {
