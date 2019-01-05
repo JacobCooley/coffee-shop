@@ -4,7 +4,7 @@ import './Input.scss'
 const InputComponent = ({ label, desc, type, name, onChange, defaultValue, value, required = false, error }) => (
 	<div className='input'>
 		<label id={name}>
-			<span>{label} :</span>
+			<span>{label}{required ? '*' : ''} :</span>
 			{error ? <span>{error}</span> : <></>}
 			{desc ? <p>{desc}</p> : <></>}
 			<input required={required} value={value} defaultValue={defaultValue} onChange={onChange} type='text' name={name} />

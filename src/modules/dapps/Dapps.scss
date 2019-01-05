@@ -12,7 +12,8 @@
 }
 
 .chains{
-  margin-bottom: $xx-large-margin;
+  margin-bottom: $large-margin;
+  margin-top: -$large-margin;
   > ul > li:not(:first-child) > label{
     border-bottom-left-radius: 0 !important;
     border-top-left-radius: 0 !important;

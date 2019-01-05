@@ -33,10 +33,10 @@ class ContractsComponent extends React.Component{
 				errorObject.owner = 'Not a valid address'
 			}
 			if (tokenInfo.symbol.length > 7) {
-				errorObject.symbol = 'Symbol is too long'
+				errorObject.symbol = 'Symbol must be less than 7 characters'
 			}
-			if (tokenInfo.name.length > 7) {
-				errorObject.name = 'Name is too long'
+				if (tokenInfo.name.length > 16) {
+				errorObject.name = 'Name must be less than 16 characters'
 			}
 			this.setState({ errors: errorObject }, () => {
 				resolve(true)
