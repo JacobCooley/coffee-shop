@@ -10,6 +10,15 @@ const app = express()
 app.use(express.static(__dirname))
 app.use(express.static(path.join(__dirname, 'dist')))
 
+app.use (function (req, res, next) {
+	if (req.secure) {
+		// request was via https, so do no special handling
+		next();
+	} else {
+		// request was via http, so redirect to https
+		res.redirect('https://' + req.headers.host + req.url);
+	}
+});
 
 app.get('/*', function (req, res) {
 	res.sendFile(path.join(__dirname, 'dist/index.html'))
@@ -17,10 +26,3 @@ app.get('/*', function (req, res) {
 const server = https.createServer(credentials, app)
 
 server.listen(port)
-
-//Redirect http to https
-const http = require('http');
-http.createServer(function (req, res) {
-	res.writeHead(301, { "Location": "https://" + req.headers['host'] + req.url });
-	res.end();
-}).listen(80)
