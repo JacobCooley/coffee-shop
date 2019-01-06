@@ -10,7 +10,7 @@ const port = 4269
 const app = express()
 const httpsRedirect = require('express-https-redirect')
 app.use('/', httpsRedirect())
-app.use(favicon(__dirname + './src/favicon.ico'))
+app.use(favicon(__dirname + 'dist/favicon.ico'))
 app.use(express.static(__dirname))
 app.use(express.static(path.join(__dirname, 'dist')))
 
