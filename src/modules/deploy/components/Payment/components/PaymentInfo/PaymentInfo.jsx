@@ -108,7 +108,7 @@ class PaymentInfo extends React.Component {
 									<div><b>Send: </b>{`${this.props.web3.utils.fromWei(this.props.priceInWei)} ETH`}
 									</div>
 									{!this.props.status.payed ?
-										<div><b>In: </b>{`${timeLeft} seconds`}</div>
+										<div><b>In: </b>{`${timeLeft}`}</div>
 										: <div style={{ color: colors['green'] }}>Payment Sent!</div>}
 								</div>
 							
