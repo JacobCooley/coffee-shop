@@ -7,6 +7,7 @@ const credentials = { key: privateKey, cert: certificate }
 const path = require('path')
 const port = 4269
 const app = express()
+app.enable('trust proxy')
 app.use(express.static(__dirname))
 app.use(express.static(path.join(__dirname, 'dist')))
 
