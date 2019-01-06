@@ -11,12 +11,8 @@ app.enable('trust proxy')
 app.use(express.static(__dirname))
 app.use (function (req, res, next) {
 	if (req.secure) {
-		// request was via https, so do no special handling
-		console.log('https')
 		next();
 	} else {
-		console.log('http')
-		// request was via http, so redirect to https
 		res.redirect('https://' + req.headers.host + req.url);
 	}
 });
