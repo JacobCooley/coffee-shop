@@ -10,7 +10,7 @@ const app = express()
 app.use(express.static(__dirname))
 app.use(express.static(path.join(__dirname, 'dist')))
 
-app.use(function forceHttps(req, res, next) {
+function forceHttps(req, res, next) {
 	const xfp =
 		req.headers["X-Forwarded-Proto"] || req.headers["x-forwarded-proto"];
 	if (xfp === "http") {
@@ -19,7 +19,9 @@ app.use(function forceHttps(req, res, next) {
 	} else {
 		next();
 	}
-})
+}
+
+app.use(forceHttps())
 
 app.get('/*', function (req, res) {
 	res.sendFile(path.join(__dirname, 'dist/index.html'))
