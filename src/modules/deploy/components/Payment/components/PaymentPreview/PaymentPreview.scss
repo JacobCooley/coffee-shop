@@ -13,14 +13,10 @@
 .preview {
   max-width: 250px;
   min-width: 200px;
-  background: $white;
-  border: 1px solid #ccc;
-  border-radius: $border-radius;
   height: 100%;
   flex: 1;
   padding: $large-padding;
-  margin-right: $large-margin;
-  margin-left: $large-margin;
+  display: block !important;
   line-height: 30px;
   p{
     font-size: 16px;

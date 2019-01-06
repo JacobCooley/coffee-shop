@@ -5,6 +5,10 @@
     .deploy{
       flex-direction: column;
     }
+  .form-window, .form-window-block{
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 
 }
 
@@ -26,6 +30,8 @@
 .form-window {
   background-color: $white;
   border-radius: $border-radius;
+  margin-right: 20px;
+  margin-left: 20px;
   flex: 1;
   display: flex;
   border: 1px solid #ccc;
