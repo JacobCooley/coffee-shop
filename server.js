@@ -1,5 +1,4 @@
 const express = require('express')
-const favicon = require('express-favicon')
 const fs = require('fs')
 const https = require('https')
 const privateKey = fs.readFileSync('../ganjafarm/certs/server.key', 'utf8')
@@ -8,11 +7,19 @@ const credentials = { key: privateKey, cert: certificate }
 const path = require('path')
 const port = 4269
 const app = express()
-const httpsRedirect = require('express-https-redirect')
-app.use('/', httpsRedirect())
-app.use(favicon(__dirname + 'dist/favicon.ico'))
 app.use(express.static(__dirname))
 app.use(express.static(path.join(__dirname, 'dist')))
+
+app.use(function forceHttps(req, res, next) {
+	const xfp =
+		req.headers["X-Forwarded-Proto"] || req.headers["x-forwarded-proto"];
+	if (xfp === "http") {
+		const secureUrl = `https://${req.headers.hostname}${req.url}`;
+		res.redirect(301, secureUrl);
+	} else {
+		next();
+	}
+})
 
 app.get('/*', function (req, res) {
 	res.sendFile(path.join(__dirname, 'dist/index.html'))
