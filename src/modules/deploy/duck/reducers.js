@@ -4,11 +4,11 @@ import { Types } from './actions'
 export const INITIAL_STATE = {
 	loading: false,
 	tokenInfo: {
+		// contract: '0xoifejoisdjfosadijfsoiafdjaregdgisdjf',
 		// name: 'JAKE',
 		// owner: '0x89EfC581789086C6C7257448ae2F4a1C8D2561Be',
 		// symbol: 'JAC',
 		// supply: '100000000',
-		// contract: '0xoifejoisdjfosadijfsoiafdjaregdgisdjf',
 		// decimal: '10'
 		name: '',
 		owner: '',

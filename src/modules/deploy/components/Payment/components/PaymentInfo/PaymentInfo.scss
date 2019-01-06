@@ -8,17 +8,7 @@ $max-width: 600px;
   .send-to {
     width: inherit !important;
     text-align: center;
-    > div {
-      div {
-        float: none !important;
-      }
-
-      div + div {
-        float: none !important;
-        margin-left: 0 !important;
-      }
     }
-  }
 
   .paymentInfo{
     canvas{
@@ -29,15 +19,6 @@ $max-width: 600px;
   .buttons {
     text-align: center;
     margin-top: $med-margin;
-    button {
-      float: none !important;
-      width: 150px !important;
-    }
-
-    button + button {
-      float: none !important;
-      width: 150px !important;
-    }
   }
 }
 @media (max-width: 1024px) {
@@ -48,15 +29,6 @@ $max-width: 600px;
   .buttons {
     text-align: center;
     margin-top: $med-margin;
-    button {
-      float: left;
-      width: 150px !important;
-    }
-
-    button + button {
-      float: right;
-      width: 150px !important;
-    }
   }
   .send-to {
     max-width: $max-width;

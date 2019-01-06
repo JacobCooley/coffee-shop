@@ -87,6 +87,10 @@ class PaymentInfo extends React.Component {
 	}
 	
 	render() {
+		const date = new Date(null);
+		date.setSeconds(this.props.tick); // specify value for SECONDS here
+		const timeLeft = date.toISOString().substr(11, 8);
+
 		return (
 			<>
 				{this.state.timerFinished ?
@@ -104,7 +108,7 @@ class PaymentInfo extends React.Component {
 									<div><b>Send: </b>{`${this.props.web3.utils.fromWei(this.props.priceInWei)} ETH`}
 									</div>
 									{!this.props.status.payed ?
-										<div><b>In: </b>{`${this.props.tick} seconds`}</div>
+										<div><b>In: </b>{`${timeLeft} seconds`}</div>
 										: <div style={{ color: colors['green'] }}>Payment Sent!</div>}
 								</div>
 							
