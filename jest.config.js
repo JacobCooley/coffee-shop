@@ -5,6 +5,7 @@ module.exports = {
 	"moduleNameMapper": {
 		"^@components(.*)$": "<rootDir>/src/modules/common/components$1",
 		"^@home(.*)$": "<rootDir>/src/modules/home$1",
+		"^@modules(.*)$": "<rootDir>/src/modules$1",
 		"^.+\\.(css|less|scss)$": "identity-obj-proxy"
 	},
 	"setupFiles": [
