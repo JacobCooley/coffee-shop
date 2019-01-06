@@ -11,15 +11,12 @@ import {
 import App from '@app/AppContainer'
 import rootReducer from './reducers'
 import { composeWithDevTools } from 'redux-devtools-extension'
-import HttpsRedirect from 'react-https-redirect'
 const middleware = composeWithDevTools(applyMiddleware(thunk))
 const store = createStore(rootReducer, middleware)
 
 ReactDOM.render(
-	<HttpsRedirect>
-		<Provider store={store}>
-			<App />
-		</Provider>
-	</HttpsRedirect>,
+	<Provider store={store}>
+		<App/>
+	</Provider>,
 	document.getElementById('app')
 )
