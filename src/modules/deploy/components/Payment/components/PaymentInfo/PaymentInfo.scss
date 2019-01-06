@@ -7,11 +7,15 @@ $max-width: 600px;
 @media (max-width: 480px) {
   .send-to {
     width: inherit !important;
-    text-align: center;
-    }
+    text-align: center !important;
 
-  .paymentInfo{
-    canvas{
+    > div > div {
+      float: none !important;
+    }
+  }
+
+  .paymentInfo {
+    canvas {
       height: 128px !important;
       width: 128px !important;
     }
@@ -21,8 +25,9 @@ $max-width: 600px;
     margin-top: $med-margin;
   }
 }
+
 @media (max-width: 1024px) {
-  .paymentInfo{
+  .paymentInfo {
     width: 100%;
     flex: none !important;
   }
@@ -45,12 +50,12 @@ $max-width: 600px;
   .paymentInfo {
     font-size: 20px !important;
   }
-  button{
+  button {
     font-size: 18px !important;
   }
 }
 
-.timeUp{
+.timeUp {
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -66,10 +71,11 @@ $max-width: 600px;
   align-items: center;
   padding: $large-padding;
 
-  canvas{
+  canvas {
     padding: $small-padding;
   }
-  > canvas + div{
+
+  > canvas + div {
     width: inherit;
     text-align: center;
     cursor: pointer;
@@ -78,7 +84,8 @@ $max-width: 600px;
     @extend .ellipsize;
     @extend .unselectable;
   }
-  .timeoutButton{
+
+  .timeoutButton {
     display: block;
     margin: auto;
     margin-top: $large-margin;
@@ -88,28 +95,34 @@ $max-width: 600px;
     display: block;
     width: 100%;
     max-width: $max-width;
+
     button {
       width: 100%;
     }
+
     button + button {
       margin-bottom: 0 !important;
     }
   }
+
   .send-to {
     max-width: $max-width;
     width: 100%;
+
     > div {
       div {
         float: left;
         margin-right: $small-margin;
         margin-bottom: $med-margin;
       }
+
       div + div {
         float: right;
         margin-left: $small-margin;
         margin-bottom: $med-margin;
       }
     }
+
     svg {
       margin-left: $small-margin;
       cursor: pointer;
