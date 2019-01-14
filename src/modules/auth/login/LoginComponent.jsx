@@ -37,8 +37,8 @@ class LoginComponent extends React.Component {
 			if (Object.keys(this.state.errors).length === 0) {
 				const auth = this.props.auth
 				const loginObject = pick(auth, 'email', 'pass')
-				console.log('log', loginObject)
-				this.props.dispatch(operations.login(loginObject))
+				const newLogin = {username: loginObject.email, password: loginObject.pass}
+				this.props.dispatch(operations.login(newLogin))
 			}
 		})
 	}
@@ -51,10 +51,10 @@ class LoginComponent extends React.Component {
 			<div className='login'>
 				<form onSubmit={(e) => this.onSubmit(e)}>
 					<Input required error={this.state.errors.email} onChange={this.props.onChange}
-						   name='email' label='Email' value={email} />
+						   name='email' label='Email' value={email} autoComplete={'email'} />
 					<Input required error={this.state.errors.pass} onChange={this.props.onChange}
-						   name='pass' label='Password' value={pass} />
-					<Button type="submit" value="Submit" text="Submit" />
+						   name='pass' type='password' label='Password' value={pass} />
+					<Button type="submit" value="Submit" text="Login" />
 					<Link to={'/register'}>Register an free account in less than a minute!</Link>
 				</form>
 			</div>

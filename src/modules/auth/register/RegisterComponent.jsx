@@ -22,6 +22,9 @@ class RegisterComponent extends React.Component {
 			if (auth.pass.length < 7) {
 				errorObject.pass = 'Password must be more than 7 characters'
 			}
+			if (auth.passVerify !== auth.pass) {
+				errorObject.passVerify = 'Passwords must be equal'
+			}
 			if (!validateEmail(auth.email)) {
 				errorObject.email = 'Email address not valid'
 			}
@@ -36,9 +39,9 @@ class RegisterComponent extends React.Component {
 		this.validateForm().then(() => {
 			if (Object.keys(this.state.errors).length === 0) {
 				const auth = this.props.auth
-				const loginObject = pick(auth, 'email', 'pass')
-				console.log('log', loginObject)
-				this.props.dispatch(operations.login(loginObject))
+				const registerObject = pick(auth, 'email', 'pass')
+				const newRegister = {userData: {username: registerObject.email, password: registerObject.pass}}
+				this.props.dispatch(operations.register(newRegister))
 			}
 		})
 	}
@@ -47,18 +50,17 @@ class RegisterComponent extends React.Component {
 		const auth = this.props.auth
 		const email = auth.email
 		const pass = auth.pass
+		const passVerify = auth.passVerify
 		return (
 			<div className='register'>
 				<form onSubmit={(e) => this.onSubmit(e)}>
 					<Input required error={this.state.errors.email} onChange={this.props.onChange}
-						   name='email' label='Email' value={email} />
+						   name='email' label='Email' value={email} autoComplete={'email'} />
 					<Input required error={this.state.errors.pass} onChange={this.props.onChange}
-						   name='pass' label='Password' value={pass} />
-					<Input required error={this.state.errors.pass} onChange={this.props.onChange}
-						   name='pass' label='Password' value={pass} />
-					<Input required error={this.state.errors.pass} onChange={this.props.onChange}
-						   name='pass' label='Password' value={pass} />
-					<Button type="submit" value="Submit" text="Submit" />
+						   name='pass' type='password' label='Password' value={pass} />
+					<Input required error={this.state.errors.passVerify} onChange={this.props.onChange}
+						   name='passVerify' type='password' label='Verify Password' value={passVerify} />
+					<Button type="submit" value="Submit" text="Register" />
 					<Link to={'/login'}>Already have an account? Log In Here!</Link>
 				</form>
 			</div>

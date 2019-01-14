@@ -5,6 +5,7 @@ export const INITIAL_STATE = {
 	loading: false,
 	email: '',
 	pass: '',
+	passVerify: '',
 }
 
 export const update_input = (state = INITIAL_STATE, action) => {

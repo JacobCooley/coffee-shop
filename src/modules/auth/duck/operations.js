@@ -1,4 +1,5 @@
 import { Creators } from './actions'
+
 const updateInput = Creators.updateInput
 const authLogin = Creators.authLogin
 const authRegister = Creators.authRegister
@@ -14,19 +15,19 @@ const login = (auth) => {
 			headers: {
 				"Content-Type": "application/json"
 			},
-			credentials: "same-origin"
+			credentials: "include"
 		}).then(response => response.json())
 			.then(json => {
 				console.log('json', json)
 				dispatch(authLogin(json))
 			}).catch(err => {
-				console.log('err',err)
-				toast("Could not connect to server", {type: 'error'})
+				console.log('err', err)
+				toast("Could not connect to server", { type: 'error' })
 			})
 	}
 }
 
-const register = () => {
+const register = (auth) => {
 	return dispatch => {
 		return fetch(`${server}/register`, {
 			method: "POST",
@@ -34,14 +35,14 @@ const register = () => {
 			headers: {
 				"Content-Type": "application/json"
 			},
-			credentials: "same-origin"
+			credentials: "include"
 		}).then(response => response.json())
 			.then(json => {
 				console.log('json', json)
 				dispatch(authRegister(json))
 			}).catch(err => {
-				console.log('err',err)
-				toast("Could not connect to server", {type: 'error'})
+				console.log('err', err)
+				toast("Could not connect to server", { type: 'error' })
 			})
 	}
 }
