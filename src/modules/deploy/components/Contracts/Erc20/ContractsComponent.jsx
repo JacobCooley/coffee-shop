@@ -6,7 +6,7 @@ import 'react-dropdown/style.css'
 import '../Contracts.scss'
 import { operations } from '../../../duck'
 import openSocket from 'socket.io-client'
-import { socketUrl } from '@common/utils/constants'
+import { socketUrl } from '@src/config'
 import ContractsHeader from '@modules/deploy/components/Contracts/components/ContractsHeader'
 import ethIcon from '@icons/eth.svg'
 import { toast } from 'react-toastify'
@@ -27,7 +27,7 @@ class ContractsComponent extends React.Component{
 	
 	validateForm = () => {
 		return new Promise((resolve, reject) =>{
-			const tokenInfo = this.props.create.tokenInfo
+			const tokenInfo = this.props.deploy.tokenInfo
 			const errorObject = {}
 			if (!this.props.web3.utils.isAddress(tokenInfo.owner)) {
 				errorObject.owner = 'Not a valid address'
@@ -52,7 +52,7 @@ class ContractsComponent extends React.Component{
 					reconnection: false
 				})
 				socket.on('id', (idObject) => {
-					const tokenInfo = this.props.create.tokenInfo
+					const tokenInfo = this.props.deploy.tokenInfo
 					const token = {
 						...tokenInfo,
 						id: idObject
@@ -73,7 +73,7 @@ class ContractsComponent extends React.Component{
 	}
 	
 	render(){
-		const tokenInfo = this.props.create.tokenInfo
+		const tokenInfo = this.props.deploy.tokenInfo
 		const owner = tokenInfo.owner
 		const name = tokenInfo.name
 		const decimal = tokenInfo.decimal

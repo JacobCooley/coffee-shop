@@ -4,7 +4,7 @@ import { operations } from '../../../duck'
 
 const mapStateToProps = state => {
 	return {
-		create: state.create,
+		deploy: state.deploy,
 		web3: state.global.web3
 	}
 }

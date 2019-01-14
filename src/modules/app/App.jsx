@@ -7,8 +7,10 @@ import {
 import Home from '@home/HomeContainer'
 import Header from './header/HeaderComponent'
 import Footer from './footer'
-import Dapps from '@dapps'
+import Create from '@create'
 import Deploy from '@deploy'
+import Login from '@login/LoginContainer'
+import Register from '@register/RegisterContainer'
 import './App.scss'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -39,8 +41,10 @@ class App extends Component {
 					<main>
 						<Switch>
 							<Route exact path='/' component={Home} />
-							<Route path='/dapps' component={Dapps} />
+							<Route path='/create' component={Create} />
 							<Route path='/deploy' component={Deploy} />
+							<Route path='/login' component={Login} />
+							<Route path='/register' component={Register} />
 						</Switch>
 					</main>
 					<Footer />

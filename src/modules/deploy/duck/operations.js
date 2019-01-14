@@ -1,6 +1,6 @@
 import fetch from 'cross-fetch'
 import { Creators } from './actions'
-import { server } from '@common/utils/constants'
+import { server } from '@src/config'
 import {  toast } from 'react-toastify'
 const updateInput = Creators.updateInput
 const requestCreateTokenAction = Creators.requestCreateToken
@@ -10,7 +10,7 @@ const setTick = Creators.setTick
 const setContract = Creators.setContract
 const setStatus = Creators.setStatus
 
-const setTickInterval = (interval, dispatch) => new Promise((resolve, reject) => {
+const setTickInterval = (interval, dispatch) => new Promise((resolve) => {
 	dispatch(setTick(interval))
 	resolve()
 })
@@ -27,7 +27,6 @@ const createToken = (tokenInfo) => {
 			credentials: "same-origin"
 		}).then(response => response.json())
 			.then(json => {
-				console.log('json',json)
 				dispatch(receiveCreateTokenAction(json))
 			}).catch(err => {
 				console.log('err',err)

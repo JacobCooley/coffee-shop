@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
-import createReducer from '@deploy/duck/reducers'
+import deployReducer from '@deploy/duck/reducers'
 import appReducer from '@app/duck/reducers'
+import authReducer from '@auth/duck/reducers'
 const rootReducer = combineReducers({
     global: appReducer,
-    create: createReducer
+    deploy: deployReducer,
+    auth: authReducer
 });
 
 export default rootReducer;

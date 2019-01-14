@@ -3,17 +3,17 @@ import PaymentCompleted from './components/PaymentCompleted'
 import Loader from '@components/Loader'
 import 'react-dropdown/style.css'
 import './Payment.scss'
-import PaymentInfo from './components/PaymentInfo/PaymentInfo'
+import PaymentInfo from './components/PaymentInfo'
 import Status from './components/PaymentStatus'
 import PaymentPreview from './components/PaymentPreview'
 
 
-const PaymentComponent = ({ create, dispatch, web3, timerStart, timerStop }) => {
-	const loading = create.loading
-	const paymentInfo = create.paymentInfo
-	const contractAddress = create.tokenInfo.contract
-	const symbol = create.tokenInfo.symbol
-	const decimal = create.tokenInfo.decimal
+const PaymentComponent = ({ deploy, dispatch, web3, timerStart, timerStop }) => {
+	const loading = deploy.loading
+	const paymentInfo = deploy.paymentInfo
+	const contractAddress = deploy.tokenInfo.contract
+	const symbol = deploy.tokenInfo.symbol
+	const decimal = deploy.tokenInfo.decimal
 	
 	return (
 		<>
@@ -23,10 +23,10 @@ const PaymentComponent = ({ create, dispatch, web3, timerStart, timerStop }) => 
 				{contractAddress ?
 					<PaymentCompleted contract={contractAddress} symbol={symbol} decimal={decimal} />
 					: <PaymentInfo {...paymentInfo} dispatch={dispatch} web3={web3} timerStart={timerStart}
-								   timerStop={timerStop} status={create.status}
-								   tick={create.tick} />}
+								   timerStop={timerStop} status={deploy.status}
+								   tick={deploy.tick} />}
 			</>
-			<Status status={create.status} />
+			<Status status={deploy.status} />
 		</>
 	)
 }

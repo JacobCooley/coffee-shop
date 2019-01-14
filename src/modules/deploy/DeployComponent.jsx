@@ -3,10 +3,10 @@ import './Deploy.scss'
 import Payment from './components/Payment'
 import Erc20 from '@modules/deploy/components/Contracts/Erc20'
 
-const Deploy = ({ create }) => {
+const Deploy = ({ deploy }) => {
 	return (
 		<div className='deploy'>
-			{create.paymentInfo || create.tokenInfo.contract ?
+			{deploy.paymentInfo || deploy.tokenInfo.contract ?
 				<Payment />
 				:
 				<Erc20 />}

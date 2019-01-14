@@ -87,10 +87,10 @@ class PaymentInfo extends React.Component {
 	}
 	
 	render() {
-		const date = new Date(null);
-		date.setSeconds(this.props.tick); // specify value for SECONDS here
-		const timeLeft = date.toISOString().substr(11, 8);
-
+		const date = new Date(null)
+		date.setSeconds(this.props.tick)
+		const timeLeft = date.toISOString().substr(11, 8)
+		
 		return (
 			<>
 				{this.state.timerFinished ?
@@ -117,7 +117,9 @@ class PaymentInfo extends React.Component {
 							<CopyToClipboard
 								text={this.props.depositAddress}
 								onCopy={() => {
-									toast('Copied!', { type: 'info' })
+									if (!toast.isActive('copied')) {
+										toast('Copied!', { toastId: 'copied', type: 'info' })
+									}
 								}}>
 								<div>
 									{`${this.props.depositAddress}`}

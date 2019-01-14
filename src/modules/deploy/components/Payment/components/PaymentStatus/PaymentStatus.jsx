@@ -1,6 +1,5 @@
 import React from 'react'
 import './PaymentStatus.scss'
-import TL from '@icons/LogoBlack.svg'
 
 const PaymentStatus = ({status}) => {
 	const payed = status.payed

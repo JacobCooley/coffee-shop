@@ -1,5 +1,6 @@
-@import "~styles/constants";
-@import "~styles/colors";
+@import "~styles/_constants";
+@import "~styles/_colors";
+@import "~styles/_classes";
 
 @media (max-width: 1024px) {
     .deploy{
@@ -12,34 +13,10 @@
 
 }
 
-//@media (min-width: 768px) and (max-width: 1024px) {
-//
-//  .deploy{
-//    flex-direction: column;
-//  }
-//
-//}
-
 .deploy{
   width: 100%;
   display: flex;
   flex: 1;
-  justify-content: center;
-}
-
-.form-window {
-  background-color: $white;
-  border-radius: $border-radius;
-  margin-right: 20px;
-  margin-left: 20px;
-  flex: 1;
-  display: flex;
-  border: 1px solid #ccc;
-  height: 100%;
-}
-
-.form-window-block {
-  @extend .form-window;
   justify-content: center;
 }
 

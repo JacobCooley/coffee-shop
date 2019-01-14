@@ -3,7 +3,7 @@ import DeployComponent from './DeployComponent'
 
 const mapStateToProps = state => {
 	return {
-		create: state.create
+		deploy: state.deploy
 	}
 }
 const DeployContainer = connect(

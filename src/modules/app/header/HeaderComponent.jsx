@@ -19,12 +19,14 @@ const HeaderComponent = ({history}) => {
 			<img style={{ height: '50px', alignSelf: 'center' }} src={TokenLauncher} />
 			<nav className='nav' id='desktop'>
 				<div><Link to='/'>Home</Link></div>
-				<div><Link to='/dapps'>Create</Link></div>
+				<div><Link to='/create'>Create</Link></div>
+				<div><Link to='/login'>Login</Link></div>
 			</nav>
 			<nav className='nav' id='mobile'>
 				<ul onClick={() => openHamburger()} id='links'>
 					<Link to={'/'}><li>Home</li></Link>
-					<Link to={'/dapps'}><li>Create</li></Link>
+					<Link to={'/create'}><li>Create</li></Link>
+					<Link to={'/login'}><li>Login</li></Link>
 				</ul>
 				<FaBars onClick={() => openHamburger()}/>
 			</nav>
