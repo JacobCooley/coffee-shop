@@ -13,6 +13,7 @@ const mapDispatchToProps = dispatch => {
 	}
 	const checkAuth = () => {
 		return dispatch(operations.checkAuthorization())
+		// return Promise.all([dispatch(operations.checkAuthorization()), dispatch(operations.getContracts())])
 	}
 	const logOut = () => {
 		dispatch(operations.logout())
