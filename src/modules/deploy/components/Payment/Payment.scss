@@ -3,6 +3,7 @@
 @import "~styles/classes";
 
 .payment-complete {
+  @include form-window;
   text-align: center;
   flex: 1;
   justify-content: space-between;
@@ -14,7 +15,7 @@
     width: 100%;
   }
   > div:first-child > div{
-    @extend .ellipsize;
+    @include ellipsize;
     font-size: 18px;
   }
   .complete-buttons {

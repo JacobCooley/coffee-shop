@@ -3,7 +3,7 @@ import './PaymentPreview.scss'
 
 const PaymentPreview = ({ timeoutInSeconds, priceInWei, depositAddress, web3 }) => {
 	return (
-		<div className='preview form-window'>
+		<div className='preview'>
 			<h3>ERC-20</h3>
 			{priceInWei ?
 				<p>{`You must pay ${web3.utils.fromWei(priceInWei)} ETH to create this contract.  Please double check the amount and address before you send.  If you send less than the required amount, you can send the remainder in another transaction to continue creating your contract.`}</p>

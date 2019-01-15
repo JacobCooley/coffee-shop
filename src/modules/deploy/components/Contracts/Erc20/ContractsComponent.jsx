@@ -83,7 +83,7 @@ class ContractsComponent extends React.Component{
 			'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18'
 		]
 		return (
-			<div className='contract form-window'>
+			<div className='contract'>
 				<ContractsHeader contractType='ERC-20 Token'
 								 imgSrc={ethIcon}
 								 description='You are creating a standard ERC20 token on the Ethereum Blockchain!  Please fill out the form and make your payment on the next step.' />

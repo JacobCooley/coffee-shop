@@ -10,7 +10,7 @@ const PaymentStatus = ({status}) => {
 	const error = Object.keys(status.error).length !== 0
 	
 	return (
-		<div className='status form-window'>
+		<div className='status'>
 			<h3>Status</h3>
 			<div>
 				<div className={`${prepared ? 'finished' : 'loading'}`}>Preparing Contract</div>

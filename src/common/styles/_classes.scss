@@ -1,4 +1,6 @@
-.unselectable {
+@import "~styles/constants";
+
+@mixin unselectable {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -7,13 +9,13 @@
   user-select: none;
 }
 
-.ellipsize{
+@mixin ellipsize{
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
 }
 
-.form-window {
+@mixin form-window {
   background-color: $white;
   border-radius: $border-radius;
   margin-right: 20px;
@@ -25,6 +27,6 @@
 }
 
 .form-window-block {
-  @extend .form-window;
+  @include form-window;
   justify-content: center;
 }

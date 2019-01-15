@@ -22,7 +22,7 @@ const PaymentCompleted = ({ contract, symbol, decimal }) => {
 	const etherScanUrl = getNetwork() === '3' ? `http://ropsten.etherscan.io/address/${contract}` : `http://etherscan.io/address/${contract}`
 	
 	return (
-		<div className='payment-complete form-window'>
+		<div className='payment-complete'>
 			<div>
 				<h2>Contract Address</h2>
 				<div>{contract}</div>

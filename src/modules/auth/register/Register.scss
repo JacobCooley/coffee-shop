@@ -17,7 +17,7 @@
   flex: 1;
   align-items: center;
   form{
-    @extend .form-window;
+    @include form-window;
     height: auto;
     width: 50%;
     max-width: 550px;

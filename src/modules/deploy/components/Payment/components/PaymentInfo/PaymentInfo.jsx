@@ -95,7 +95,7 @@ class PaymentInfo extends React.Component {
 			<>
 				{this.state.timerFinished ?
 					<>
-						<div className='timeUp form-window'>
+						<div className='timeUp'>
 							Time is up! Please try again
 							<Button className='timeoutButton' onClick={() => this.resetContract()} text='Try Again' />
 						</div>

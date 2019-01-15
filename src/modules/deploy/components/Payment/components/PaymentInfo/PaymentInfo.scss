@@ -55,6 +55,7 @@ $max-width: 600px;
 }
 
 .timeUp {
+  @include form-window;
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -80,8 +81,8 @@ $max-width: 600px;
     cursor: pointer;
     margin-top: $small-margin;
     margin-bottom: $small-margin;
-    @extend .unselectable;
-    @extend .ellipsize;
+    @include unselectable;
+    @include ellipsize;
   }
 
   .timeoutButton {
