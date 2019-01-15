@@ -2,13 +2,22 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 const mapStateToProps = state => {
-	return { authorization: state.authorization }
+	console.log('state', state)
+	return { user: state.global.user }
 }
 
 export default ChildComponent => connect(mapStateToProps)(class authenticatedComponent extends Component {
 	
 	componentWillMount() {
-		if(!this.props.authorization){
+		this.shouldNavToLogin()
+	}
+	
+	componentWillUnmount(){
+		this.shouldNavToLogin()
+	}
+	
+	shouldNavToLogin(){
+		if(!this.props.user){
 			this.props.history.push('/login')
 		}
 	}

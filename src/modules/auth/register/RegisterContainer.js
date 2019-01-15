@@ -1,7 +1,6 @@
 import { connect } from 'react-redux'
 import RegisterComponent from './RegisterComponent'
 import { operations } from '../duck'
-import requireAuth from '@common/hocs/authenticated'
 
 const mapStateToProps = state => {
 	return {auth: state.auth}
@@ -21,6 +20,6 @@ const mapDispatchToProps = dispatch => {
 	}
 }
 
-const RegisterContainer = connect(mapStateToProps, mapDispatchToProps)(requireAuth(RegisterComponent))
+const RegisterContainer = connect(mapStateToProps, mapDispatchToProps)(RegisterComponent)
 
 export default RegisterContainer

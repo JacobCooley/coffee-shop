@@ -24,6 +24,7 @@ $max-width: 600px;
     text-align: center;
     margin-top: $med-margin;
   }
+
 }
 
 @media (max-width: 1024px) {
@@ -50,9 +51,7 @@ $max-width: 600px;
   .paymentInfo {
     font-size: 20px !important;
   }
-  button {
-    font-size: 18px !important;
-  }
+
 }
 
 .timeUp {

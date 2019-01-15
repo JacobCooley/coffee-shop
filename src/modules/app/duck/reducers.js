@@ -1,44 +1,17 @@
 import { createReducer } from 'reduxsauce'
-import { createActions } from 'reduxsauce';
-import fetch from "cross-fetch"
-import { server } from '@src/config'
-import { toast } from 'react-toastify'
-const { Creators, Types } = createActions({
-	dispatchWeb3: ['web3'],
-	checkAuth: []
-});
+import { Types } from './actions'
 
 export const INITIAL_STATE = {
 	web3: {},
-	authorized: false
+	user: null
 }
-
-export const dispatchWeb3 = Creators.dispatchWeb3
-export const dispatchCheckAuth = Creators.checkAuth
-
-export const checkAuthorization = () => {
-	return dispatch => {
-		return fetch(`${server}/user`, {
-			method: "GET",
-			credentials: "include"
-		}).then(response => response.json())
-			.then(json => {
-				console.log('json', json)
-				dispatch(dispatchCheckAuth(true))
-			}).catch(err => {
-				dispatch(dispatchCheckAuth(false))
-				console.log('err', err)
-			}
-		)
-	}
-}
-
 
 export const check_auth = (state = INITIAL_STATE, action) => {
-	const { authorized } = action
+	const { user } = action
+	console.log('user', user)
 	return {
 		...state,
-		authorized: authorized
+		user
 	}
 }
 
@@ -46,7 +19,7 @@ export const dispatch_web3 = (state = INITIAL_STATE, action) => {
 	const { web3 } = action
 	return {
 		...state,
-		web3: web3
+		web3
 	}
 }
 

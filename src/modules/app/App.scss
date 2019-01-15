@@ -73,6 +73,10 @@ h1, h2, h3, h4 {
   margin-bottom: $med-margin;
 }
 
+button {
+  font-size: 18px;
+}
+
 button:hover, a:hover {
   cursor: pointer;
 }

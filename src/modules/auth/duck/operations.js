@@ -1,11 +1,11 @@
 import { Creators } from './actions'
+import fetch from 'cross-fetch'
+import { server } from '@src/config'
+import { toast } from 'react-toastify'
 
 const updateInput = Creators.updateInput
 const authLogin = Creators.authLogin
 const authRegister = Creators.authRegister
-import fetch from 'cross-fetch'
-import { server } from '@src/config'
-import { toast } from 'react-toastify'
 
 const login = (auth) => {
 	return dispatch => {
@@ -22,7 +22,7 @@ const login = (auth) => {
 				dispatch(authLogin(json))
 			}).catch(err => {
 				console.log('err', err)
-				toast("Could not connect to server", { type: 'error' })
+				toast("Could not login, check your information", { type: 'error' })
 			})
 	}
 }
@@ -42,7 +42,7 @@ const register = (auth) => {
 				dispatch(authRegister(json))
 			}).catch(err => {
 				console.log('err', err)
-				toast("Could not connect to server", { type: 'error' })
+				toast("Account may already exist", { type: 'error' })
 			})
 	}
 }
