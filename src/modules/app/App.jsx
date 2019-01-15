@@ -9,6 +9,7 @@ import Header from './components/header/HeaderComponent'
 import Footer from './components/footer'
 import Create from '@create'
 import Deploy from '@deploy'
+import Faq from '@modules/faq/FaqComponent'
 import Login from '@login/LoginContainer'
 import Register from '@register/RegisterContainer'
 import './App.scss'
@@ -68,6 +69,7 @@ class App extends Component {
 										<Route path='/deploy' component={Deploy} />
 										<Route path='/login' component={Login} />
 										<Route path='/register' component={Register} />
+										<Route path='/faq' component={Faq} />
 										<Route component={noMatch} />
 									</Switch>
 								</main>

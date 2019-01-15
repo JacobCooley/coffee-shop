@@ -21,6 +21,7 @@ const HeaderComponent = ({user, logOut}) => {
 				<div><Link to='/'>Home</Link></div>
 				<div><Link to='/create'>Create</Link></div>
 				<div><Link to='/contracts'>Contracts</Link></div>
+				<div><Link to='/faq'>FAQ</Link></div>
 				{user ?
 					<div onClick={logOut}><Link to='/'>Logout</Link></div>
 					:
@@ -32,6 +33,7 @@ const HeaderComponent = ({user, logOut}) => {
 					<Link to={'/'}><li>Home</li></Link>
 					<Link to={'/create'}><li>Create</li></Link>
 					<Link to={'/contracts'}><li>Contracts</li></Link>
+					<Link to={'/faq'}><li>FAQ</li></Link>
 					{ user ?
 						<Link onClick={logOut} to={'/'}><li>Logout</li></Link>
 						:

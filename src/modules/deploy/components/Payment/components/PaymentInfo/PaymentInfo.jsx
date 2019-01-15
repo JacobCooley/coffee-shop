@@ -22,9 +22,6 @@ class PaymentInfo extends React.Component {
 	
 	async componentDidMount() {
 		this.timerStart(this.props.timeoutInSeconds)
-		if (web3.currentProvider.isMetaMask) {
-			this.payWithMetaMask()
-		}
 	}
 	
 	componentWillUnmount() {
