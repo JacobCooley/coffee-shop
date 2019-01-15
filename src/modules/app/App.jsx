@@ -17,6 +17,9 @@ import 'react-toastify/dist/ReactToastify.css'
 import { getNetwork, web3 } from '@common/utils/web3'
 
 class App extends Component {
+	componentWillMount() {
+		this.props.checkAuth()
+	}
 	componentDidMount() {
 		this.props.dispatchEthModule()
 		

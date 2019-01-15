@@ -1,22 +1,21 @@
 import React, { Component } from 'react'
-import fetch from 'cross-fetch'
-import { server } from '../../config'
+import { connect } from 'react-redux'
 
-export default ChildComponent => class authenticatedComponent extends Component {
-	componentDidMount() {
-		fetch(`${server}/user`, {
-			method: "GET",
-			credentials: "include"
-		}).then(response => response.json())
-			.then(json => {
-				console.log('json', json)
-			}).catch(err => {
+const mapStateToProps = state => {
+	return { authorization: state.authorization }
+}
+
+export default ChildComponent => connect(mapStateToProps)(class authenticatedComponent extends Component {
+	
+	componentWillMount() {
+		if(!this.props.authorization){
 			this.props.history.push('/login')
-			console.log('err', err)
-		})
+		}
 	}
 	
 	render() {
-		return <ChildComponent {...this.props} />
+		return <>
+			<ChildComponent {...this.props} />
+		</>
 	}
-}
+})
