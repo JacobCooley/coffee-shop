@@ -1,3 +1,6 @@
+@import "~styles/colors";
+@import "~styles/constants";
+
 .faq{
   display: flex;
   flex-direction: column;
@@ -5,5 +8,8 @@
   align-items: center;
   ul{
     max-width: 600px;
+    li{
+      margin-bottom: $xx-large-margin;
+    }
   }
 }

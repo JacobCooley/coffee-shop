@@ -4,6 +4,9 @@ import './Faq.scss'
 const FaqComponenet = () => (
 	<div className='faq'>
 		<ul>
+			<li><h3>What are smart contracts?</h3><p>A smart contract is a piece of software that contains rules and
+				regulations for negotiating the terms of a contract. It automatically verifies the contract and then
+				executes the agreed upon terms.</p></li>
 			<li><h3>Do I need an account?</h3><p>You do not need an account to use our services. It is strongly
 				suggested to create one anyways in case you lose your contract address.</p></li>
 			<li><h3>How much does your service cost?</h3><p>Depending on the chain and the contract you want the price
