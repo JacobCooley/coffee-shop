@@ -5,8 +5,8 @@ import {
 	Switch
 } from 'react-router-dom'
 import Home from '@home/HomeContainer'
-import Header from './header/HeaderComponent'
-import Footer from './footer'
+import Header from './components/header/HeaderComponent'
+import Footer from './components/footer'
 import Create from '@create'
 import Deploy from '@deploy'
 import Login from '@login/LoginContainer'
@@ -15,7 +15,7 @@ import './App.scss'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { getNetwork, web3 } from '@common/utils/web3'
-import Loader from '@components/Loader'
+import noMatch from './components/404'
 
 class App extends Component {
 	constructor(props) {
@@ -68,6 +68,7 @@ class App extends Component {
 										<Route path='/deploy' component={Deploy} />
 										<Route path='/login' component={Login} />
 										<Route path='/register' component={Register} />
+										<Route component={noMatch} />
 									</Switch>
 								</main>
 								<Footer />
