@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import LoginComponent from './LoginComponent'
 import { operations } from '../duck'
+import disableAuthenticated from '@common/hocs/disableAuthenticated'
 
 const mapStateToProps = state => {
 	return {auth: state.auth}
@@ -20,6 +21,6 @@ const mapDispatchToProps = dispatch => {
 	}
 }
 
-const LoginContainer = connect(mapStateToProps, mapDispatchToProps)(LoginComponent)
+const LoginContainer = connect(mapStateToProps, mapDispatchToProps)(disableAuthenticated(LoginComponent))
 
 export default LoginContainer

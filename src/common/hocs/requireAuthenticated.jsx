@@ -2,12 +2,10 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 const mapStateToProps = state => {
-	console.log('state', state)
 	return { user: state.global.user }
 }
 
 export default ChildComponent => connect(mapStateToProps)(class authenticatedComponent extends Component {
-	
 	componentWillMount() {
 		this.shouldNavToLogin()
 	}

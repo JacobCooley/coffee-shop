@@ -13,7 +13,7 @@ export const checkAuthorization = () => {
 			credentials: "include"
 		}).then(response => response.json())
 			.then(json => {
-				console.log('json', json)
+				console.log('user', json)
 				dispatch(dispatchCheckAuth(json))
 			}).catch(err => {
 				dispatch(dispatchCheckAuth(null))
@@ -45,7 +45,7 @@ export const logout = () => {
 			credentials: "include"
 		}).then(response => response.json())
 			.then(json => {
-				console.log('json', json)
+				console.log('logout', json)
 				dispatch(dispatchCheckAuth(json))
 			}).catch(err => {
 					dispatch(dispatchCheckAuth(null))

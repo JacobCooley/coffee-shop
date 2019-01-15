@@ -18,7 +18,7 @@ const login = (auth) => {
 			credentials: "include"
 		}).then(response => response.json())
 			.then(json => {
-				console.log('json', json)
+				console.log('login', json)
 				dispatch(authLogin(json))
 			}).catch(err => {
 				console.log('err', err)
@@ -38,7 +38,7 @@ const register = (auth) => {
 			credentials: "include"
 		}).then(response => response.json())
 			.then(json => {
-				console.log('json', json)
+				console.log('register', json)
 				dispatch(authRegister(json))
 			}).catch(err => {
 				console.log('err', err)
