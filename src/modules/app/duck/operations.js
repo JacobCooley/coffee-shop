@@ -7,18 +7,19 @@ export const dispatchCheckAuth = Creators.checkAuth
 export const dispatchContracts = Creators.getContracts
 
 export const checkAuthorization = () => {
-	return dispatch => {
-		return fetch(`${server}/user`, {
-			method: "GET",
-			credentials: "include"
-		}).then(response => response.json())
-			.then(json => {
-				console.log('user', json)
-				dispatch(dispatchCheckAuth(json))
-			}).catch(err => {
-				dispatch(dispatchCheckAuth(null))
-					console.log('err', err)
-				})
+	return async dispatch => {
+		try {
+			const fetchResponse = await fetch(`${server}/user`, {
+				method: "GET",
+				credentials: "include"
+			})
+			const jsonResponse = await fetchResponse.json()
+			console.log('user', jsonResponse)
+			dispatch(dispatchCheckAuth(jsonResponse))
+		} catch (err) {
+			dispatch(dispatchCheckAuth(null))
+			console.log('err', err)
+		}
 	}
 }
 
