@@ -5,14 +5,18 @@ import Erc20 from '@modules/deploy/components/Contracts/Erc20'
 
 const Deploy = ({ deploy }) => {
 	return (
-		<div className='deploy'>
+		<>
 			{
 				deploy.paymentInfo || deploy.tokenInfo.contract ?
-					<Payment />
+					<div className='deploy-payment'>
+						<Payment />
+					</div>
 					:
-					<Erc20 />
+					<div className='deploy-contract'>
+						<Erc20 />
+					</div>
 			}
-		</div>
+		</>
 	)
 }
 

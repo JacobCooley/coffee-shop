@@ -3,21 +3,20 @@
 @import "~styles/_classes";
 
 @media (max-width: 1024px) {
-    .deploy{
+    .deploy-payment{
       flex-direction: column;
     }
-  .form-window, .form-window-block{
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-
 }
 
-.deploy{
+@mixin deploy{
   width: 100%;
   display: flex;
   flex: 1;
   justify-content: center;
+}
+
+.deploy-contract, .deploy-payment{
+  @include deploy;
 }
 
 @media (max-width: 1024px) {

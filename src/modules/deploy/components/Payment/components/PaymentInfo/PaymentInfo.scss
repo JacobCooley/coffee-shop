@@ -28,6 +28,12 @@ $max-width: 600px;
 }
 
 @media (max-width: 1024px) {
+  .info-wrapper{
+    height: auto !important;
+    flex: none !important;
+    margin-bottom: $large-margin;
+    margin-top: $large-margin;
+  }
   .paymentInfo {
     width: 100%;
     flex: none !important;
@@ -52,6 +58,11 @@ $max-width: 600px;
     font-size: 20px !important;
   }
 
+}
+
+.info-wrapper{
+  @include form-window;
+  justify-content: center;
 }
 
 .timeUp {

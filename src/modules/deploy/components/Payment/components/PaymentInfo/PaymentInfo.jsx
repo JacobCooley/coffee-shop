@@ -98,7 +98,7 @@ class PaymentInfo extends React.Component {
 						</div>
 					</>
 					:
-					<div className='form-window-block'>
+					<div className='info-wrapper'>
 						<div className='paymentInfo'>
 							<div className='send-to'>
 								<div>
