@@ -6,6 +6,7 @@ export const INITIAL_STATE = {
 	email: '',
 	pass: '',
 	passVerify: '',
+	contracts: {}
 }
 
 export const update_input = (state = INITIAL_STATE, action) => {

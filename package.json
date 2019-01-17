@@ -56,14 +56,12 @@
     "webpack": "^4.25.1"
   },
   "devDependencies": {
-    "@babel/preset-flow": "^7.0.0",
     "babel-cli": "^6.26.0",
     "babel-jest": "^23.6.0",
     "babel-preset-flow": "^6.23.0",
     "css-hot-loader": "^1.4.2",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.7.0",
-    "flow-bin": "^0.86.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^23.6.0",
     "jest-prop-type-error": "^1.1.0",

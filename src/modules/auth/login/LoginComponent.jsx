@@ -5,6 +5,7 @@ import Button from '@common/components/Button'
 import { NavLink as Link } from 'react-router-dom'
 import { validateEmail } from '@utils/functions'
 import { operations } from '../duck'
+import { operations as appOperations } from '@app/duck'
 import { pick } from '@common/utils/functions'
 
 class LoginComponent extends React.Component {

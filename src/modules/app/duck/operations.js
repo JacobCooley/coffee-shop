@@ -2,9 +2,9 @@ import fetch from 'cross-fetch'
 import { Creators } from './actions'
 import { server } from '@src/config'
 
-export const dispatchWeb3 = Creators.dispatchWeb3
-export const dispatchCheckAuth = Creators.checkAuth
-export const dispatchContracts = Creators.getContracts
+const dispatchWeb3 = Creators.dispatchWeb3
+const dispatchCheckAuth = Creators.checkAuth
+const dispatchContracts = Creators.getContracts
 
 export const checkAuthorization = () => {
 	return async dispatch => {
@@ -16,6 +16,7 @@ export const checkAuthorization = () => {
 			const jsonResponse = await fetchResponse.json()
 			console.log('user', jsonResponse)
 			dispatch(dispatchCheckAuth(jsonResponse))
+			dispatch(getContracts())
 		} catch (err) {
 			dispatch(dispatchCheckAuth(null))
 			console.log('err', err)
@@ -24,35 +25,37 @@ export const checkAuthorization = () => {
 }
 
 export const getContracts = () => {
-	return dispatch => {
-		return fetch(`${server}/contracts`, {
-			method: "POST",
-			credentials: "include"
-		}).then(response => response.json())
-			.then(json => {
-				console.log('contracts', json)
-				dispatch(dispatchContracts(json))
-			}).catch(err => {
-				dispatch(dispatchContracts([]))
-				console.log('err', err)
+	return async dispatch => {
+		try {
+			const fetchResponse = await fetch(`${server}/contracts`, {
+				method: "POST",
+				credentials: "include"
 			})
+			const jsonResponse = await fetchResponse.json()
+			console.log('contracts', jsonResponse)
+			dispatch(dispatchContracts(jsonResponse))
+			dispatch(getContracts())
+		} catch (err) {
+			dispatch(dispatchContracts([]))
+			console.log('err', err)
+		}
 	}
 }
 
 export const logout = () => {
-	return dispatch => {
-		return fetch(`${server}/logout`, {
-			method: "POST",
-			credentials: "include"
-		}).then(response => response.json())
-			.then(json => {
-				console.log('logout', json)
-				dispatch(dispatchCheckAuth(json))
-			}).catch(err => {
-					dispatch(dispatchCheckAuth(null))
-					console.log('err', err)
-				}
-			)
+	return async dispatch => {
+		try {
+			const fetchResponse = await fetch(`${server}/logout`, {
+				method: "POST",
+				credentials: "include"
+			})
+			const jsonResponse = fetchResponse.json()
+			console.log('logout', jsonResponse)
+			dispatch(dispatchCheckAuth(jsonResponse))
+		} catch (err) {
+			dispatch(dispatchCheckAuth(null))
+			console.log('err', err)
+		}
 	}
 }
 

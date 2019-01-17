@@ -10,6 +10,7 @@ import Footer from './components/footer'
 import Create from '@create'
 import Deploy from '@deploy'
 import Faq from '@modules/faq/FaqComponent'
+import Contracts from '@modules/contracts/ContractsContainer'
 import Login from '@login/LoginContainer'
 import Register from '@register/RegisterContainer'
 import './App.scss'
@@ -67,6 +68,7 @@ class App extends Component {
 										<Route exact path='/' component={Home} />
 										<Route path='/create' component={Create} />
 										<Route path='/deploy' component={Deploy} />
+										<Route path='/contracts' component={Contracts} />
 										<Route path='/login' component={Login} />
 										<Route path='/register' component={Register} />
 										<Route path='/faq' component={Faq} />

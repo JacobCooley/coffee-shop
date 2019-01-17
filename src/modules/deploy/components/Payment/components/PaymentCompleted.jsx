@@ -16,7 +16,7 @@ const PaymentCompleted = ({ contract, symbol, decimal }) => {
 					"decimals": decimal
 				},
 			},
-			id: Math.round(Math.random() * 100000),
+			id: Math.round(Math.random() * 1000),
 		})
 	}
 	const etherScanUrl = getNetwork() === '3' ? `http://ropsten.etherscan.io/address/${contract}` : `http://etherscan.io/address/${contract}`
@@ -37,9 +37,5 @@ const PaymentCompleted = ({ contract, symbol, decimal }) => {
 		</div>
 	)
 }
-
-PaymentCompleted.propTypes = {}
-
-PaymentCompleted.defaultProps = {}
 
 export default PaymentCompleted

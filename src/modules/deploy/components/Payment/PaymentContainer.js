@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import PaymentComponent from './PaymentComponent'
-import { operations } from '../../duck'
+import { operations as appOperations } from '@app/duck'
 
 const mapStateToProps = state => {
 	return {
@@ -10,8 +10,12 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
+	const getContracts = () => {
+		dispatch(appOperations.getContracts())
+	}
 	return {
-		dispatch
+		dispatch,
+		getContracts
 	}
 }
 
