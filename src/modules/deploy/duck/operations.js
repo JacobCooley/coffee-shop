@@ -10,10 +10,14 @@ const setTick = Creators.setTick
 const setContract = Creators.setContract
 const setStatus = Creators.setStatus
 
-const setTickInterval = (interval, dispatch) => new Promise((resolve) => {
-	dispatch(setTick(interval))
-	resolve()
-})
+const setTickInterval = (interval) => {
+	return dispatch => {
+		return new Promise((resolve) => {
+			dispatch(setTick(interval))
+			resolve()
+		})
+	}
+}
 
 const createToken = (tokenInfo) => {
 	return dispatch => {
