@@ -1,5 +1,6 @@
 import React from 'react'
 import './Contracts.scss'
+import requireAuthenticated from '@common/hocs/requireAuthenticated'
 
 const ContractCard = (contract) => {
 	return (
@@ -13,12 +14,12 @@ const ContractsComponent = ({ contracts }) => (
 	<div className='contracts'>
 		<ul>
 			{
-				contracts.map(contract => {
+				contracts ? contracts.map(contract => {
 					ContractCard(contract)
-				})
+				}) : <></>
 			}
 		</ul>
 	</div>
 )
 
-export default ContractsComponent
+export default requireAuthenticated(ContractsComponent)

@@ -13,10 +13,12 @@ export const checkAuthorization = () => {
 				method: "GET",
 				credentials: "include"
 			})
-			const jsonResponse = await fetchResponse.json()
-			console.log('user', jsonResponse)
-			dispatch(dispatchCheckAuth(jsonResponse))
-			dispatch(getContracts())
+			if (fetchResponse.status === 200) {
+				const jsonResponse = await fetchResponse.json()
+				console.log('user', jsonResponse)
+				dispatch(dispatchCheckAuth(jsonResponse))
+				dispatch(getContracts())
+			}
 		} catch (err) {
 			dispatch(dispatchCheckAuth(null))
 			console.log('err', err)
@@ -34,7 +36,6 @@ export const getContracts = () => {
 			const jsonResponse = await fetchResponse.json()
 			console.log('contracts', jsonResponse)
 			dispatch(dispatchContracts(jsonResponse))
-			dispatch(getContracts())
 		} catch (err) {
 			dispatch(dispatchContracts([]))
 			console.log('err', err)
@@ -49,11 +50,10 @@ export const logout = () => {
 				method: "POST",
 				credentials: "include"
 			})
-			const jsonResponse = fetchResponse.json()
+			const jsonResponse = await fetchResponse.json()
 			console.log('logout', jsonResponse)
-			dispatch(dispatchCheckAuth(jsonResponse))
-		} catch (err) {
 			dispatch(dispatchCheckAuth(null))
+		} catch (err) {
 			console.log('err', err)
 		}
 	}

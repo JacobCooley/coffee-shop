@@ -20,7 +20,7 @@ const HeaderComponent = ({user, logOut}) => {
 			<nav className='nav' id='desktop'>
 				<div><Link to='/'>Home</Link></div>
 				<div><Link to='/create'>Create</Link></div>
-				<div><Link to='/contracts'>Contracts</Link></div>
+				{user ? <div><Link to='/contracts'>Contracts</Link></div> : <></>}
 				<div><Link to='/faq'>Faq</Link></div>
 				{user ?
 					<div onClick={logOut}><Link to='/'>Logout</Link></div>
@@ -32,7 +32,7 @@ const HeaderComponent = ({user, logOut}) => {
 				<ul onClick={() => openHamburger()} id='links'>
 					<Link to={'/'}><li>Home</li></Link>
 					<Link to={'/create'}><li>Create</li></Link>
-					<Link to={'/contracts'}><li>Contracts</li></Link>
+					{user ? <Link to={'/contracts'}><li>Contracts</li></Link> : <></>}
 					<Link to={'/faq'}><li>Faq</li></Link>
 					{ user ?
 						<Link onClick={logOut} to={'/'}><li>Logout</li></Link>

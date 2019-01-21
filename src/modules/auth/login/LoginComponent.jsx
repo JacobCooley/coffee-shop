@@ -39,7 +39,11 @@ class LoginComponent extends React.Component {
 				const auth = this.props.auth
 				const loginObject = pick(auth, 'email', 'pass')
 				const newLogin = {username: loginObject.email, password: loginObject.pass}
-				this.props.dispatch(operations.login(newLogin))
+				this.props.dispatch(operations.login(newLogin)).then((loginResponse) => {
+					if(loginResponse){
+						this.props.history.push('/')
+					}
+				})
 			}
 		})
 	}

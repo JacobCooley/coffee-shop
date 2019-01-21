@@ -2,7 +2,7 @@ import { Creators } from './actions'
 import fetch from 'cross-fetch'
 import { server } from '@src/config'
 import { toast } from 'react-toastify'
-
+import { checkAuthorization } from '@app/duck/operations'
 const updateInput = Creators.updateInput
 const authLogin = Creators.authLogin
 const authRegister = Creators.authRegister
@@ -20,7 +20,8 @@ const login = (auth) => {
 			})
 			const jsonResponse = await fetchResponse.json()
 			console.log('login', jsonResponse)
-			dispatch(authLogin(jsonResponse))
+			dispatch(checkAuthorization())
+			return dispatch(authLogin(jsonResponse))
 		} catch (err) {
 			console.log('err', err)
 			toast("Could not login, check your information", { type: 'error' })

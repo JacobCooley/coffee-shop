@@ -4,12 +4,11 @@ import { Types } from './actions'
 export const INITIAL_STATE = {
 	web3: {},
 	user: null,
-	contracts: {}
+	contracts: null
 }
 
 export const check_auth = (state = INITIAL_STATE, action) => {
 	const { user } = action
-	console.log('user', user)
 	return {
 		...state,
 		user
@@ -18,7 +17,6 @@ export const check_auth = (state = INITIAL_STATE, action) => {
 
 export const get_contracts = (state = INITIAL_STATE, action) => {
 	const { contracts } = action
-	console.log('contracts', contracts)
 	return {
 		...state,
 		contracts
