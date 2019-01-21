@@ -40,9 +40,14 @@ const register = (auth) => {
 				},
 				credentials: "include"
 			})
-			const jsonResponse = await fetchResponse.json()
-			console.log('register', jsonResponse)
-			dispatch(authRegister(jsonResponse))
+			if(fetchResponse.status === 200) {
+				console.log('fetch', fetchResponse)
+				const jsonResponse = await fetchResponse.json()
+				console.log('register', jsonResponse)
+				return dispatch(authRegister(jsonResponse))
+			} else{
+				throw "Account Exists"
+			}
 		} catch (err) {
 			console.log('err', err)
 			toast("Account may already exist", { type: 'error' })

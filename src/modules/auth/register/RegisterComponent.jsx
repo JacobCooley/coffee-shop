@@ -41,7 +41,12 @@ class RegisterComponent extends React.Component {
 				const auth = this.props.auth
 				const registerObject = pick(auth, 'email', 'pass')
 				const newRegister = {userData: {username: registerObject.email, password: registerObject.pass}}
-				this.props.dispatch(operations.register(newRegister))
+				this.props.dispatch(operations.register(newRegister)).then((registerResponse) => {
+					if(registerResponse) {
+						console.log('register', registerResponse)
+						this.props.history.push('/login')
+					}
+				})
 			}
 		})
 	}
