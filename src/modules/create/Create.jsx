@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {connect} from 'react-redux'
 import './Create.scss'
 import Ethereum from '@ethereum/'
 import Eos from '@eos/'
@@ -30,7 +31,7 @@ class Create extends Component {
 					<RadioBox name='chain' items={this.state.items} onChange={this.radioChange} />
 				</div>
 				<div className='dapps'>
-					{this.state.chain === 'ETH' ? <Ethereum history={this.props.history}/> : <Eos history={this.props.history}/>}
+					{this.state.chain === 'ETH' ? <Ethereum dispatch={this.props.dispatch} history={this.props.history}/> : <Eos history={this.props.history}/>}
 				</div>
 			</div>
 		
@@ -42,4 +43,4 @@ Create.propTypes = {}
 
 Create.defaultProps = {}
 
-export default Create
+export default connect()(Create)

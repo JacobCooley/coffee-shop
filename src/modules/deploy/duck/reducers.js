@@ -24,6 +24,7 @@ export const INITIAL_STATE = {
 	status:{
 		error: {}
 	},
+	type: '',
 	tick: 0
 }
 
@@ -84,6 +85,14 @@ export const set_status = (state = INITIAL_STATE, action) => {
 	}
 }
 
+export const set_type = (state = INITIAL_STATE, action) => {
+	const { contractType } = action
+	return {
+		...state,
+		type: contractType
+	}
+}
+
 export const receive_create_token = (state = INITIAL_STATE, action) => {
 	const { paymentInfo } = action
 	return {
@@ -95,6 +104,7 @@ export const receive_create_token = (state = INITIAL_STATE, action) => {
 
 export const HANDLERS = {
 	[Types.UPDATE_INPUT]: update_input,
+	[Types.CONTRACT_TYPE]: set_type,
 	[Types.RECEIVE_CREATE_TOKEN]: receive_create_token,
 	[Types.REQUEST_CREATE_TOKEN]: request_create_token,
 	[Types.TICK]: tick,

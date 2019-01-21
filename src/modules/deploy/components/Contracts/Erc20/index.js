@@ -1,2 +1,2 @@
-import ContractsContainer from './ContractsContainer'
-export default ContractsContainer
+import Erc20Container from './Erc20Container'
+export default Erc20Container

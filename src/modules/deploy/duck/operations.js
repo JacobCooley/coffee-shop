@@ -3,12 +3,22 @@ import { Creators } from './actions'
 import { server } from '@src/config'
 import {  toast } from 'react-toastify'
 const updateInput = Creators.updateInput
+const contractType = Creators.contractType
 const requestCreateTokenAction = Creators.requestCreateToken
 const receiveCreateTokenAction = Creators.receiveCreateToken
 const tick = Creators.tick
 const setTick = Creators.setTick
 const setContract = Creators.setContract
 const setStatus = Creators.setStatus
+
+const setContractType = (type) => {
+	return dispatch => {
+		return new Promise((resolve) => {
+			dispatch(contractType(type))
+			resolve()
+		})
+	}
+}
 
 const setTickInterval = (interval) => {
 	return dispatch => {
@@ -47,5 +57,6 @@ export default {
 	setContract,
 	receiveCreateTokenAction,
 	setTick,
-	setStatus
+	setStatus,
+	setContractType
 }
