@@ -11,15 +11,16 @@ const ContractCard = (contract) => {
 }
 
 const ContractsComponent = ({ contracts }) => (
-	<div className='contracts'>
-		<ul>
-			{
-				contracts ? contracts.map(contract => {
-					ContractCard(contract)
-				}) : <></>
-			}
-		</ul>
-	</div>
-)
+		<div className='contracts'>
+			<h2>Created Contracts</h2>
+			<ul>
+				{
+					contracts && contracts.length > 0 ? contracts.map(contract => {
+						ContractCard(contract)
+					}) : <div>No contracts created</div>
+				}
+			</ul>
+		</div>
+	)
 
 export default requireAuthenticated(ContractsComponent)
