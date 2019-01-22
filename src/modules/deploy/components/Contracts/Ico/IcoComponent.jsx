@@ -1,7 +1,6 @@
 import React from 'react'
 import Button from '@common/components/Button'
 import Input from '@common/components/Input'
-import Dropdown from '@common/components/Dropdown'
 import 'react-dropdown/style.css'
 import '../Contracts.scss'
 import { operations } from '../../../duck'
@@ -10,23 +9,26 @@ import { socketUrl } from '@src/config'
 import ContractsHeader from '@modules/deploy/components/Contracts/components/ContractsHeader'
 import ethIcon from '@icons/eth.svg'
 import { toast } from 'react-toastify'
+import moment from 'moment'
+import { formatDate, parseDate } from 'react-day-picker/moment'
 
-
-class IcoComponent extends React.Component{
-	constructor(props){
+class IcoComponent extends React.Component {
+	constructor(props) {
 		super(props)
 		this.state = {
-			errors: {}
+			errors: {},
+			from: undefined,
+			to: undefined
 		}
 	}
-
+	
 	numberChange = (e) => {
 		e.target.value = e.target.value.replace(/\D/g, "")
 		this.props.onChange(e)
 	}
 	
 	validateForm = () => {
-		return new Promise((resolve, reject) =>{
+		return new Promise((resolve, reject) => {
 			const deployInfo = this.props.deploy.deployInfo
 			const errorObject = {}
 			if (!this.props.web3.utils.isAddress(deployInfo.contractAddress)) {
@@ -35,7 +37,7 @@ class IcoComponent extends React.Component{
 			if (deployInfo.symbol.length > 7) {
 				errorObject.symbol = 'Symbol must be less than 7 characters'
 			}
-				if (deployInfo.name.length > 16) {
+			if (deployInfo.name.length > 16) {
 				errorObject.name = 'Name must be less than 16 characters'
 			}
 			this.setState({ errors: errorObject }, () => {
@@ -72,13 +74,41 @@ class IcoComponent extends React.Component{
 		})
 	}
 	
-	render(){
+	showFromMonth() {
+		const { from, to } = this.state
+		if (!from) {
+			return
+		}
+		if (moment(to).diff(moment(from), 'months') < 2) {
+			this.to.getDayPicker().showMonth(from)
+		}
+	}
+	
+	handleFromChange(from) {
+		this.setState({ from })
+	}
+	
+	handleToChange(to) {
+		this.setState({ to }, this.showFromMonth)
+	}
+	
+	handleFocus() {
+		setTimeout(() => {
+			this.to.getInput().focus()
+		}, 10)
+	}
+	
+	render() {
 		const deployInfo = this.props.deploy.deployInfo
 		const contractAddress = deployInfo.contractAddress || ''
 		const totalAmount = deployInfo.totalAmount || 0
 		const amountPerEth = deployInfo.amountPerEth || 0
 		const startDate = deployInfo.startDate
 		const stopDate = deployInfo.stopDate
+		const { from, to } = this.state
+		console.log('from', from)
+		
+		const modifiers = { start: from, end: to }
 		return (
 			<div className='contract'>
 				<ContractsHeader contractType='Initial Coin Offering'
@@ -88,18 +118,50 @@ class IcoComponent extends React.Component{
 					<Input required error={this.state.errors.contractAddress} onChange={this.props.onChange}
 						   desc='Your contract address that holds your token' name='contractAddress'
 						   label='Contract Address' value={contractAddress} />
-					<Input required onChange={this.numberChange} desc='Maximum value of tokens to be sold' name='totalAmount'
+					<Input required desc='Start date for the ICO' name='startDate'
+						   label='Start Date' type='time'
+						   refs={el => (this.from = el)}
+						   className={'InputFromTo'}
+						   value={from}
+						   placeholder="From"
+						   formatDate={formatDate}
+						   parseDate={parseDate}
+						   dayPickerProps={{
+							   selectedDays: [from, { from, to }],
+							   disabledDays: { after: to },
+							   toMonth: to,
+							   modifiers,
+							   numberOfMonths: 2,
+							   onDayClick: () => this.handleFocus()
+						   }}
+						   onDayChange={(from) => this.handleFromChange(from)} />
+					<Input required desc='Ending date for the ICO' name='stopDate'
+						   label='Stop Date' type='time'
+						   refs={el => (this.to = el)}
+						   value={to}
+						   className={'InputFromTo InputFromTo-to'}
+						   placeholder="To"
+						   format="LL"
+						   formatDate={formatDate}
+						   parseDate={parseDate}
+						   dayPickerProps={{
+							   selectedDays: [from, { from, to }],
+							   disabledDays: { before: from },
+							   modifiers,
+							   month: from,
+							   fromMonth: from,
+							   numberOfMonths: 2,
+						   }}
+						   onDayChange={(to) => this.handleToChange(to)} />
+					<Input required onChange={this.numberChange} desc='Maximum value of tokens to be sold'
+						   name='totalAmount'
 						   label='Total Amount'
 						   value={totalAmount ? totalAmount : ''} />
-					<Input required onChange={this.numberChange} desc='Amount of tokens per ETH invested' name='amountPerEth'
+					<Input required onChange={this.numberChange} desc='Amount of tokens per ETH invested'
+						   name='amountPerEth'
 						   label='Amount per ETH'
 						   value={amountPerEth ? amountPerEth : ''} />
-					<Input required onChange={this.numberChange} desc='Start date for the ICO' name='startDate'
-						   label='Start Date' type='time'
-						   value={startDate ? startDate : ''} />
-					<Input required onChange={this.numberChange} desc='Ending date for the ICO' name='stopDate'
-						   label='Stop Date' type='time'
-						   value={stopDate ? stopDate : ''} />
+					
 					<Button type="submit" value="Submit" text="Submit" />
 				</form>
 			</div>
