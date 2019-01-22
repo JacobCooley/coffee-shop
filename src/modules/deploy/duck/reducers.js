@@ -3,18 +3,8 @@ import { Types } from './actions'
 
 export const INITIAL_STATE = {
 	loading: false,
-	tokenInfo: {
-		// contract: '0xoifejoisdjfosadijfsoiafdjaregdgisdjf',
-		// name: 'JAKE',
-		// owner: '0x89EfC581789086C6C7257448ae2F4a1C8D2561Be',
-		// symbol: 'JAC',
-		// supply: '100000000',
-		// decimal: '10'
-		name: '',
-		owner: '',
-		symbol: '',
-		supply: '100000000',
-		decimal: '18'
+	deployInfo: {
+	
 	},
 	// paymentInfo: {
 	// 	depositAddress: '0xfdskjdsfjdfskj',
@@ -44,13 +34,13 @@ export const set_tick = (state = INITIAL_STATE, action) => {
 }
 
 export const update_input = (state = INITIAL_STATE, action) => {
-	const { tokenInfo } = action
+	const { deployInfo } = action
 	return {
 		...state,
 		error: false,
-		tokenInfo: {
-			...state.tokenInfo,
-			...tokenInfo
+		deployInfo: {
+			...state.deployInfo,
+			...deployInfo
 		}
 	}
 }
@@ -67,8 +57,8 @@ export const set_contract = (state = INITIAL_STATE, action) => {
 	const { contract } = action
 	return {
 		...state,
-		tokenInfo: {
-			...state.tokenInfo,
+		deployInfo: {
+			...state.deployInfo,
 			contract: contract
 		}
 	}

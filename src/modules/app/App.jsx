@@ -59,6 +59,7 @@ class App extends Component {
 							<>
 								<ToastContainer pauseOnHover
 												draggable={false}
+												toastId={'toast'}
 												closeButton={<></>}
 												hideProgressBar={true} position={toast.POSITION.TOP_CENTER}
 												autoClose={3000} pauseOnFocusLoss={false} />

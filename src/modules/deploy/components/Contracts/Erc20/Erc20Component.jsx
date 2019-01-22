@@ -12,30 +12,30 @@ import ethIcon from '@icons/eth.svg'
 import { toast } from 'react-toastify'
 
 
-class Erc20Component extends React.Component{
-	constructor(props){
+class Erc20Component extends React.Component {
+	constructor(props) {
 		super(props)
 		this.state = {
 			errors: {}
 		}
 	}
-
+	
 	supplyChange = (e) => {
 		e.target.value = e.target.value.replace(/\D/g, "")
 		this.props.onChange(e)
 	}
 	
 	validateForm = () => {
-		return new Promise((resolve, reject) =>{
-			const tokenInfo = this.props.deploy.tokenInfo
+		return new Promise((resolve, reject) => {
+			const deployInfo = this.props.deploy.deployInfo
 			const errorObject = {}
-			if (!this.props.web3.utils.isAddress(tokenInfo.owner)) {
+			if (!this.props.web3.utils.isAddress(deployInfo.owner)) {
 				errorObject.owner = 'Not a valid address'
 			}
-			if (tokenInfo.symbol.length > 7) {
+			if (deployInfo.symbol.length > 7) {
 				errorObject.symbol = 'Symbol must be less than 7 characters'
 			}
-				if (tokenInfo.name.length > 16) {
+			if (deployInfo.name.length > 16) {
 				errorObject.name = 'Name must be less than 16 characters'
 			}
 			this.setState({ errors: errorObject }, () => {
@@ -52,11 +52,12 @@ class Erc20Component extends React.Component{
 					reconnection: false
 				})
 				socket.on('id', (idObject) => {
-					const tokenInfo = this.props.deploy.tokenInfo
+					const deployInfo = this.props.deploy.deployInfo
 					const token = {
-						...tokenInfo,
+						...deployInfo,
 						id: idObject
 					}
+					console.log('token', token)
 					this.props.dispatch(operations.createToken(token))
 				})
 				socket.on('contract', (contract) => {
@@ -72,13 +73,13 @@ class Erc20Component extends React.Component{
 		})
 	}
 	
-	render(){
-		const tokenInfo = this.props.deploy.tokenInfo
-		const owner = tokenInfo.owner
-		const name = tokenInfo.name
-		const decimal = tokenInfo.decimal
-		const symbol = tokenInfo.symbol
-		const supply = tokenInfo.supply
+	render() {
+		const deployInfo = this.props.deploy.deployInfo
+		const owner = deployInfo.owner || ''
+		const name = deployInfo.name || ''
+		const decimal = deployInfo.decimal || 18
+		const symbol = deployInfo.symbol || ''
+		const supply = deployInfo.supply || 0
 		const options = [
 			'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18'
 		]
@@ -91,13 +92,16 @@ class Erc20Component extends React.Component{
 					<Input required error={this.state.errors.owner} onChange={this.props.onChange}
 						   desc='Your ethereum address you want the tokens sent to' name='owner'
 						   label='Ethereum Address' value={owner} />
-					<Input required error={this.state.errors.name} onChange={this.props.onChange} desc='The name of your token (e.g: Gold Coin)' name='name'
+					<Input required error={this.state.errors.name} onChange={this.props.onChange}
+						   desc='The name of your token (e.g: Gold Coin)' name='name'
 						   label='Name'
 						   value={name} />
-					<Input required  error={this.state.errors.symbol} onChange={this.props.onChange} desc='The symbol of your token (e.g: GLD)' name='symbol'
+					<Input required error={this.state.errors.symbol} onChange={this.props.onChange}
+						   desc='The symbol of your token (e.g: GLD)' name='symbol'
 						   label='Symbol'
 						   value={symbol} />
-					<Input required onChange={this.supplyChange} desc='Maximum value of tokens to be created' name='supply'
+					<Input required onChange={this.supplyChange} desc='Maximum value of tokens to be created'
+						   name='supply'
 						   label='Supply'
 						   value={supply ? supply : ''} />
 					<Dropdown style={{ marginRight: '0' }}

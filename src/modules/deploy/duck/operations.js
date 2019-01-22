@@ -29,12 +29,12 @@ const setTickInterval = (interval) => {
 	}
 }
 
-const createToken = (tokenInfo) => {
+const createToken = (deployInfo) => {
 	return dispatch => {
 		dispatch(requestCreateTokenAction())
 		return fetch(`${server}/erc20`, {
 			method: "POST",
-			body: JSON.stringify(tokenInfo),
+			body: JSON.stringify(deployInfo),
 			headers: {
 				"Content-Type": "application/json"
 			},

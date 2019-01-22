@@ -1,23 +1,26 @@
 import React from 'react'
 import './PaymentStatus.scss'
 
-const PaymentStatus = ({status}) => {
-	const payed = status.payed
-	const prepared = status.prepared
-	const built = status.built
-	const deployed = status.deployed
-	const created = status.created
+const statusLine = (index, step, text, finishedText) => {
+	return (
+		<div
+			className={`${step > index ? 'finished' : step === index ? 'loading' : 'waiting'}`}>{`${step > index ? finishedText : text}`}
+		</div>
+	)
+}
+
+const PaymentStatus = ({ status }) => {
+	const step = status.step || 0
 	const error = Object.keys(status.error).length !== 0
 	
 	return (
 		<div className='status'>
 			<h3>Status</h3>
 			<div>
-				<div className={`${prepared ? 'finished' : 'loading'}`}>Preparing Contract</div>
-				<div className={`${payed ? 'finished' : prepared ? 'loading' : 'waiting'}`}>Waiting for payment</div>
-				<div className={`${built ? 'finished' : payed ? 'loading' : 'waiting'}`}>Creating Contract</div>
-				<div className={`${deployed ? 'finished' : built ? 'loading' : 'waiting'}`}>Deploying Contract</div>
-				<div className={`${created ? 'finished' : deployed ? 'loading' : 'waiting'}`}>Contract Created!</div>
+				{statusLine(0, step, "Preparing Contract", "Contract Prepared")}
+				{statusLine(1, step, "Waiting For Payment", "Payment Received")}
+				{statusLine(2, step, "Deploying Contract", "Contract Deployed")}
+				{statusLine(3, step, "Creating Contract", "Contract Created")}
 				<div className={`error`}>{error ? 'There was an error!!' : ''}</div>
 			</div>
 		</div>

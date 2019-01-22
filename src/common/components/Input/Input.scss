@@ -1,6 +1,9 @@
 @import "~styles/colors";
 @import "~styles/constants";
 
+.DayPickerInput{
+  width: 100%;
+}
 .input {
   p{
     color: $grey-text;

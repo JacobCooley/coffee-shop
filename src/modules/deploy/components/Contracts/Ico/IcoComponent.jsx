@@ -27,15 +27,15 @@ class IcoComponent extends React.Component{
 	
 	validateForm = () => {
 		return new Promise((resolve, reject) =>{
-			const icoInfo = this.props.deploy.icoInfo
+			const deployInfo = this.props.deploy.deployInfo
 			const errorObject = {}
-			if (!this.props.web3.utils.isAddress(icoInfo.contractAddress)) {
+			if (!this.props.web3.utils.isAddress(deployInfo.contractAddress)) {
 				errorObject.contractAddress = 'Not a valid address'
 			}
-			if (icoInfo.symbol.length > 7) {
+			if (deployInfo.symbol.length > 7) {
 				errorObject.symbol = 'Symbol must be less than 7 characters'
 			}
-				if (icoInfo.name.length > 16) {
+				if (deployInfo.name.length > 16) {
 				errorObject.name = 'Name must be less than 16 characters'
 			}
 			this.setState({ errors: errorObject }, () => {
@@ -52,9 +52,9 @@ class IcoComponent extends React.Component{
 					reconnection: false
 				})
 				socket.on('id', (idObject) => {
-					const icoInfo = this.props.deploy.icoInfo
+					const deployInfo = this.props.deploy.deployInfo
 					const token = {
-						...icoInfo,
+						...deployInfo,
 						id: idObject
 					}
 					this.props.dispatch(operations.createToken(token))
@@ -73,12 +73,12 @@ class IcoComponent extends React.Component{
 	}
 	
 	render(){
-		const icoInfo = this.props.deploy.icoInfo
-		const contractAddress = icoInfo.contractAddress
-		const totalAmount = icoInfo.totalAmount
-		const pricePerEth = icoInfo.pricePerEth
-		const startDate = icoInfo.startDate
-		const stopDate = icoInfo.stopDate
+		const deployInfo = this.props.deploy.deployInfo
+		const contractAddress = deployInfo.contractAddress || ''
+		const totalAmount = deployInfo.totalAmount || 0
+		const amountPerEth = deployInfo.amountPerEth || 0
+		const startDate = deployInfo.startDate
+		const stopDate = deployInfo.stopDate
 		return (
 			<div className='contract'>
 				<ContractsHeader contractType='Initial Coin Offering'
@@ -91,14 +91,14 @@ class IcoComponent extends React.Component{
 					<Input required onChange={this.numberChange} desc='Maximum value of tokens to be sold' name='totalAmount'
 						   label='Total Amount'
 						   value={totalAmount ? totalAmount : ''} />
-					<Input required onChange={this.numberChange} desc='Price per ETH invested' name='pricePerEth'
-						   label='Price per ETH'
-						   value={pricePerEth ? pricePerEth : ''} />
+					<Input required onChange={this.numberChange} desc='Amount of tokens per ETH invested' name='amountPerEth'
+						   label='Amount per ETH'
+						   value={amountPerEth ? amountPerEth : ''} />
 					<Input required onChange={this.numberChange} desc='Start date for the ICO' name='startDate'
-						   label='Start Date'
+						   label='Start Date' type='time'
 						   value={startDate ? startDate : ''} />
 					<Input required onChange={this.numberChange} desc='Ending date for the ICO' name='stopDate'
-						   label='Stop Date'
+						   label='Stop Date' type='time'
 						   value={stopDate ? stopDate : ''} />
 					<Button type="submit" value="Submit" text="Submit" />
 				</form>

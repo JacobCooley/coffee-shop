@@ -8,20 +8,22 @@ class Deploy extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			contract: ''
+			contract: 'erc20'
 		}
 	}
 	
 	componentDidMount() {
 		const deploy = this.props.deploy
 		const { type } = deploy
-		switch (type) {
-			case 'erc20':
-				this.setState({ contract: <Erc20 /> })
-				break
-			default:
-				this.setState({ contract: <Ico /> })
-				break
+		if(!deploy.paymentInfo || !deploy.deployInfo.contract) {
+			switch (type) {
+				case 'erc20':
+					this.setState({ contract: <Erc20 /> })
+					break
+				default:
+					this.setState({ contract: <Ico /> })
+					break
+			}
 		}
 	}
 	
@@ -30,7 +32,7 @@ class Deploy extends React.Component {
 		return (
 			<>
 				{
-					deploy.paymentInfo || deploy.tokenInfo.contract ?
+					deploy.paymentInfo || deploy.deployInfo.contract ?
 						<div className='deploy-payment'>
 							<Payment />
 						</div>

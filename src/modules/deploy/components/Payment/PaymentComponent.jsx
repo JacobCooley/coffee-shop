@@ -17,9 +17,9 @@ class PaymentComponent extends React.Component {
 		const { deploy, dispatch, web3, timerStart, timerStop } = this.props
 		const loading = deploy.loading
 		const paymentInfo = deploy.paymentInfo
-		const contractAddress = deploy.tokenInfo.contract
-		const symbol = deploy.tokenInfo.symbol
-		const decimal = deploy.tokenInfo.decimal
+		const contractAddress = deploy.deployInfo.contract
+		const symbol = deploy.deployInfo.symbol
+		const decimal = deploy.deployInfo.decimal
 		
 		return (
 			<>

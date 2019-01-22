@@ -31,7 +31,7 @@ class PaymentInfo extends React.Component {
 	
 	timerStart(interval) {
 		clearInterval(this.state.timer)
-		operations.setTickInterval(interval).then(() => {
+		this.props.dispatch(operations.setTickInterval(interval)).then(() => {
 			this.setState({
 				timer: setInterval(() => {
 					if (this.props.tick === 0) {

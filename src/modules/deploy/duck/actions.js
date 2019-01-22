@@ -1,7 +1,7 @@
 import { createActions } from 'reduxsauce';
 
 const { Creators, Types } = createActions({
-    updateInput: ['tokenInfo'],
+    updateInput: ['deployInfo'],
     contractType: ['contractType'],
 	requestCreateToken: [],
 	receiveCreateToken: ['paymentInfo'],
