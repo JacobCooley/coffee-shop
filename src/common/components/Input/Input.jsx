@@ -5,7 +5,6 @@ import 'react-day-picker/lib/style.css'
 
 const InputComponent = ({ label, desc, name, onChange, defaultValue, value, error, autoComplete = 'off', required = false, type = 'text' }) => (
 	<div className='input'>
-		{console.log(name,value)}
 		<label id={name}>
 			<span>{label}{required ? '*' : ''} :</span>
 			{error ? <span>{error}</span> : <></>}
