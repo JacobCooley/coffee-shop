@@ -107,7 +107,6 @@ class IcoComponent extends React.Component {
 		const stopDate = deployInfo.stopDate
 		const { from, to } = this.state
 		console.log('from', from)
-		
 		const modifiers = { start: from, end: to }
 		return (
 			<div className='contract'>

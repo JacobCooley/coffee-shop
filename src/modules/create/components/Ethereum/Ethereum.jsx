@@ -11,16 +11,12 @@ const Ethereum = ({ history, dispatch }) => {
 			<Card title='ERC20 Token' image={eth} price='0.5 ETH'
 				  description='Launch your token and send tokens to any address that you like.'
 				  onClick={() => {
-					  dispatch(setContractType('erc20')).then(()=>{
-						  history.push('/deploy')
-					  })
+						  history.push('/deploy/erc20')
 				  }} />
 			<Card title='Crowdfund an ICO' image={eth} price='1 ETH'
 				  description='Start your ICO to collect funds and have your tokens automatically distributed between investors.'
 				  onClick={() => {
-					  dispatch(setContractType('ico')).then(()=>{
-						  history.push('/deploy')
-					  })
+						  history.push('/deploy/ico')
 				  }}
 			/>
 			<Card title='Betting Contract' image={eth} price='0.3 ETH'

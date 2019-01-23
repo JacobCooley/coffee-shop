@@ -3,18 +3,11 @@ import { Types } from './actions'
 
 export const INITIAL_STATE = {
 	loading: false,
-	deployInfo: {
-	
-	},
-	// paymentInfo: {
-	// 	depositAddress: '0xfdskjdsfjdfskj',
-	// 	priceInWei: '100000000000000',
-	// 	timeoutInSeconds: 500
-	// },
+	deployInfo: {},
 	status:{
 		error: {}
 	},
-	type: '',
+	type: 'erc20',
 	tick: 0
 }
 
@@ -77,8 +70,20 @@ export const set_status = (state = INITIAL_STATE, action) => {
 
 export const set_type = (state = INITIAL_STATE, action) => {
 	const { contractType } = action
+	let deployInfo
+	switch(contractType){
+		default:
+			deployInfo = {
+				name: '',
+				symbol: '',
+				owner: '',
+				supply: '',
+				decimal: '18'
+			}
+	}
 	return {
 		...state,
+		deployInfo,
 		type: contractType
 	}
 }
