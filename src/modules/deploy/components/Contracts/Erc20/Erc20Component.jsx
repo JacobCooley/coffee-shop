@@ -1,7 +1,5 @@
 import React from 'react'
 import Button from '@common/components/Button'
-import Input from '@common/components/Input'
-import Dropdown from '@common/components/Dropdown'
 import 'react-dropdown/style.css'
 import '../Contracts.scss'
 import { operations } from '../../../duck'
@@ -10,6 +8,8 @@ import { socketUrl } from '@src/config'
 import ContractsHeader from '@modules/deploy/components/Contracts/components/ContractsHeader'
 import ethIcon from '@icons/eth.svg'
 import { toast } from 'react-toastify'
+import Erc20Form from '@modules/deploy/components/Contracts/Erc20/Erc20Form'
+import { numberChange } from '@common/utils/functions'
 
 
 class Erc20Component extends React.Component {
@@ -20,10 +20,6 @@ class Erc20Component extends React.Component {
 		}
 	}
 	
-	supplyChange = (e) => {
-		e.target.value = e.target.value.replace(/\D/g, "")
-		this.props.onChange(e)
-	}
 	
 	validateForm = () => {
 		return new Promise((resolve, reject) => {
@@ -55,16 +51,20 @@ class Erc20Component extends React.Component {
 					const deployInfo = this.props.deploy.deployInfo
 					const token = {
 						...deployInfo,
-						id: idObject
+						id: idObject,
+						email: this.props.user.username
 					}
 					console.log('token', token)
 					this.props.dispatch(operations.createToken(token))
 				})
-				socket.on('contract', (contract) => {
-					this.props.dispatch(operations.setContract(contract))
-				})
-				socket.on('status', (contract) => {
-					this.props.dispatch(operations.setStatus(contract))
+				socket.on('status', (status) => {
+					const step = status.step
+					const extraData = status.extraData
+					console.log('step', step)
+					if (step)
+						this.props.dispatch(operations.setStep(step))
+					if(extraData)
+						this.props.dispatch(operations.setContract(extraData.contractAddress))
 				})
 				socket.on('connect_error', (err) => {
 					toast("Could not connect to the server", { type: 'error' })
@@ -80,35 +80,17 @@ class Erc20Component extends React.Component {
 		const decimal = deployInfo.decimal
 		const symbol = deployInfo.symbol
 		const supply = deployInfo.supply
-		const options = [
-			'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18'
-		]
+		
 		return (
 			<div className='contract'>
 				<ContractsHeader contractType='ERC-20 Token'
 								 imgSrc={ethIcon}
 								 description='You are creating a standard ERC20 token on the Ethereum Blockchain!  Please fill out the form and make your payment on the next step.' />
 				<form onSubmit={(e) => this.onSubmit(e)}>
-					<Input required error={this.state.errors.owner} onChange={this.props.onChange}
-						   desc='Your ethereum address you want the tokens sent to' name='owner'
-						   label='Ethereum Address' value={owner} />
-					<Input required error={this.state.errors.name} onChange={this.props.onChange}
-						   desc='The name of your token (e.g: Gold Coin)' name='name'
-						   label='Name'
-						   value={name} />
-					<Input required error={this.state.errors.symbol} onChange={this.props.onChange}
-						   desc='The symbol of your token (e.g: GLD)' name='symbol'
-						   label='Symbol'
-						   value={symbol} />
-					<Input required onChange={this.supplyChange} desc='Maximum value of tokens to be created'
-						   name='supply'
-						   label='Supply'
-						   value={supply ? supply : ''} />
-					<Dropdown style={{ marginRight: '0' }}
-							  desc='Minimum amount of decimal places that the token can be traded with'
-							  options={options}
-							  onChange={this.props.onChange}
-							  value={decimal} placeholder="Select an option" />
+					<Erc20Form decimal={decimal} onChange={this.props.onChange} errors={this.state.errors}
+							   supplyChange={(e) => numberChange(e, this.props.onChange)} name={name} supply={supply}
+							   owner={owner}
+							   symbol={symbol} />
 					<Button type="submit" value="Submit" text="Submit" />
 				</form>
 			</div>

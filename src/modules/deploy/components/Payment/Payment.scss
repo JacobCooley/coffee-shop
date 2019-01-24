@@ -2,6 +2,13 @@
 @import "~styles/colors";
 @import "~styles/classes";
 
+@media (max-width: 1024px) {
+  .payment-complete {
+    margin-bottom: $large-margin;
+    margin-top: $large-margin;
+  }
+}
+
 .payment-complete {
   @include form-window;
   text-align: center;

@@ -13,3 +13,8 @@ export const pick = (o, ...fields) => {
 		return a;
 	}, {});
 }
+
+export const numberChange = (e, next) => {
+	e.target.value = e.target.value.replace(/\D/g, "")
+	next(e)
+}

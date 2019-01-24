@@ -11,6 +11,8 @@ import ethIcon from '@icons/eth.svg'
 import { toast } from 'react-toastify'
 import moment from 'moment'
 import { formatDate, parseDate } from 'react-day-picker/moment'
+import Erc20Form from '@modules/deploy/components/Contracts/Erc20/Erc20Form'
+import { numberChange } from '@common/utils/functions'
 
 class IcoComponent extends React.Component {
 	constructor(props) {
@@ -65,7 +67,7 @@ class IcoComponent extends React.Component {
 					this.props.dispatch(operations.setContract(contract))
 				})
 				socket.on('status', (contract) => {
-					this.props.dispatch(operations.setStatus(contract))
+					this.props.dispatch(operations.setStep(contract))
 				})
 				socket.on('connect_error', (err) => {
 					toast("Could not connect to the server", { type: 'error' })
@@ -100,9 +102,14 @@ class IcoComponent extends React.Component {
 	
 	render() {
 		const deployInfo = this.props.deploy.deployInfo
-		const contractAddress = deployInfo.contractAddress || ''
-		const totalAmount = deployInfo.totalAmount || 0
-		const amountPerEth = deployInfo.amountPerEth || 0
+		const owner = deployInfo.owner
+		const name = deployInfo.name
+		const decimal = deployInfo.decimal
+		const symbol = deployInfo.symbol
+		const supply = deployInfo.supply
+		const contractAddress = deployInfo.contractAddress
+		const totalAmount = deployInfo.totalAmount
+		const amountPerEth = deployInfo.amountPerEth
 		const startDate = deployInfo.startDate
 		const stopDate = deployInfo.stopDate
 		const { from, to } = this.state
@@ -114,6 +121,9 @@ class IcoComponent extends React.Component {
 								 imgSrc={ethIcon}
 								 description='You are starting the process for your ICO!  Please fill out the form and make your payment on the next step.' />
 				<form onSubmit={(e) => this.onSubmit(e)}>
+					<Erc20Form decimal={decimal} onChange={this.props.onChange} errors={this.state.errors}
+							   supplyChange={(e) => numberChange(e, this.props.onChange)} name={name} supply={supply} owner={owner}
+							   symbol={symbol} />
 					<Input required error={this.state.errors.contractAddress} onChange={this.props.onChange}
 						   desc='Your contract address that holds your token' name='contractAddress'
 						   label='Contract Address' value={contractAddress} />

@@ -9,9 +9,6 @@ import PaymentPreview from './components/PaymentPreview'
 
 
 class PaymentComponent extends React.Component {
-	componentDidMount(){
-		this.props.getContracts()
-	}
 	
 	render() {
 		const { deploy, dispatch, web3, timerStart, timerStop } = this.props
@@ -27,7 +24,7 @@ class PaymentComponent extends React.Component {
 				<PaymentPreview {...paymentInfo} web3={web3} />
 				<>
 					{contractAddress ?
-						<PaymentCompleted getContracts={getContracts} contract={contractAddress} symbol={symbol}
+						<PaymentCompleted getContracts={this.props.getContracts} web3={web3} contract={contractAddress} symbol={symbol}
 										  decimal={decimal} />
 						: <PaymentInfo {...paymentInfo} dispatch={dispatch} web3={web3} timerStart={timerStart}
 									   timerStop={timerStop} status={deploy.status}

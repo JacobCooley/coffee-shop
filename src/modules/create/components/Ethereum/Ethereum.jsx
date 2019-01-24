@@ -9,12 +9,12 @@ const Ethereum = ({ history, dispatch }) => {
 	return (
 		<>
 			<Card title='ERC20 Token' image={eth} price='0.5 ETH'
-				  description='Launch your token and send tokens to any address that you like.'
+				  description='Launch your token and send tokens to any address that you like. (ICO can be created later)'
 				  onClick={() => {
 						  history.push('/deploy/erc20')
 				  }} />
 			<Card title='Crowdfund an ICO' image={eth} price='1 ETH'
-				  description='Start your ICO to collect funds and have your tokens automatically distributed between investors.'
+				  description='Launch a token and start your ICO to collect funds and have your tokens automatically distributed between investors.'
 				  onClick={() => {
 						  history.push('/deploy/ico')
 				  }}

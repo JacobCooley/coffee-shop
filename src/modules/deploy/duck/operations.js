@@ -9,7 +9,7 @@ const receiveCreateTokenAction = Creators.receiveCreateToken
 const tick = Creators.tick
 const setTick = Creators.setTick
 const setContract = Creators.setContract
-const setStatus = Creators.setStatus
+const setStep = Creators.setStep
 
 const setContractType = (type) => {
 	return dispatch => {
@@ -57,6 +57,6 @@ export default {
 	setContract,
 	receiveCreateTokenAction,
 	setTick,
-	setStatus,
+	setStep,
 	setContractType
 }

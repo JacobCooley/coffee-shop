@@ -8,7 +8,7 @@ const { Creators, Types } = createActions({
 	tick: [],
 	setTick: ['tick'],
 	setContract: ['contract'],
-	setStatus: ['status']
+	setStep: ['step']
 });
 
 export { Creators, Types };

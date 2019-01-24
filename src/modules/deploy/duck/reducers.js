@@ -48,6 +48,7 @@ export const request_create_token = (state = INITIAL_STATE) => {
 
 export const set_contract = (state = INITIAL_STATE, action) => {
 	const { contract } = action
+	console.log('reducerContract', contract)
 	return {
 		...state,
 		deployInfo: {
@@ -57,28 +58,43 @@ export const set_contract = (state = INITIAL_STATE, action) => {
 	}
 }
 
-export const set_status = (state = INITIAL_STATE, action) => {
-	const { status } = action
+export const set_step = (state = INITIAL_STATE, action) => {
+	const { step }  = action
 	return {
 		...state,
 		status: {
 			...state.status,
-			...status
+			step
 		}
 	}
 }
 
+
+//Set Initial State for each contract
 export const set_type = (state = INITIAL_STATE, action) => {
 	const { contractType } = action
 	let deployInfo
 	switch(contractType){
-		default:
+		case 'erc20':
 			deployInfo = {
 				name: '',
 				symbol: '',
 				owner: '',
 				supply: '',
 				decimal: '18'
+			}
+			break
+		case 'ico':
+			deployInfo = {
+				name: '',
+				symbol: '',
+				owner: '',
+				supply: '',
+				decimal: '18',
+				startDate: '',
+				stopDate: '',
+				contractAddress: '',
+				amountPerEth: '',
 			}
 	}
 	return {
@@ -105,7 +121,7 @@ export const HANDLERS = {
 	[Types.TICK]: tick,
 	[Types.SET_TICK]: set_tick,
 	[Types.SET_CONTRACT]: set_contract,
-	[Types.SET_STATUS]: set_status,
+	[Types.SET_STEP]: set_step,
 }
 
 export default createReducer(INITIAL_STATE, HANDLERS)

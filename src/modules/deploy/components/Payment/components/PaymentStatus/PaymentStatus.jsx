@@ -19,7 +19,7 @@ const PaymentStatus = ({ status }) => {
 			<div>
 				{statusLine(0, step, "Preparing Contract", "Contract Prepared")}
 				{statusLine(1, step, "Waiting For Payment", "Payment Received")}
-				{statusLine(2, step, "Deploying Contract", "Contract Deployed")}
+				{statusLine(2, step, "Processing Data", "Data Processed")}
 				{statusLine(3, step, "Creating Contract", "Contract Created")}
 				<div className={`error`}>{error ? 'There was an error!!' : ''}</div>
 			</div>
