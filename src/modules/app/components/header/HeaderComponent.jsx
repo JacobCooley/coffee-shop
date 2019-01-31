@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink as Link } from 'react-router-dom'
 import {FaBars} from 'react-icons/fa'
-import TokenLauncher from '../../../../assets/icons/TokenLauncherGreen.svg'
+import TokenLauncher from '@assets/icons/TokenLauncherGreen.svg'
 import './Header.scss'
 
 const HeaderComponent = ({user, logOut}) => {

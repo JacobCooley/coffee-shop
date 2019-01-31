@@ -7,4 +7,4 @@ const CheckBoxComponent = () => (
 	</div>
 )
 
-export default CheckBoxComponent;
+export default CheckBoxComponent
